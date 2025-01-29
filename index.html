@@ -2,8 +2,7 @@
 <html>
     <head>
         <title>rabble*</title>
-        <link rel="stylesheet" href="global.css">
-        <link rel="stylesheet" href="signed_out_main.css">
+        <link rel="stylesheet" href="main_page.css">
 
         <!-- main font (inter) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +16,15 @@
             </a>
             <input id="nav-global-search" type="text" placeholder="search rabble*" />
             <div id="nav-sign-in">
-                <div id="nav-login-button" class="nav-sign-in-buttons">
-                    login
-                </div>
+                    <div id="nav-login-button" class="nav-sign-in-buttons">
+                        <a href="login.html">
+                            login
+                        </a>
+                    </div>
                 <div id="nav-register-button" class="nav-sign-in-buttons">
-                    register
+                    <a href="login.html">
+                        register
+                    </a>
                 </div>
             </div>
         </nav>
@@ -48,9 +51,9 @@
                                 <p class="vote-counter">2,694 votes</p>
                             </div>
                             <div class="post-controls">
-                                <p class="upvote-button">upvote</p>
-                                <p class="downvote-button">downvote</p>
-                                <p class="comment-button">comment</p>
+                                <p class="upvote-button"><img class="post-icon upvote-icon" src="/assets/svg/chevron-up-svgrepo-com.svg"></img>upvote</p>
+                                <p class="downvote-button"><img class="post-icon downvote-icon" src="/assets/svg/chevron-down-svgrepo-com.svg"></img>downvote</p>
+                                <p class="comment-button"><img class="post-icon comment-icon" src="/assets/svg/message-square-chat-svgrepo-com.svg"></img>comment</p>
                             </div>
                         </div>
                     </div>

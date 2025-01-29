@@ -1,7 +1,8 @@
 /* theme colors */
 :root {
     --bg-main: #f7eeee;
-    --bg-secondary: #ead7d7;
+    --bg-secondary: #e6dbdb;
+    --bg-secondary-hover: #f3e7e7;
     --fg-main: #292828;
     --fg-secondary: #6f6677;
     --link: #555585;
@@ -54,4 +55,21 @@ a {
     border: 1px solid var(--border-dark);
     font-family: var(--body-font);
     width: 35vw;
+}
+
+#create-post {
+    position: fixed;
+    background-color: var(--accent-dark);
+    bottom: 0.5em;
+    right: 0.5em;
+    border-radius: 16px;
+    padding: 0 1em;
+    color: var(--bg-main);
+}
+
+#copyright-info {
+    box-sizing: border-box;
+    padding: 0 1em;
+    width: 100%;
+    background-color: var(--bg-secondary);
 }

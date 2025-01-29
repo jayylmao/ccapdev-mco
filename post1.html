@@ -1,9 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>look at this cool thing i found in my garden - rabble*</title>
+        <link rel="stylesheet" href="post.css" />
+        
+        <!-- main font (inter) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <nav id="global-nav">
+            <a id="nav-logo" href=".\index.html">
+                <h3>rabble*</h3>
+            </a>
+            <input id="nav-global-search" type="text" placeholder="search rabble*" />
 
+            <div id="account-controls">
+                <p>@user15</p>
+            </div>
+        </nav>
+        <div id="create-post">
+            <p>create post</p>
+        </div>
+        <div id="main-content">
+            <div id="back-button" onclick="history.back()">
+                <img id="back-icon" src="/assets/svg/chevron-left-svgrepo-com.svg"></img>
+            </div>
+            <h1 id="post-header">
+                look at this cool thing i found in my garden
+            </h1>
+            <p id="post-creator">@user1</p>
+            <p>weird lookin guy: <a href="https://images.unsplash.com/photo-1566313874294-c15c4dd11b61?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">https://images.unsplash.com/photo-1566313874294-c15c4dd11b61?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</a></p>
+            <div class="post-controls-container">
+                <div class="post-votes">
+                    <p class="vote-counter">2,694 votes</p>
+                </div>
+                <div class="post-controls">
+                    <p class="upvote-button"><img class="post-icon upvote-icon" src="/assets/svg/chevron-up-svgrepo-com.svg"></img>upvote</p>
+                    <p class="downvote-button"><img class="post-icon downvote-icon" src="/assets/svg/chevron-down-svgrepo-com.svg"></img>downvote</p>
+                </div>
+            </div>
+            <div id="comments-section">
+                <h2>Comments</h2>
+                <div id="comment-creator">
+                    <input type="text" id="comment-box" placeholder="say something about the post"></input>
+                    <button id="comment-send">Send</button>
+                </div>
+                <div class="comment">
+                    <p class="comment-user">@user46</p>
+                    <p class="message">that's literally just a snail dawg</p>
+                    <div class="post-controls">
+                        <p class="upvote-button comment-controls"><img class="post-icon upvote-icon" src="/assets/svg/chevron-up-svgrepo-com.svg"></img>upvote</p>
+                        <p class="downvote-button comment-controls"><img class="post-icon downvote-icon" src="/assets/svg/chevron-down-svgrepo-com.svg"></img>downvote</p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p class="comment-user">@user97</p>
+                    <p class="message">terminally online behavior</p>
+                    <div class="post-controls">
+                        <p class="upvote-button comment-controls"><img class="post-icon upvote-icon" src="/assets/svg/chevron-up-svgrepo-com.svg"></img>upvote</p>
+                        <p class="downvote-button comment-controls"><img class="post-icon downvote-icon" src="/assets/svg/chevron-down-svgrepo-com.svg"></img>downvote</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
