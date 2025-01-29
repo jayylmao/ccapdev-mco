@@ -37,6 +37,8 @@ a {
     height: 2em;
     border-bottom: 1px solid var(--border-light);
     position: sticky;
+    top: 0;
+    background-color: var(--bg-main);
 }
 
 #nav-logo {
@@ -96,21 +98,21 @@ a {
 /* main part of site */
 #main-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* post styling */
-#post-container {
+.post-container {
     width: 50vw;
     color: var(--fg-main);
     text-decoration: none;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .post {
-    border-bottom: 1px solid var(--border-light);
     width: 100%;
     min-height: fit-content;
-    justify-content: start;
     padding: 1em;
     cursor: pointer;
     display: flex;
@@ -179,4 +181,33 @@ a {
     aspect-ratio: 1;
     border-radius: 8px;
     align-self: center;
+    background-size: cover;
+}
+
+#pagination-control {
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination-control-link {
+    padding: 0.5em;
+}
+
+.accent-span {
+    color: var(--accent-light);
+    font-weight: bold;
+}
+
+#next p a {
+    color: var(--accent-dark);
+}
+
+#create-post {
+    position: fixed;
+    background-color: var(--accent-dark);
+    bottom: 0.5em;
+    right: 0.5em;
+    border-radius: 16px;
+    padding: 0 1em;
+    color: var(--bg-main);
 }
