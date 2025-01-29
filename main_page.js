@@ -1,84 +1,69 @@
 /**
- * Post contains the details of a post.
- */
-class Post {
-    constructor(id, title, tags, user, description, votes, date) {
-        this.id = id;
-        this.title = title;
-        this.tags = tags;
-        this.user = user;
-        this.description = description;
-        this.votes = votes;
-        this.date = date;
-    }
-}
-
-/**
  * displayPost() creates a post on the page.
  * @param {Post} post Instance of a post's details.
  */
 function displayPost(post_content) {
-    let main_content = document.getElementById("main-content");
+    const main_content = document.getElementById("main-content");
 
-    let post = document.createElement("div");
+    const post = document.createElement("div");
     post.setAttribute("class", "post");
 
-    let post_info_controls = document.createElement("div");
+    const post_info_controls = document.createElement("div");
     post_info_controls.setAttribute("class", "post-info-controls");
 
-    let post_info = document.createElement("hgroup");
+    const post_info = document.createElement("hgroup");
     post_info.setAttribute("class", "post-info");
 
-    let post_tags = document.createElement("ul");
+    const post_tags = document.createElement("ul");
     post_tags.setAttribute("class", "post-tags");
     
-    let post_link = document.createElement("a");
+    const post_link = document.createElement("a");
     post_link.setAttribute("class", "post-link");
     post_link.setAttribute("href", "post" + post_content.id + ".html");
 
-    let post_title = document.createElement("h3");
+    const post_title = document.createElement("h3");
     post_title.setAttribute("class", "post-title");
     post_title.textContent = post_content.title;
 
-    let post_description = document.createElement("p");
+    const post_description = document.createElement("p");
     post_description.setAttribute("class", "post-description");
     post_description.textContent = post_content.description;
 
-    let post_user = document.createElement("p");
+    const post_user = document.createElement("p");
     post_user.setAttribute("class", "post-user");
     post_user.textContent = "@" + post_content.user;
 
-    let post_controls_container = document.createElement("div");
+    const post_controls_container = document.createElement("div");
     post_controls_container.setAttribute("class", "post-controls-container");
     
-    let post_votes = document.createElement("div");
+    const post_votes = document.createElement("div");
     post_votes.setAttribute("class", "post_votes");
 
-    let vote_counter = document.createElement("p");
+    const vote_counter = document.createElement("p");
     vote_counter.setAttribute("class", "vote-counter");
     vote_counter.textContent = post_content.votes + " votes";
 
-    let post_controls = document.createElement("div");
+    const post_controls = document.createElement("div");
     post_controls.setAttribute("class", "post-controls");
 
-    let upvote_button = document.createElement("div");
+    const upvote_button = document.createElement("div");
     upvote_button.setAttribute("class", "post-control-button upvote-button");
 
-    let upvote_icon = document.createElement("img");
+    const upvote_icon = document.createElement("img");
     upvote_icon.setAttribute("class", "post-icon upvote-icon button-svg");
     upvote_icon.setAttribute("src", "/assets/svg/chevron-up-svgrepo-com.svg");
 
-    let upvote_text = document.createElement("p");
+    const upvote_text = document.createElement("p");
     upvote_text.textContent = "upvote";
 
-    let downvote_button = document.createElement("div");
+    const downvote_button = document.createElement("div");
     downvote_button.setAttribute("class", "post-control-button downvote-button");
     
-    let downvote_icon = document.createElement("img");
+    const downvote_icon = document.createElement("img");
     downvote_icon.setAttribute("class", "post-icon downvote-icon button-svg");
     downvote_icon.setAttribute("src", "/assets/svg/chevron-down-svgrepo-com.svg");
 
-    let downvote_text = document.createElement("p");
+    const downvote_text = document.createElement("p");
     downvote_text.textContent = "downvote";
 
     /* actually create the elements. */
@@ -117,7 +102,7 @@ function displayPost(post_content) {
  * renderTestData() displays sample posts for the main page.
  */
 function renderTestData() {
-    let posts = [
+    const posts = [
         new Post(
             1,
             "look at this cool thing i found in my garden",
