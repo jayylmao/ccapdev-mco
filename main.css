@@ -211,3 +211,10 @@ a {
     padding: 0 1em;
     color: var(--bg-main);
 }
+
+#copyright-info {
+    box-sizing: border-box;
+    padding: 0 1em;
+    width: 100%;
+    background-color: var(--bg-secondary);
+}
