@@ -20,10 +20,6 @@ class Post {
 function displayPost(post_content) {
     let main_content = document.getElementById("main-content");
 
-    let post_container = document.createElement("a");
-    post_container.setAttribute("class", "post-container");
-    post_container.setAttribute("href", "post" + post_content.id + ".html");
-
     let post = document.createElement("div");
     post.setAttribute("class", "post");
 
@@ -35,6 +31,10 @@ function displayPost(post_content) {
 
     let post_tags = document.createElement("ul");
     post_tags.setAttribute("class", "post-tags");
+    
+    let post_link = document.createElement("a");
+    post_link.setAttribute("class", "post-link");
+    post_link.setAttribute("href", "post" + post_content.id + ".html");
 
     let post_title = document.createElement("h3");
     post_title.setAttribute("class", "post-title");
@@ -65,7 +65,7 @@ function displayPost(post_content) {
     upvote_button.setAttribute("class", "post-control-button upvote-button");
 
     let upvote_icon = document.createElement("img");
-    upvote_icon.setAttribute("class", "post-icon upvote-icon");
+    upvote_icon.setAttribute("class", "post-icon upvote-icon button-svg");
     upvote_icon.setAttribute("src", "/assets/svg/chevron-up-svgrepo-com.svg");
 
     let upvote_text = document.createElement("p");
@@ -75,39 +75,28 @@ function displayPost(post_content) {
     downvote_button.setAttribute("class", "post-control-button downvote-button");
     
     let downvote_icon = document.createElement("img");
-    downvote_icon.setAttribute("class", "post-icon downvote-icon");
+    downvote_icon.setAttribute("class", "post-icon downvote-icon button-svg");
     downvote_icon.setAttribute("src", "/assets/svg/chevron-down-svgrepo-com.svg");
 
     let downvote_text = document.createElement("p");
     downvote_text.textContent = "downvote";
 
-    let comment_button = document.createElement("div");
-    comment_button.setAttribute("class", "post-control-button comment-button");
-
-    let comment_icon = document.createElement("img");
-    comment_icon.setAttribute("class", "post-icon comment-icon");
-    comment_icon.setAttribute("src", "/assets/svg/message-square-chat-svgrepo-com.svg");
-
-    let comment_text = document.createElement("p");
-    comment_text.textContent = "comment";
-
-
     /* actually create the elements. */
-    main_content.appendChild(post_container);
-    post_container.appendChild(post);
+    main_content.appendChild(post);
     post.appendChild(post_info_controls);
     post_info_controls.appendChild(post_info);
     post_info.appendChild(post_tags);
-
+    
     for (i = 0; i < post_content.tags.length; i++) {
         let tag = document.createElement("li");
         tag.textContent = "#" + post_content.tags[i];
         post_tags.appendChild(tag);
     }
     
-    post_info.appendChild(post_title);
-    post_info.appendChild(post_description);
     post_info.appendChild(post_user);
+    post_info.appendChild(post_link);
+    post_link.appendChild(post_title);
+    post_info.appendChild(post_description);
     
     post_info_controls.appendChild(post_controls_container);
 
@@ -122,10 +111,6 @@ function displayPost(post_content) {
     post_controls.appendChild(downvote_button);
     downvote_button.appendChild(downvote_icon);
     downvote_button.appendChild(downvote_text);
-
-    post_controls.appendChild(comment_button);
-    comment_button.appendChild(comment_icon);
-    comment_button.appendChild(comment_text);
 }
 
 /**

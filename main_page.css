@@ -1,57 +1,4 @@
 @import "global.css";
-
-#nav-sign-in {
-    display: flex;
-    height: 60%;
-}
-
-.nav-sign-in-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 32px;
-    width: 5vw;
-    min-width: fit-content;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
-}
-
-.nav-sign-in-buttons:hover {
-    cursor: pointer;
-}
-
-.nav-sign-in-buttons a {
-    text-decoration: none;
-    color: var(--fg-main);
-}
-
-#nav-login-button {
-    border: 1px solid var(--border-dark);
-}
-
-#nav-login-button:hover {
-    border: var(--fg-main);
-    background-color: var(--fg-main);
-    color: var(--bg-main);
-}
-
-/* invert colors when hovering over login button. */
-#nav-login-button:hover > a {
-    color: var(--bg-main);
-}
-
-#nav-register-button {
-    background-color: var(--accent-dark);
-}
-
-#nav-register-button:hover {
-    background-color: var(--accent-light);
-}
-
-#nav-register-button a {
-    color: var(--bg-main);
-}
-
 /* main part of site */
 #main-content {
     display: flex;
@@ -60,32 +7,42 @@
 }
 
 /* post styling */
-.post-container {
+
+.post {
+    min-height: fit-content;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: row;
     width: 50vw;
     color: var(--fg-main);
     text-decoration: none;
     border-bottom: 1px solid var(--border-light);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
-.post {
-    width: 100%;
-    min-height: fit-content;
-    padding: 1em;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
+@media only screen and (max-width: 1279px) {
+    .post {
+        width: 100%;
+    }
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--fg-main);
 }
 
 .post-info-controls {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    width: 80%;
 }
 
 .post-tags {
     padding: 0;
     margin: 0;
     color: var(--fg-secondary);
+    font-size: 0.9em;
 }
 
 .post-tags li {
@@ -100,6 +57,18 @@
 .post-title {
     user-select: text;
     margin-bottom: -8px;
+    margin-top: -8px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.post-user {
+    color: var(--fg-tertiary);
+}
+
+.post p {
+    font-size: 0.9em;
+    margin: 1em 0;
 }
 
 .post-controls-container {
@@ -118,6 +87,7 @@
 .post-controls {
     display: flex;
     align-content: start;
+    color: var(--fg-tertiary);
 }
 
 .post-control-button {
@@ -126,10 +96,12 @@
 
 .upvote-button:hover {
     color: var(--accent-light);
+    cursor: pointer;
 }
 
 .downvote-button:hover {
     color: var(--downvote);
+    cursor: pointer;
 }
 
 .post-thumbnail {
