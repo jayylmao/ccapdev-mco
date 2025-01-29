@@ -22,6 +22,7 @@ function displayPost(post_content) {
 
     let post_container = document.createElement("a");
     post_container.setAttribute("class", "post-container");
+    post_container.setAttribute("href", "post" + post_content.id + ".html");
 
     let post = document.createElement("div");
     post.setAttribute("class", "post");
