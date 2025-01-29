@@ -105,6 +105,8 @@ a {
     margin-left: 0.25em;
     margin-right: 0.25em;
     padding: 1em;
+    text-decoration: none;
+    color: var(--fg-main);
 }
 
 .nav-sign-in-buttons:hover {
@@ -120,27 +122,20 @@ a {
     border: 1px solid var(--border-dark);
 }
 
+/* invert colors when hovering over login button. */
 #nav-login-button:hover {
     border: 1px solid var(--fg-main);
     background-color: var(--fg-main);
     color: var(--bg-main);
 }
 
-/* invert colors when hovering over login button. */
-#nav-login-button:hover > a {
-    color: var(--bg-main);
-}
-
 #nav-register-button {
     background-color: var(--accent-dark);
+    color: var(--bg-main);
 }
 
 #nav-register-button:hover {
     background-color: var(--accent-light);
-}
-
-#nav-register-button a {
-    color: var(--bg-main);
 }
 
 #create-post {

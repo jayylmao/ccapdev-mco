@@ -11,6 +11,14 @@ p {
     width: 50vw;
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+@media only screen and (max-width: 1279px) {
+    #main-content {
+        width: 100%;
+    }
 }
 
 #back-button {
