@@ -90,6 +90,7 @@
 
 .post-tags li {
     display: inline;
+    padding-right: 0.5em;
 }
 
 .post-tags li:hover {
@@ -119,8 +120,8 @@
     align-content: start;
 }
 
-.post-controls p {
-    padding-right: 1em;
+.post-control-button {
+    display: flex;
 }
 
 .upvote-button:hover {
@@ -143,7 +144,7 @@
 
 #pagination-control {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 .pagination-control-link {

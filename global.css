@@ -69,7 +69,11 @@ a {
 
 #copyright-info {
     box-sizing: border-box;
-    padding: 0 1em;
     width: 100%;
     background-color: var(--bg-secondary);
+    padding: 0.1em;
+}
+
+#copyright-info p {
+    padding: 0 1em;
 }
