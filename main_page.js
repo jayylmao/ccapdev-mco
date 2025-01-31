@@ -27,11 +27,15 @@ function displayPost(post_content) {
 
     const post_description = document.createElement("p");
     post_description.setAttribute("class", "post-description");
-    post_description.textContent = post_content.description;
+    post_description.textContent = post_content.content;
+
+    const post_date = document.createElement("p");
+    post_date.setAttribute("class", "post-user");
+    post_date.textContent = post_content.datePosted;
 
     const post_user = document.createElement("p");
     post_user.setAttribute("class", "post-user");
-    post_user.textContent = "@" + post_content.user;
+    post_user.textContent = "@" + post_content.username;
 
     const post_controls_container = document.createElement("div");
     post_controls_container.setAttribute("class", "post-controls-container");
@@ -72,15 +76,16 @@ function displayPost(post_content) {
     post_info_controls.appendChild(post_info);
     post_info.appendChild(post_tags);
     
-    for (i = 0; i < post_content.tags.length; i++) {
-        let tag = document.createElement("li");
-        tag.textContent = "#" + post_content.tags[i];
-        post_tags.appendChild(tag);
-    }
+    post_content.tags.forEach((tag) => {
+        let tag_element = document.createElement("li");
+        tag_element.textContent = "#" + tag;
+        post_tags.appendChild(tag_element);
+    });
     
     post_info.appendChild(post_user);
     post_info.appendChild(post_link);
     post_link.appendChild(post_title);
+    post_info.appendChild(post_date);
     post_info.appendChild(post_description);
     
     post_info_controls.appendChild(post_controls_container);
@@ -101,51 +106,80 @@ function displayPost(post_content) {
 /**
  * renderTestData() displays sample posts for the main page.
  */
-function renderTestData() {
+window.onload = function renderTestData() {
     const posts = [
-        new Post(
-            1,
-            "look at this cool thing i found in my garden",
-            ["gardening", "images"],
-            "user1",
-            "weird lookin guy",
-            2694
-        ),
-        new Post(
-            2,
-            "General Motors' EVs Are Finally Earning More Than It Takes To Build Them",
-            ["cars", "vehicles"],
-            "user2",
-            "ayy let's go https://insideevs.com/news/748804/gm-ev-2024-growth-q1/",
-            1503
-        ),
-        new Post(
-            3,
-            "Pebble cements its smartwatch legacy as Google shares source code with the community",
-            ["tech", "smartwatches", "google", "pebble"],
-            "user2",
-            "i wonder what cool stuff we could do with this https://www.reddit.com/r/Android/comments/1ibisj4/pebble_cements_its_smartwatch_legacy_as_google/",
-            1489
-        ),
-        new Post(
-            4,
-            "just heard footsteps in my attic",
-            ["creepy"],
-            "user4",
-            "gg i'm dead lol",
-            1098
-        ),
-        new Post(
-            5,
-            "Switch 2 preview invites are being sent out!",
-            ["nintendo", "nintendoswitch2"],
-            "user5",
-            "https://techcrawlr.com/nintendo-switch-2-preview-events-kick-off-with-select-invitations/",
-            984
-        )
-    ];
-
-    for (let i = 0; i < posts.length; i++) {
-        displayPost(posts[i]);
-    }
+        {
+            id: 1,
+            tags: ["gardening", "images"],
+            username: "mythicalbanana_",
+            datePosted: "January 30 2025",
+            title: "look at this cool thing i found in my garden",
+            content: "weird lookin guy",
+            votes: 2694
+        }, {
+            id: 2,
+            tags: ["cars", "vehicles"],
+            username: "mythicalbanana_",
+            datePosted: "January 26 2025",
+            title: "General Motors' EVs Are Finally Earning More Than It Takes To Build Them",
+            content: "ayy let's go https://insideevs.com/news/748804/gm-ev-2024-growth-q1/",
+            votes: 1503
+        }, {
+            id: 3,
+            tags: ["tech", "smartwatches", "google", "pebble"],
+            username: "froolies",
+            datePosted: "January 18 2025",
+            title: "Pebble cements its smartwatch legacy as Google shares source code with the community",
+            content: "i wonder what cool stuff we could do with this https://www.reddit.com/r/Android/comments/1ibisj4/pebble_cements_its_smartwatch_legacy_as_google/",
+            votes: 1489
+        }, {
+            id: 4,
+            tags: ["creepy"],
+            username: "jorpers",
+            datePosted: "January 17 2025",
+            title: "just heard footsteps in my attic",
+            content: "gg i'm dead lol",
+            votes: 1098
+        }, {
+            id: 5,
+            tags: ["nintendo", "nintendoswitch2"],
+            username: "jayylmao",
+            datePosted: "January 15 2025",
+            title: "Switch 2 preview invites are being sent out!",
+            content: "https://techcrawlr.com/nintendo-switch-2-preview-events-kick-off-with-select-invitations/",
+            votes: 984
+        }, {
+            id: 6,
+            tags: ["food", "q&a"],
+            username: 'leibee',
+            datePosted: 'January 17, 2018',
+            title: 'What is your favorite food?',
+            content: `Everyone has that one food they can't resist—something that brings comfort, joy, or even nostalgia. For some, it's the gooey cheese and crispy crust of a perfectly baked pizza. For others, it might be the sweetness of a fresh apple or the spice of a hot curry. 
+                      Favorite foods are more than just sustenance; they're often tied to memories. A steaming bowl of ramen might remind you of a cozy rainy day, while a slice of birthday cake could bring back celebrations with loved ones. 
+                      Choosing a favorite food can also reflect your personality. Are you adventurous with sushi or pad Thai, or do you lean toward classics like burgers and fries? Maybe you're a fan of desserts, with chocolate taking the crown.
+                      Whatever it is, your favorite food tells a little story about you. So, what’s yours, and why does it hold a special place in your heart?`,
+            votes: 928
+        }, {
+            id: 7,
+            tags: ["html", "css", "js", "web"],
+            username: 'leibee',
+            datePosted: 'December 30, 2022',
+            title: 'Why learning HTML, CSS, and JavaScript are important for Computer Studies Student?',
+            content: `Learning HTML, CSS, and JavaScript is essential for Computer Studies students as these technologies form the backbone of web development. HTML structures the content of web pages, CSS styles them to make them visually appealing, 
+                        and JavaScript adds interactivity and dynamic behavior. Together, they help students understand how websites function and enable them to create engaging user experiences. These skills provide a foundation for advanced technologies 
+                        like React and Node.js, opening doors to careers in web development, software engineering, and UI/UX design. Mastering these languages fosters problem-solving, creativity, and the ability to build real-world applications.`,
+            votes: 891
+        }, {
+            id: 8,
+            tags: ["q&a", "discussion", "srs"],
+            username: 'leibee',
+            datePosted: 'March 2, 2024',
+            title: 'Do you love youself?',
+            content: `Loving yourself means embracing who you are—strengths, flaws, and everything in between. It’s about self-respect, setting boundaries, and prioritizing your well-being. Self-love isn’t selfish; it’s necessary for growth and happiness. 
+                        When you love yourself, you build confidence, overcome challenges, and inspire others to value themselves too. So, yes, love yourself!`,
+            votes: 765
+        }
+    ].map((postDetails) => {
+        displayPost(postDetails);
+    });
 }
