@@ -40,7 +40,7 @@ export class Post {
     }
 
     getPostCreator() {
-        return this.#postDetails.username;
+        return this.#postDetails.postCreator;
     }
 
     getTitle() {

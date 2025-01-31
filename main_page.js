@@ -47,7 +47,7 @@ window.onload = function renderTestData() {
     users[0].createPost({
         id: 1,
         tags: ["gardening", "images"],
-        username: "mythicalbanana_",
+        postCreator: "mythicalbanana_",
         datePosted: "January 30 2025",
         title: "look at this cool thing i found in my garden",
         content: "weird lookin guy",
@@ -57,7 +57,7 @@ window.onload = function renderTestData() {
     users[0].createPost({
         id: 2,
         tags: ["cars", "vehicles"],
-        username: "mythicalbanana_",
+        postCreator: "mythicalbanana_",
         datePosted: "January 26 2025",
         title: "General Motors' EVs Are Finally Earning More Than It Takes To Build Them",
         content: "ayy let's go https://insideevs.com/news/748804/gm-ev-2024-growth-q1/",
@@ -67,7 +67,7 @@ window.onload = function renderTestData() {
     users[1].createPost({
         id: 3,
         tags: ["tech", "smartwatches", "google", "pebble"],
-        username: "froolies",
+        postCreator: "froolies",
         datePosted: "January 18 2025",
         title: "Pebble cements its smartwatch legacy as Google shares source code with the community",
         content: "i wonder what cool stuff we could do with this https://www.reddit.com/r/Android/comments/1ibisj4/pebble_cements_its_smartwatch_legacy_as_google/",
@@ -77,7 +77,7 @@ window.onload = function renderTestData() {
     users[2].createPost({
         id: 4,
         tags: ["creepy"],
-        username: "jorpers",
+        postCreator: "jorpers",
         datePosted: "January 17 2025",
         title: "just heard footsteps in my attic",
         content: "gg i'm dead lol",
@@ -87,7 +87,7 @@ window.onload = function renderTestData() {
     users[3].createPost({
         id: 5,
         tags: ["nintendo", "nintendoswitch2"],
-        username: "jayylmao",
+        postCreator: "jayylmao",
         datePosted: "January 15 2025",
         title: "Switch 2 preview invites are being sent out!",
         content: "https://techcrawlr.com/nintendo-switch-2-preview-events-kick-off-with-select-invitations/",
@@ -97,6 +97,7 @@ window.onload = function renderTestData() {
     logInUser.createPost({
         id: 6,
         tags: ["food", "q&a"],
+        postCreator: logInUser.getUsername(),
         datePosted: 'January 17, 2018',
         title: 'What is your favorite food?',
         content: `Everyone has that one food they can't resist—something that brings comfort, joy, or even nostalgia. For some, it's the gooey cheese and crispy crust of a perfectly baked pizza. For others, it might be the sweetness of a fresh apple or the spice of a hot curry. 
@@ -109,6 +110,7 @@ window.onload = function renderTestData() {
     logInUser.createPost({
         id: 7,
         tags: ["html", "css", "js", "web"],
+        postCreator: logInUser.getUsername(),
         datePosted: 'December 30, 2022',
         title: 'Why learning HTML, CSS, and JavaScript are important for Computer Studies Student?',
         content: `Learning HTML, CSS, and JavaScript is essential for Computer Studies students as these technologies form the backbone of web development. HTML structures the content of web pages, CSS styles them to make them visually appealing, 
@@ -120,6 +122,7 @@ window.onload = function renderTestData() {
     logInUser.createPost({
         id: 8,
         tags: ["q&a", "discussion", "srs"],
+        postCreator: logInUser.getUsername(),
         datePosted: 'March 2, 2024',
         title: 'Do you love youself?',
         content: `Loving yourself means embracing who you are—strengths, flaws, and everything in between. It’s about self-respect, setting boundaries, and prioritizing your well-being. Self-love isn’t selfish; it’s necessary for growth and happiness. 
