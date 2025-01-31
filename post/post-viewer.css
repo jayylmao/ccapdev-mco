@@ -27,6 +27,7 @@ p {
     border-radius: 32px;
     cursor: pointer;
     border: 1px solid var(--border-light);
+    margin-bottom: 1em;
 }
 
 #back-button:hover {
