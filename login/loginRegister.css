@@ -1,4 +1,4 @@
-@import "global.css";
+@import "../global-styles/global.css";
 
 #logo{
     text-align: center;
@@ -25,16 +25,18 @@
     font-size:13px;
 }
 #sign-in{
-    border: 2px solid #945e91;
+    border: 2px solid var(--border-light);
     border-radius: 7px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 3px;
     box-sizing: border-box;
     font-size: 15px;
+    background-color: var(--bg-secondary);
 }
 #sign-in:focus{
-    background-color: #e5d3e4;
+    background-color: var(--bg-tertiary);
+    color: var(--fg-main);
 }
 #register-container{
     justify-content: center;
@@ -53,7 +55,7 @@
     border-radius: 7px;
     border: none;
     width: 100%;
-    color: white;
+    color: var(--fg-main);
     padding: 15px 32px;
     text-align: center;
     font-size: 15px;
