@@ -1,8 +1,6 @@
 .overall-form-section {
     display: flex;
-    background-color: white;
-    padding: 15px;
-    border-top: 2px solid rgba(0, 0, 0, 0.10);
+    background-color: var(--bg-main);
 }
 
 .input-section {
@@ -27,7 +25,7 @@
     font-size: 15px;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid var(--border-light);
 }
 
 .input-section textarea {
@@ -37,23 +35,21 @@
 .btnSave-section{
     padding-top: 10px;
     height:41px;
-    background-color: #6d4666;
 }
 
 .btnSave{
-    border: 3px solid #b49fcc;
-    background-color: white;
-    border-radius: 10px;
+    border: 3px solid var(--border-light);
+    background-color: var(--accent-light);
+    border-radius: 30px;
     margin-left: 699px;
     font-weight: bold;
     padding: 5px;
     cursor: pointer;
+    font-family: var(--body-font);
 }
 
 .btnSave:hover{
-    border: 3px solid white;
+    border: 3px solid var(--border-light);
     background-color: #b49fcc;
-    border: 3px solid white;
-    color: white;
     transition: all 0.15s;
 }

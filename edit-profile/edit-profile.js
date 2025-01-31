@@ -1,4 +1,4 @@
-import { logInUser } from "../user-profile/User.js";
+import { logInUser } from "../datatypes/user.js";
 
 function renderEditProfile(){
     logInUser.loadFromStorage();

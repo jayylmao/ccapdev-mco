@@ -1,0 +1,73 @@
+@import "global.css";
+
+#logo{
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-size: 25px;
+}
+#account-container{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 25%;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--accent-dark);
+}
+.notbold{
+    font-weight: normal;
+    color: var(--fg-main)
+}
+.account-text{
+    font-size:13px;
+}
+#sign-in{
+    border: 2px solid #945e91;
+    border-radius: 7px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+#sign-in:focus{
+    background-color: #e5d3e4;
+}
+#register-container{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--accent-dark);
+}
+#remember{
+    margin:15px 5px 15px -75px;
+}
+#login-register{
+    background-color: var(--accent-light);
+    border-radius: 7px;
+    border: none;
+    width: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#login-register:hover{
+    background-color: var(--accent-dark);
+    transition: 0.5s;
+}
+.registertitle{
+    color: var(--accent-dark);
+}
+.nameinfo{
+    display: flex;
+    justify-content: space-between;
+}

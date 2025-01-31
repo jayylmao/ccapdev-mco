@@ -1,9 +1,10 @@
 export class Post {
     #postDetails;
 
-    constructor(postDetails, username) {
+    constructor(postDetails, username, icon) {
         this.#postDetails = {
             postCreator: username,
+            profileImg: icon,
             title: postDetails.title,
             tags: postDetails.tags,
             content: postDetails.content,
@@ -33,6 +34,10 @@ export class Post {
 
     getPostId() {
         return this.#postDetails.postId;
+    }
+
+    getProfileImg() {
+        return this.#postDetails.profileImg;
     }
 
     getDatePosted() {

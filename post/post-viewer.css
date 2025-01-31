@@ -53,6 +53,7 @@ p {
 .post-controls {
     display: flex;
     flex-direction: row;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -67,8 +68,43 @@ p {
     padding: 0 0.5em;
 }
 
+#post-tags {
+    padding: 0;
+    margin: 0;
+    color: var(--fg-secondary);
+    font-size: 0.9em;
+}
+
+#post-tags li {
+    display: inline;
+    padding-right: 0.5em;
+}
+
+#post-tags li:hover {
+    color: var(--fg-main);
+}
+
+#post-creator, #post-date {
+    color: var(--fg-tertiary);
+}
+
+#post-creator:hover {
+    color: var(--fg-secondary);
+}
+
+#post-creator-link {
+    text-decoration: none;
+}
+
 .post-votes {
     padding-right: 1em;
+    display: flex;
+    align-items: center;
+    color: var(--fg-secondary);
+}
+
+.upvote-button, .downvote-button {
+    display: flex;
 }
 
 .vote-counter {
@@ -116,20 +152,4 @@ p {
 
 #comment-send:hover {
     background-color: var(--accent-light);
-}
-
-.comment {
-    margin: 0.5em;
-}
-
-.comment p {
-    margin: 0.3em 0;
-}
-
-.comment-user {
-    color: var(--fg-secondary);
-}
-
-.comment-controls {
-    margin: 0;
 }

@@ -25,15 +25,10 @@ informationElement.innerHTML = `
     </div>
 `
 
-const postElement = document.querySelector('.user-post-section');
-let postHTML = '';
-
 // Loop each post and display each in the HTML file
 logInUser.userPosts.forEach((post) => {
     displayPost(post, "main-content");
 })
-
-postElement.innerHTML = postHTML;
 
 document.querySelector('.btnEdit').addEventListener('click', () => {
     window.location.href = '../edit-profile/edit-profile.html';

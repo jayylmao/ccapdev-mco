@@ -1,0 +1,28 @@
+.comment {
+    margin: 0.5em;
+}
+
+.comment p {
+    margin: 0.3em 0;
+}
+
+.comment-user {
+    color: var(--fg-secondary);
+}
+
+.comment-controls {
+    margin: 0;
+    display: flex;
+}
+
+.vote-count {
+    color: var(--fg-secondary);
+}
+
+.upvote-button {
+    margin-right: 0.5em;
+}
+
+.upvote-button:hover, .downvote-button:hover {
+    cursor: pointer;
+}

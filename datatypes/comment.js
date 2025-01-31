@@ -2,18 +2,47 @@
  * Comment contains the details of a comment.
  */
 export class Comment {
-    constructor(id, user, comment, date) {
-        this.id = id;
-        this.user = user;
-        this.comment = comment;
-        this.date = date;
+    #commentDetails;
+
+    constructor(commentDetails) {
+        this.#commentDetails = {
+            id: commentDetails.id,
+            user: commentDetails.user,
+            comment: commentDetails.comment,
+            date: commentDetails.date,
+            votes: commentDetails.votes,
+        };
     }
 
     upvote() {
-        this.votes++;
+        this.#commentDetails.votes++;
     }
 
     downvote() {
-        this.votes--;
+        this.#commentDetails.votes--;
+    }
+
+    getID() {
+        return this.#commentDetails.id;
+    }
+
+    getUser() {
+        return this.#commentDetails.user;
+    }
+
+    getComment() {
+        return this.#commentDetails.comment;
+    }
+
+    getDate() {
+        return this.#commentDetails.date;
+    }
+
+    getVotes() {
+        return this.#commentDetails.votes;
+    }
+
+    setComment() {
+        this.#commentDetails.comment = comment;
     }
 }

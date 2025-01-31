@@ -1,6 +1,7 @@
 /**
  * displayPost() creates a post on the page.
- * @param {Post} post Instance of a post's details.
+ * @param {Post} post_content Instance of a post's details.
+ * @param {Node} parent Parent element to place post in.
  */
 export function displayPost(post_content, parent) {
     const main_content = document.getElementById(parent);
@@ -33,11 +34,18 @@ export function displayPost(post_content, parent) {
     post_date.setAttribute("class", "post-user");
     post_date.textContent = post_content.getDatePosted();
 
+    const post_user_container = document.createElement("div");
+    post_user_container.setAttribute("class", "post-user-container");
+
+    const post_user_icon = document.createElement("div");
+    post_user_icon.setAttribute("class", "post-user-icon");
+    post_user_icon.style.backgroundImage = `url(${post_content.getProfileImg()})`;
+
     const post_user = document.createElement("p");
-    post_user.setAttribute("class", "post-user");
     post_user.textContent = "@" + post_content.getPostCreator();
 
     const post_user_link = document.createElement("a");
+    post_user_link.setAttribute("class", "post-user");
     post_user_link.setAttribute("href", "../user-profile/user-profile.html"); // TODO: allow multiple users.
 
     const post_controls_container = document.createElement("div");
@@ -87,7 +95,9 @@ export function displayPost(post_content, parent) {
         post_tags.appendChild(tag_element);
     });
     
-    post_info.appendChild(post_user_link);
+    post_info.appendChild(post_user_container);
+    post_user_container.appendChild(post_user_icon);
+    post_user_container.appendChild(post_user_link);
     post_user_link.appendChild(post_user);
     post_info.appendChild(post_link);
     post_link.appendChild(post_title);

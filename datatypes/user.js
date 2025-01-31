@@ -49,7 +49,7 @@ export class User {
     }
 
     createPost(postDetails){
-        const post = new Post(postDetails, this.getUsername());
+        const post = new Post(postDetails, this.getUsername(), this.getProfileImg());
         this.userPosts.push(post);
     }
 
