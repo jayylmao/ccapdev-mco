@@ -1,0 +1,82 @@
+.modal {
+    display: flex; /* Hidden by default */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 100%;
+    height: 100%;
+    background-color: #ead7d7; 
+    z-index: 500;
+}
+
+.modal-container{
+    display: relative;
+    width: 800px;
+    height: 568px;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.35);
+    border-radius: 6px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.btnClose-section{
+    height: 30px;
+    text-align: right;
+    background-color: #6d4666;
+}
+
+.btnClose{
+    background-color: #6d4666;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+}
+
+.overall-image-section{
+    display: flex;
+    justify-content: space-evenly;
+    height: 270px;
+    vertical-align: middle;
+    padding: 10px;
+    background-color: white;
+}
+
+.image-section{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.image-section label{
+    font-weight: bold;
+}
+
+.choosing-section{
+    margin-bottom: 15px;
+}
+
+.chosenProfileFile, .chosenBackgroundFile{
+    width: 170px;
+}
+
+.chosenProfileImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    border: 4px solid white;
+    margin-top: 10px;
+}
+
+.chosenBackgroundImage{
+    width: 450px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid white;
+    margin-top: 10px;
+}

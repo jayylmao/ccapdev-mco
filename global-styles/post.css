@@ -1,0 +1,138 @@
+/* post styling */
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post {
+    min-height: fit-content;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    color: var(--fg-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-light);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1279px) {
+    .post {
+        width: 100%;
+    }
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--fg-main);
+}
+
+.post-info-controls {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.post-tags {
+    padding: 0;
+    margin: 0;
+    color: var(--fg-secondary);
+    font-size: 0.9em;
+}
+
+.post-tags li {
+    display: inline;
+    padding-right: 0.5em;
+}
+
+.post-tags li:hover {
+    color: var(--fg-main);
+}
+
+.post-title {
+    user-select: text;
+    margin-bottom: -8px;
+    margin-top: -8px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.post-user {
+    color: var(--fg-tertiary);
+}
+
+.post p {
+    font-size: 0.9em;
+    margin: 1em 0;
+}
+
+.post-controls-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-votes {
+    padding-right: 1em;
+}
+
+.vote-counter {
+    color: var(--fg-secondary);
+}
+
+.post-controls {
+    display: flex;
+    align-content: start;
+    color: var(--fg-tertiary);
+}
+
+.post-control-button {
+    display: flex;
+}
+
+.upvote-button:hover {
+    color: var(--accent-light);
+    cursor: pointer;
+}
+
+.downvote-button:hover {
+    color: var(--downvote);
+    cursor: pointer;
+}
+
+.post-thumbnail {
+    background-color: var(--bg-secondary);
+    width: 10%;
+    min-width: 80px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    align-self: center;
+    background-size: cover;
+}
+
+#pagination-control {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-control-link {
+    padding: 0.5em;
+}
+
+.accent-span {
+    color: var(--accent-light);
+    font-weight: bold;
+}
+
+#next p a {
+    color: var(--accent-dark);
+}
+
+.post-icon {
+    width: 1em;
+    aspect-ratio: 1;
+    margin-bottom: -2px;
+    padding: 0 0.5em;
+}

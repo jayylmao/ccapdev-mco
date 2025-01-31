@@ -1,7 +1,7 @@
 /**
  * Comment contains the details of a comment.
  */
-class Comment {
+export class Comment {
     constructor(id, user, comment, date) {
         this.id = id;
         this.user = user;
