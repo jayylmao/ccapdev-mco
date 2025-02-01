@@ -89,6 +89,10 @@
     margin: 1em 0;
 }
 
+.post-description {
+    user-select: text;
+}
+
 .post-controls-container {
     display: flex;
     flex-direction: row;
@@ -105,11 +109,12 @@
 .post-controls {
     display: flex;
     align-content: start;
-    color: var(--fg-tertiary);
 }
 
 .post-control-button {
     display: flex;
+    text-decoration: none;
+    color: var(--fg-tertiary);
 }
 
 .post-control-button:hover {

@@ -122,7 +122,7 @@ users[4].createPost({
     content: `Learning HTML, CSS, and JavaScript is essential for Computer Studies students as these technologies form the backbone of web development. HTML structures the content of web pages, CSS styles them to make them visually appealing, 
                 and JavaScript adds interactivity and dynamic behavior. Together, they help students understand how websites function and enable them to create engaging user experiences. These skills provide a foundation for advanced technologies 
                 like React and Node.js, opening doors to careers in web development, software engineering, and UI/UX design. Mastering these languages fosters problem-solving, creativity, and the ability to build real-world applications.`,
-    votes: 1374,
+    votes: 756,
     profileImg: users[4].getProfileImg()
 });
 

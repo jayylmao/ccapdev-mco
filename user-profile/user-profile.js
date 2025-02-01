@@ -66,10 +66,10 @@ logInUser.userPosts.forEach((post) => {
                         <img class="post-icon downvote-icon button-svg" src="../assets/svg/chevron-down-svgrepo-com.svg"></img>
                         <p>downvote</p>
                     </div>
-                    <div class="post-control-button edit-button">
+                    <a class="post-control-button edit-button" href="../post/post-editor.html">
                         <img class="post-icon edit-icon button-svg" src="../assets/svg/pen-new-square-svgrepo-com.svg"></img>
                         <p>edit</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

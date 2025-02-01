@@ -1,0 +1,105 @@
+#main-content {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+
+    width: 50vw;
+    box-sizing: border-box;
+    padding: 2em;
+    margin-top: 2em;
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+}
+
+@media only screen and (max-width: 1279px) {
+    #main-content {
+        width: 100vw;
+        border: none;
+    }
+}
+
+#back-button-container {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 100px;
+    padding: 0.5em;
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-secondary);
+}
+
+#back-button-container:hover {
+    border: 1px solid var(--border-dark);
+    background-color: var(--bg-secondary-hover);
+    cursor: pointer;
+}
+
+.back-button {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+.edit-form label {
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+.edit-form-input {
+    padding: 0.5em;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+    font-family: var(--body-font);
+    border: 1px solid var(--border-light);
+}
+
+.edit-form-input:hover {
+    background-color: var(--bg-secondary-hover);
+    border: 1px solid var(--border-dark);
+}
+
+#title-edit {
+    border-radius: 100px;
+}
+
+#description-edit {
+    height: 20vh;
+    border-radius: 16px;
+}
+
+.edit-controls {
+    display: flex;
+    justify-content: end;
+}
+
+.edit-controls div {
+    padding: 1em;
+    border-radius: 100px;
+    margin-left: 0.5em;
+}
+
+.submit-button {
+    background-color: var(--accent-dark);
+    border: 1px solid var(--border-light);
+    color: var(--bg-main);
+}
+
+.submit-button:hover {
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+}
+
+.cancel-button {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+}
+
+.cancel-button:hover {
+    background-color: var(--bg-secondary-hover);
+    border: 1px solid var(--border-dark);
+}
