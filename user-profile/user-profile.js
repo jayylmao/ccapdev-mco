@@ -1,4 +1,26 @@
-import { users } from "../test-data.js";
+import { users, logInUser } from "../test-data.js";
+
+
+const navSignInElement = document.querySelector('#nav-sign-in');
+if(logInUser){
+    logInUser.loadFromStorage();
+    navSignInElement.innerHTML = `
+        <a href="../user-profile/user-profile.html?username=${logInUser.getUsername()}">
+            <img class="loginuser-profile-img" src="${logInUser.getProfileImg()}">
+        </a>
+    `
+}
+else{
+    navSignInElement.innerHTML =  `
+        <a class="nav-sign-in-buttons" id="nav-login-button" href="../login/login.html">
+        login
+        </a>
+        <a class="nav-sign-in-buttons" id="nav-register-button" href="../login/register.html">
+        register
+        </a>
+    `
+}
+
 
 
 // Function to get query parameters from the URL
@@ -44,19 +66,43 @@ function displayUserProfile(username){
 
     // Display the user information in HTML file
     const informationElement = document.querySelector('.user-information-section');
-    informationElement.innerHTML = `
-        <img class="profile-picture" src="${userChosen.getProfileImg()}">
-        
-        <div class="user-informations">
-            <div class="username-section">
-                <p class="username"><span class="userFLnames">${userChosen.getFname()} ${userChosen.getLname()}</span> &#64;${userChosen.getUsername()}</p>
-
-                <button class="btnEdit" data-username="${userChosen.getUsername()}">Edit Profile</button>
-            </div>
+    if(logInUser === userChosen){
+        informationElement.innerHTML = `
+            <img class="profile-picture" src="${userChosen.getProfileImg()}">
             
-            <p class="description">${userChosen.getDescription()}</p>
-        </div>
-    `
+            <div class="user-informations">
+                <div class="username-section">
+                    <p class="username"><span class="userFLnames">${userChosen.getFname()} ${userChosen.getLname()}</span> &#64;${userChosen.getUsername()}</p>
+
+                    <button class="btnEdit" data-username="${userChosen.getUsername()}">Edit Profile</button>
+                </div>
+                
+                <p class="description">${userChosen.getDescription()}</p>
+            </div>
+
+            <div id="create-post">
+                <p>create post</p>
+            </div>
+        `
+        const btnEditElement = document.querySelector('.btnEdit');
+        btnEditElement.addEventListener('click', () => {
+            const username = btnEditElement.dataset.username; // Get the username from the button's data attribute
+            window.location.href = `../edit-profile/edit-profile.html?username=${username}`; // Navigate to edit-profile.html with the Username in the URL
+        })
+    }
+    else{
+        informationElement.innerHTML = `
+            <img class="profile-picture" src="${userChosen.getProfileImg()}">
+            
+            <div class="user-informations">
+                <div class="username-section">
+                    <p class="username"><span class="userFLnames">${userChosen.getFname()} ${userChosen.getLname()}</span> &#64;${userChosen.getUsername()}</p>
+                </div>
+                
+                <p class="description">${userChosen.getDescription()}</p>
+            </div>
+        `
+    }
 
 
 
@@ -107,10 +153,4 @@ function displayUserProfile(username){
     })
 
     postElement.innerHTML = postHTML;
-
-    const btnEditElement = document.querySelector('.btnEdit');
-    btnEditElement.addEventListener('click', () => {
-        const username = btnEditElement.dataset.username; // Get the username from the button's data attribute
-        window.location.href = `../edit-profile/edit-profile.html?username=${username}`; // Navigate to edit-profile.html with the Username in the URL
-    })
 }
