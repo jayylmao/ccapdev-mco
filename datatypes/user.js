@@ -53,6 +53,11 @@ export class User {
         this.userPosts.push(post);
     }
 
+    // Updates a user field
+    updateField(field, value) {
+        if (field in this.#userDetails) 
+            this.#userDetails[field] = value;
+    }
 
     updateUsername(username){
         this.#userDetails.username = username;

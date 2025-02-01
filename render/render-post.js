@@ -46,7 +46,7 @@ export function displayPost(post_content, parent) {
 
     const post_user_link = document.createElement("a");
     post_user_link.setAttribute("class", "post-user");
-    post_user_link.setAttribute("href", "../user-profile/user-profile.html"); // TODO: allow multiple users.
+    post_user_link.setAttribute("href", `../user-profile/user-profile.html?username=${post_content.getPostCreator()}`); // TODO: allow multiple users.
 
     const post_controls_container = document.createElement("div");
     post_controls_container.setAttribute("class", "post-controls-container");
