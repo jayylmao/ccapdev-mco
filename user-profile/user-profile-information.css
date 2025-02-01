@@ -15,6 +15,7 @@
     height: fit-content;
     justify-content: center;
     padding: 1em;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .profile-picture{
