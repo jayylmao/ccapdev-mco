@@ -112,14 +112,20 @@
     display: flex;
 }
 
+.post-control-button:hover {
+    cursor: pointer;
+}
+
 .upvote-button:hover {
     color: var(--accent-light);
-    cursor: pointer;
 }
 
 .downvote-button:hover {
     color: var(--downvote);
-    cursor: pointer;
+}
+
+.edit-button:hover {
+    color: var(--fg-secondary);
 }
 
 .post-thumbnail {

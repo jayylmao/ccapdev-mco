@@ -31,38 +31,47 @@ informationElement.innerHTML = `
 
 
 
-const postElement = document.querySelector('.user-post-section');
+const postElement = document.querySelector('#main-content');
 let postHTML = '';
 
 // Loop each post and display each in the HTML file
 logInUser.userPosts.forEach((post) => {
     postHTML += `
-    <div class="post-container">
-        <div class="post-user-information-section">
-            <div class="post-user-information-left-section">
-                <img class="post-profile-picture" src="${logInUser.getProfileImg()}">
-
-                <div>
-                    <p class="post-username">${logInUser.getFname()} ${logInUser.getLname()}</p>
-                    <p class="date-posted">${post.getDatePosted()}</p>
+    <div class="post">
+        <div class="post-info-controls">
+            <hgroup class="post-info">
+                <ul class="post-tags"></ul>
+                <div class="post-user-container">
+                    <div class="post-user-icon" style='background-image: url("${logInUser.getProfileImg()}")'></div>
+                    <a class="post-user" href="../post/post1.html">
+                        <p>@${logInUser.getUsername()}</p>
+                    </a>
+                </div>
+                <a class="post-link" href="../post/post${post.getPostId()}.html">
+                    <h3 class="post-title">${post.getTitle()}</h3>
+                </a>
+                <p class="post-user">${post.getDatePosted()}</p>
+                <p class="description">${post.getContent()}</p>
+            </hgroup>
+            <div class="post-controls-container">
+                <div class="post-votes">
+                    <p class="vote-counter">${post.getVotes()} votes</p>
+                </div>
+                <div class="post-controls">
+                    <div class="post-control-button upvote-button">
+                        <img class="post-icon upvote-icon button-svg" src="../assets/svg/chevron-up-svgrepo-com.svg"></img>
+                        <p>upvote</p>
+                    </div>
+                    <div class="post-control-button downvote-button">
+                        <img class="post-icon downvote-icon button-svg" src="../assets/svg/chevron-down-svgrepo-com.svg"></img>
+                        <p>downvote</p>
+                    </div>
+                    <div class="post-control-button edit-button">
+                        <img class="post-icon edit-icon button-svg" src="../assets/svg/pen-new-square-svgrepo-com.svg"></img>
+                        <p>edit</p>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <button class="btnDel">Delete Post</button>
-            </div>
-        </div>
-
-        <div class="border-content-section">
-            <p class="post-title">${post.getTitle()}</p>
-            <p class="post-content">${post.getContent()}</p>
-        </div>
-        
-        <div class="upvote-and-downvote-section">
-            <div class="nVotes">${post.getVotes()} votes</div>
-            <button class="btnUpvote">upvote</button>
-            <button class="btnDownvote">downvote</button>
-            <button class="btnComment">comment</button>
         </div>
     </div>
 `

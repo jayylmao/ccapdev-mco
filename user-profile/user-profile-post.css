@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ead7d7;
+    background-color: var(--bg-main);
     margin-top: 40px;
 }
 
 .post-container{
     width: 800px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.30);
+    border-bottom: 1px solid var(--border-light);
     margin-bottom: 15px;
 }
 
@@ -44,31 +44,28 @@
 }
 
 .date-posted{
-    color: rgb(100, 99, 99);
+    color: var(--fg-tertiary);
     font-size: 14px;
     margin-top: 5px;
 }
 
 .btnDel{
-    border: 3px solid #6d4666;
-    background-color: white;
-    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    background-color: var(--accent-dark);
+    border-radius: 100px;
     font-weight: bold;
-    padding: 5px;
+    padding: 1em;
     cursor: pointer;
 }
 
 .btnDel:hover{
-    border: 3px solid white;
-    background-color: #b49fcc;
-    border: 3px solid #6d4666;
-    color: white;
+    border: 1px solid var(--border-dark);
+    background-color: var(--accent-light);
     transition: all 0.15s;
 }
 
 .border-content-section{
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid var(--border-light);
     border-radius: 20px;
     line-height: 1.5; 
     padding-left: 15px;
@@ -90,7 +87,7 @@
 }
 
 .post-content{
-    color: rgb(39, 38, 38);
+    color: var(--fg-main);
     font-size: 15px;
     text-align: justify;
     padding-bottom: 6px;
@@ -98,23 +95,20 @@
 
 .upvote-and-downvote-section{
     display: flex;
-    font-family: Intern;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .nVotes{
-    color: rgb(87, 86, 86);
+    color: var(--fg-secondary);
     padding-left: 5px;
     padding-right: 15px;
     font-size: 15px;
 }
 
 .btnUpvote, .btnDownvote, .btnComment{
-    font-family: Intern;
     margin-right: 15px;
     border: none;
-    background-color: #ead7d7;
     cursor: pointer;
 }
 

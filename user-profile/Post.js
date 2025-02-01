@@ -1,6 +1,6 @@
 export class Post{
 
-    static #postId = 0;
+    static #postId = 5;
     #postDetails;
 
     constructor(postDetails){
