@@ -1,0 +1,65 @@
+.header-bar-section{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6d4666;
+    z-index: 200;
+}
+
+.header-left-section{
+    padding-left: 20px;
+}
+
+.header-left-section a{
+    font-family: Intern;
+    text-decoration: none;
+}
+
+.header-left-section h3{
+    font-family: Intern;
+    font-size: 20px;
+    color: #ead7d7;
+}
+
+.header-middle-section{
+    display: flex;
+}
+
+.search-bar{
+    font-family: Intern;
+    width: 600px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    padding-left: 8px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.header-right-section{
+    padding-right: 20px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.btnLogin, .btnRegister{
+    font-family: Intern;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.btnRegister{
+    border: 1px solid #b49fcc;
+    background-color: #b49fcc;
+}

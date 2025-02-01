@@ -1,9 +1,12 @@
-import { logInUser } from "../datatypes/user.js";
+import { logInUser, loadUserListFromStorage } from "../user-profile/create-user.js";
 
 function renderEditProfile(){
+
+    console.log('edit-profile initialized')
     logInUser.loadFromStorage();
+    loadUserListFromStorage();
 
-
+    
     // Display the user chosen profile and background images
     const imgSectionElement = document.querySelector('.overall-image-section');
     imgSectionElement.innerHTML =  `
@@ -25,24 +28,24 @@ function renderEditProfile(){
     formSectionElement.innerHTML = `
         <div>
             <div class="input-section">
-                <label>Username</label>
+                <label>Username:</label>
                 <input class="username" type="text" placeholder="${logInUser.getUsername()}">
             </div>
 
             <div class="input-section">
-                <label>First Name</label>
+                <label>First Name:</label>
                 <input class="fName" type="text" placeholder="${logInUser.getFname()}">
             </div>
         </div>
 
         <div>
             <div class="input-section">
-                <label>Last Name</label>
+                <label>Last Name:</label>
                 <input class="lName" type="text" placeholder="${logInUser.getLname()}">
             </div>
 
             <div class="input-section input-textarea">
-                <label>Description</label>
+                <label>Description:</label>
                 <textarea class="description" placeholder="${logInUser.getDescription()}"></textarea>
             </div>
         </div>
@@ -101,16 +104,16 @@ function renderEditProfile(){
             if(value){
                 switch(form){
                     case '.username':
-                        logInUser.updateUsername(value); // ERROR
+                        logInUser.updateField('username', value);
                         break;
                     case '.fName':
-                        logInUser.updateFirstName(value);
+                        logInUser.updateField('fName', value);
                         break;
                     case '.lName':
-                        logInUser.updateLastName(value);
+                        logInUser.updateField('lName', value);
                         break;
                     case '.description':
-                        logInUser.updateDescription(value);
+                        logInUser.updateField('description', value);
                         break;
                 }
             }
@@ -118,18 +121,19 @@ function renderEditProfile(){
         
 
         if(profilePictureData !== undefined)
-            logInUser.updateProfileImg(profilePictureData);
+            logInUser.updateField('profileImg', profilePictureData);
         if(profileBackgroundData !== undefined)
-            logInUser.updateBackgroundImg(profileBackgroundData);
+            logInUser.updateField('backgroundImg', profileBackgroundData);
         
 
-        console.log(`Before storing:`, logInUser.getUserDetails()) // REMEMBER TO DELETE
+        console.log(`Before storing:`, logInUser) // REMEMBER TO DELETE
 
-        // Save to localStorage after all updates
         logInUser.saveToStorage();
         logInUser.loadFromStorage();
-        
-        console.log(`After storing:`, logInUser) // REMEMBER TO DELETE
+        logInUser.synchronize();
+        loadUserListFromStorage();
+
+        console.log(`After loading:`, logInUser) // REMEMBER TO DELETE
     })
 }
 

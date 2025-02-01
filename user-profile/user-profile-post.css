@@ -1,0 +1,137 @@
+.user-post-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ead7d7;
+    margin-top: 40px;
+}
+
+.post-container{
+    width: 800px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.30);
+    margin-bottom: 15px;
+}
+
+.post-user-information-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.post-user-information-left-section{
+    display: flex;
+    align-items: center;
+}
+
+.post-profile-picture{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.post-username{
+    font-family: Intern;
+    display: block;
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 9px;
+    margin-bottom: 0px;
+}
+
+.date-posted{
+    color: rgb(100, 99, 99);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.btnDel{
+    border: 3px solid #6d4666;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.btnDel:hover{
+    border: 3px solid white;
+    background-color: #b49fcc;
+    border: 3px solid #6d4666;
+    color: white;
+    transition: all 0.15s;
+}
+
+.border-content-section{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px;
+    line-height: 1.5; 
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+
+    max-height: 170px; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+}
+
+.post-title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.post-content{
+    color: rgb(39, 38, 38);
+    font-size: 15px;
+    text-align: justify;
+    padding-bottom: 6px;
+}
+
+.upvote-and-downvote-section{
+    display: flex;
+    font-family: Intern;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nVotes{
+    color: rgb(87, 86, 86);
+    padding-left: 5px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.btnUpvote, .btnDownvote, .btnComment{
+    font-family: Intern;
+    margin-right: 15px;
+    border: none;
+    background-color: #ead7d7;
+    cursor: pointer;
+}
+
+@media ((min-width: 700px) and (max-width: 900px)){
+    .post-container{
+        width: 700px;
+    }
+}
+
+@media ((min-width: 500px) and (max-width: 700px)){
+    .post-container{
+        width: 500px;
+    }
+}
+
+@media (max-width: 500px){
+    .post-container{
+        width: 400px;
+    }
+}
