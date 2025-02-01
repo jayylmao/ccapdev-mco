@@ -95,6 +95,13 @@ a {
     height: 60%;
 }
 
+.loginuser-profile-img{
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 38px;
+}
+
 .nav-sign-in-buttons {
     display: flex;
     align-items: center;

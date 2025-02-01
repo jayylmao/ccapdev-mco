@@ -18,9 +18,11 @@ if (username) {
 
 function returnUser(username){
     const userChosen = users.find(user => user.getUsername() === username);
+    console.log('1',userChosen.getLname());
 
     if(userChosen){
         userChosen.loadFromStorage(); // load the latest data
+        console.log('2',userChosen.getLname());
         return userChosen;
     }
     else{
@@ -32,6 +34,8 @@ function returnUser(username){
 function displayUserProfile(username){
 
     const userChosen = returnUser(username);
+    console.log('userChosen ', userChosen)
+    console.log('userChosen.lname ', userChosen.getLname())
 
     // Display the background image chosen by the user in HTML file
     const backgroundImgElement = document.querySelector('.background-image-section');

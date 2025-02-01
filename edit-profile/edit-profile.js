@@ -153,6 +153,7 @@ function displayEditProfile(username){
             userChosen.updateField('backgroundImg', profileBackgroundData);
         
         userChosen.saveToStorage(); // save the data
+
         window.location.href = `../user-profile/user-profile.html?username=${username}`
     })
 }

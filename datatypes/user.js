@@ -59,30 +59,6 @@ export class User {
             this.#userDetails[field] = value;
     }
 
-    updateUsername(username){
-        this.#userDetails.username = username;
-    }
-
-    updateFirstName(fName){
-        this.#userDetails.fName = fName;
-    }
-
-    updateLastName(lName){
-        this.#userDetails.lName = lName;
-    }
-
-    updateDescription(description){
-        this.#userDetails.description = description;
-    }
-
-    updateProfileImg(profileImg){
-        this.#userDetails.profileImg = profileImg;
-    }
-
-    updateBackgroundImg(backgroundImg){
-        this.#userDetails.backgroundImg = backgroundImg;
-    }
-
     getUsername(){
         return this.#userDetails.username;
     }
@@ -115,13 +91,3 @@ export class User {
         return this.#userDetails;
     }
 }
-
-const userDetails = {
-    username: 'leibee',
-    fName: 'Lelibee',
-    lName: 'Swift',
-    description: 'Cybersecurity Consultant in Globe Inc.',
-    backgroundImg: 'https://wallpapers.com/images/featured/4k-background-fd313fxzl511betu.jpg',
-    profileImg: 'https://wallpapers.com/images/high/cool-profile-picture-faceless-man-qpa6end6whksmm7i.webp'
-}
-export let logInUser = new User(userDetails);
