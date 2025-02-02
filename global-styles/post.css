@@ -115,10 +115,14 @@
     display: flex;
     text-decoration: none;
     color: var(--fg-tertiary);
+    border-radius: 100px;
+    padding: 0 0.5em;
+    margin: 0 0.25em;
 }
 
 .post-control-button:hover {
     cursor: pointer;
+    background-color: var(--bg-secondary-hover);
 }
 
 .upvote-button:hover {

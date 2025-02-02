@@ -1,6 +1,7 @@
 /**
  * renderPostViewerPage() renders the viewer page 
  * @param {Post} post_content Post instance containing its details, such as title, description, etc.
+ * @param {boolean} editable Add edit and delete buttons if the comment is editable by the current user.
  */
 export function renderPostViewerPage(post_content) {
     const main_content = document.getElementById("post-container");
@@ -106,15 +107,12 @@ export function renderPostViewerPage(post_content) {
     post_controls.appendChild(downvote_button);
     downvote_button.appendChild(downvote_icon);
     downvote_button.appendChild(downvote_label);
-
-    /* for edit/delete comment feature */
-    addEditDeleteCommentHandlers();
 }
 
 /**
  * addEditDeleteCommentHandlers() adds event listeners for edit and delete comment buttons.
  */
-function addEditDeleteCommentHandlers() {
+export function addEditDeleteCommentHandlers() {
     document.querySelectorAll('.edit-comment-button').forEach(button => {
         button.addEventListener('click', () => {
             const popup = button.closest('.comment').querySelector('.edit-comment-popup');

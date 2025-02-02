@@ -1,25 +1,52 @@
-import { logInUser, loadUserListFromStorage } from "../user-profile/create-user.js";
+import { users } from "../test-data.js";
 
-function renderEditProfile(){
 
-    console.log('edit-profile initialized')
-    logInUser.loadFromStorage();
-    loadUserListFromStorage();
+// Function to get query parameters from the URL
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search); // window.location.search returns the query string part of the URL (e.g., ?username="")
+    return Object.fromEntries(params.entries()); // return { username: '' }
+}
 
-    
+// Get the username from the URL
+const { username } = getQueryParams(); // destructuring assignment
+
+if (username) {
+    displayEditProfile(username);
+} else {
+    console.error('No username provided in the URL.');
+}
+
+
+function returnUser(username){
+    const userChosen = users.find(user => user.getUsername() === username);
+
+    if(userChosen){
+        userChosen.loadFromStorage(); // load the latest data
+        return userChosen;
+    }
+    else{
+        console.error(`User with username ${userChosen.getUsername()} not found!`);
+        return null;
+    }
+}
+
+function displayEditProfile(username){
+
+    const userChosen = returnUser(username);
+
     // Display the user chosen profile and background images
     const imgSectionElement = document.querySelector('.overall-image-section');
     imgSectionElement.innerHTML =  `
         <div class="image-section">
             <label for="profileImage">Choose your profile image:</label>
             <input class="chosenProfileFile" type="file">
-            <img class="chosenProfileImage" src="${logInUser.getProfileImg()}">
+            <img class="chosenProfileImage" src="${userChosen.getProfileImg()}">
         </div>
 
         <div class="image-section">    
             <label for="backgroundImage">Choose your background image:</label>
             <input class="chosenBackgroundFile" type="file">
-            <img class="chosenBackgroundImage" src="${logInUser.getBackgroundImg()}">
+            <img class="chosenBackgroundImage" src="${userChosen.getBackgroundImg()}">
         </div>
     `
 
@@ -29,24 +56,24 @@ function renderEditProfile(){
         <div>
             <div class="input-section">
                 <label>Username:</label>
-                <input class="username" type="text" placeholder="${logInUser.getUsername()}">
+                <input class="username" type="text" placeholder="${userChosen.getUsername()}">
             </div>
 
             <div class="input-section">
                 <label>First Name:</label>
-                <input class="fName" type="text" placeholder="${logInUser.getFname()}">
+                <input class="fName" type="text" placeholder="${userChosen.getFname()}">
             </div>
         </div>
 
         <div>
             <div class="input-section">
                 <label>Last Name:</label>
-                <input class="lName" type="text" placeholder="${logInUser.getLname()}">
+                <input class="lName" type="text" placeholder="${userChosen.getLname()}">
             </div>
 
             <div class="input-section input-textarea">
                 <label>Description:</label>
-                <textarea class="description" placeholder="${logInUser.getDescription()}"></textarea>
+                <textarea class="description" placeholder="${userChosen.getDescription()}"></textarea>
             </div>
         </div>
     `
@@ -104,16 +131,16 @@ function renderEditProfile(){
             if(value){
                 switch(form){
                     case '.username':
-                        logInUser.updateField('username', value);
+                        userChosen.updateField('username', value);
                         break;
                     case '.fName':
-                        logInUser.updateField('fName', value);
+                        userChosen.updateField('fName', value);
                         break;
                     case '.lName':
-                        logInUser.updateField('lName', value);
+                        userChosen.updateField('lName', value);
                         break;
                     case '.description':
-                        logInUser.updateField('description', value);
+                        userChosen.updateField('description', value);
                         break;
                 }
             }
@@ -121,20 +148,12 @@ function renderEditProfile(){
         
 
         if(profilePictureData !== undefined)
-            logInUser.updateField('profileImg', profilePictureData);
+            userChosen.updateField('profileImg', profilePictureData);
         if(profileBackgroundData !== undefined)
-            logInUser.updateField('backgroundImg', profileBackgroundData);
+            userChosen.updateField('backgroundImg', profileBackgroundData);
         
+        userChosen.saveToStorage(); // save the data
 
-        console.log(`Before storing:`, logInUser) // REMEMBER TO DELETE
-
-        logInUser.saveToStorage();
-        logInUser.loadFromStorage();
-        logInUser.synchronize();
-        loadUserListFromStorage();
-
-        console.log(`After loading:`, logInUser) // REMEMBER TO DELETE
+        window.location.href = `../user-profile/user-profile.html?username=${username}`
     })
 }
-
-renderEditProfile();

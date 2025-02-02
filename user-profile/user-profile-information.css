@@ -64,6 +64,8 @@
 .btnEdit{
     border: 1px solid var(--border-light);
     background-color: var(--accent-dark);
+    color: var(--bg-main);
+    font-family: var(--body-font);
     border-radius: 100px;
     font-weight: bold;
     padding: 1em;

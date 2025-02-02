@@ -1,6 +1,6 @@
 import { User } from "./datatypes/user.js";
 import { Comment } from "./datatypes/comment.js";
-import { logInUser } from "./datatypes/user.js";
+
 
 export let users = [];
 const userDetails = [
@@ -33,16 +33,26 @@ const userDetails = [
         backgroundImg: "https://plus.unsplash.com/premium_photo-1736194026187-39e23ae676e0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         profileImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F011%2F458%2F145%2Flarge_2x%2F8-bit-pixel-art-banana-fruit-pixels-for-game-assets-in-illustration-vector.jpg&f=1&nofb=1&ipt=b29c4a338e322f4ca0f77dd0e0d33484178f786d3f885d193eee7ae393303039&ipo=images"
     }, {
-        username: logInUser.getUsername(),
-        fName: logInUser.getFname(),
-        lname: logInUser.getLname(),
-        description: logInUser.getDescription(),
-        backgroundImg: logInUser.getBackgroundImg(),
-        profileImg: logInUser.getProfileImg()
+        username: 'leibee',
+        fName: 'Lelibee',
+        lName: 'Swift',
+        description: 'Cybersecurity Consultant in Globe Inc.',
+        backgroundImg: 'https://wallpapers.com/images/featured/4k-background-fd313fxzl511betu.jpg',
+        profileImg: 'https://wallpapers.com/images/high/cool-profile-picture-faceless-man-qpa6end6whksmm7i.webp'
     }
 ].map((userDetails) => {
     users.push(new User(userDetails));
 });
+
+
+
+export let logInUser;
+function loginAccount(username){
+    logInUser = users.find(user => user.getUsername() === username);
+    console.log('loginAccount function:', logInUser.getLname()); // DELETE
+}
+loginAccount('leibee');
+
 
 users[0].createPost({
     id: 1,
@@ -102,7 +112,7 @@ users[3].createPost({
 users[4].createPost({
     id: 6,
     tags: ["food", "q&a"],
-    postCreator: logInUser.getUsername(),
+    postCreator: 'leibee',
     datePosted: 'January 17, 2018',
     title: 'What is your favorite food?',
     content: `Everyone has that one food they can't resist—something that brings comfort, joy, or even nostalgia. For some, it's the gooey cheese and crispy crust of a perfectly baked pizza. For others, it might be the sweetness of a fresh apple or the spice of a hot curry. 
@@ -116,7 +126,7 @@ users[4].createPost({
 users[4].createPost({
     id: 7,
     tags: ["html", "css", "js", "web"],
-    postCreator: logInUser.getUsername(),
+    postCreator: 'leibee',
     datePosted: 'December 30, 2022',
     title: 'Why learning HTML, CSS, and JavaScript are important for Computer Studies Student?',
     content: `Learning HTML, CSS, and JavaScript is essential for Computer Studies students as these technologies form the backbone of web development. HTML structures the content of web pages, CSS styles them to make them visually appealing, 
@@ -129,7 +139,7 @@ users[4].createPost({
 users[4].createPost({
     id: 8,
     tags: ["q&a", "discussion", "srs"],
-    postCreator: logInUser.getUsername(),
+    postCreator: 'leibee',
     datePosted: 'March 2, 2024',
     title: 'Do you love youself?',
     content: `Loving yourself means embracing who you are—strengths, flaws, and everything in between. It’s about self-respect, setting boundaries, and prioritizing your well-being. Self-love isn’t selfish; it’s necessary for growth and happiness. 
@@ -142,6 +152,12 @@ export let comments = [];
 let commentDetails = [
     [
         {
+            id: 10,
+            user: "leibee",
+            comment: "op, that's a snail 💀",
+            date: "January 29, 2025",
+            votes: 5
+        }, {
             id: 11,
             user: "froolies",
             comment: "that's a snail?",
