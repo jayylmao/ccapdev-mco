@@ -65,6 +65,19 @@
     align-items: center;
 }
 
+.flex-section{
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .post-user-icon {
     width: 1.5em;
     height: 1.5em;
@@ -82,6 +95,23 @@
 
 .post-user:hover {
     color: var(--fg-secondary);
+}
+
+.btnDel{
+    border: 1px solid var(--border-light);
+    background-color: var(--accent-dark);
+    color: var(--bg-main);
+    font-family: var(--body-font);
+    border-radius: 100px;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btnDel:hover{
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+    transition: all 0.15s;
 }
 
 .post p {

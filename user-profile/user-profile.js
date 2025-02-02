@@ -111,17 +111,39 @@ function displayUserProfile(username){
 
     // Loop each post and display each in the HTML file
     userChosen.userPosts.forEach((post) => {
-        postHTML += `
-        <div class="post">
-            <div class="post-info-controls">
-                <hgroup class="post-info">
-                    <ul class="post-tags"></ul>
-                    <div class="post-user-container">
+        let headHTML = ''; // renew each time
+
+        if(logInUser === userChosen){
+            headHTML = `
+                <div class="flex-section">
+                    <div class="user-info">
                         <div class="post-user-icon" style='background-image: url("${userChosen.getProfileImg()}")'></div>
                         <a class="post-user" href="../post/post1.html">
                             <p>@${userChosen.getUsername()}</p>
                         </a>
                     </div>
+                    <div>
+                        <button class="btnDel">Delete Post</button>
+                    </div>
+                </div>
+            `;
+        }
+        else{
+            headHTML = `
+                <div class="post-user-icon" style='background-image: url("${userChosen.getProfileImg()}")'></div>
+                <a class="post-user" href="../post/post1.html">
+                    <p>@${userChosen.getUsername()}</p>
+                </a>
+            `;
+        }
+
+
+        postHTML += (`
+        <div class="post">
+            <div class="post-info-controls">
+                <hgroup class="post-info">
+                    <ul class="post-tags"></ul>
+                    <div class="post-user-container">` + headHTML + `</div>
                     <a class="post-link" href="../post/post${post.getPostId()}.html">
                         <h3 class="post-title">${post.getTitle()}</h3>
                     </a>
@@ -149,7 +171,7 @@ function displayUserProfile(username){
                 </div>
             </div>
         </div>
-    `
+    `)
     })
 
     postElement.innerHTML = postHTML;
