@@ -152,6 +152,12 @@ export let comments = [];
 let commentDetails = [
     [
         {
+            id: 10,
+            user: "leibee",
+            comment: "op, that's a snail 💀",
+            date: "January 29, 2025",
+            votes: 5
+        }, {
             id: 11,
             user: "froolies",
             comment: "that's a snail?",
