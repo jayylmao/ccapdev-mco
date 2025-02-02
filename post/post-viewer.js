@@ -114,7 +114,6 @@ export function renderPostViewerPage(post_content) {
  */
 export function addEditDeleteCommentHandlers() {
     document.querySelectorAll('.edit-comment-button').forEach(button => {
-        console.log(button);
         button.addEventListener('click', () => {
             const popup = button.closest('.comment').querySelector('.edit-comment-popup');
             popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
