@@ -107,7 +107,7 @@ export function displayComment(comment_content, parent, editable) {
         const edit_comment_popup = document.createElement("div");
         edit_comment_popup.setAttribute("class", "edit-comment-popup");
 
-        const edit_comment_box = document.createElement("div");
+        const edit_comment_box = document.createElement("textarea");
         edit_comment_box.setAttribute("class", "edit-comment-box");
         edit_comment_box.setAttribute("placeholder", "edit your comment");
 
