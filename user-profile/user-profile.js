@@ -61,8 +61,7 @@ function displayUserProfile(username){
 
     // Display the background image chosen by the user in HTML file
     const backgroundImgElement = document.querySelector('.background-image-section');
-    backgroundImgElement.innerHTML =   `<img class="background-image" src="${userChosen.getBackgroundImg()}">`
-
+    backgroundImgElement.style.backgroundImage = `url(${userChosen.getBackgroundImg()})`;
 
     // Display the user information in HTML file
     const informationElement = document.querySelector('.user-information-section');

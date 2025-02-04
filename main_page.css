@@ -29,7 +29,6 @@ body {
 .sidebar-option {
     display: flex;
     align-items: center;
-    justify-content: end;
     padding: 0 1em;
     margin-bottom: 0.25em;
     border-radius: 100px;

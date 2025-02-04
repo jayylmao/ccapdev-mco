@@ -1,7 +1,18 @@
-#main-content h3 {
-    padding: 0 2em;
+#title {
+    padding: 1em 2em;
 }
 
 #main-content {
     width: 50vw;
+    overflow-x: hidden;
+}
+
+#search-bar {
+    padding: 1em;
+    width: 50%;
+    border-radius: 100px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-dark);
+    color: var(--fg-main);
+    font-family: var(--body-font);
 }

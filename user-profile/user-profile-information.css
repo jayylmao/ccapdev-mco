@@ -2,11 +2,9 @@
 
 .background-image-section{
     display: flex;
-}
-
-.background-image{
-    flex: 1;
-    height: 200px;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
 }
 
 .user-information-section{

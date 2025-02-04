@@ -16,8 +16,8 @@ const userDetails = [
         fName: "Rosanna",
         lName: "Lee",
         description: "Civil engineering student at UCLA.",
-        backgroundImg: "https://plus.unsplash.com/premium_photo-1736194026187-39e23ae676e0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        profileImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F011%2F458%2F145%2Flarge_2x%2F8-bit-pixel-art-banana-fruit-pixels-for-game-assets-in-illustration-vector.jpg&f=1&nofb=1&ipt=b29c4a338e322f4ca0f77dd0e0d33484178f786d3f885d193eee7ae393303039&ipo=images"
+        backgroundImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpreview.redd.it%2Fgju08g3r4lq71.jpg%3Fwidth%3D960%26crop%3Dsmart%26auto%3Dwebp%26s%3D43aa5a7310d7f98eef921ebc4ae055aec51db9e9&f=1&nofb=1&ipt=3a91d2e498548aa5875f13a71d09740a8ccb3b2679f98382810357fa67e57f2f&ipo=images",
+        profileImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpreview.redd.it%2Froh81vffcf561.png%3Fauto%3Dwebp%26s%3Dc348dd397cdee1f1263ebfe79d66321ade63e703&f=1&nofb=1&ipt=403d86fa354125a23e7835c1d3308ca009bd9922c730932fb56977e1fcda6db7&ipo=images"
     }, {
         username: "jorpers",
         fName: "Daniel",
