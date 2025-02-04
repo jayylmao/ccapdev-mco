@@ -91,8 +91,12 @@ export function displayPost(post_content, parent) {
 
     post_content.getTags().forEach((tag) => {
         let tag_element = document.createElement("li");
-        tag_element.textContent = "#" + tag;
+        let tag_link = document.createElement("a");
+        tag_link.textContent = "#" + tag;
+        tag_link.setAttribute("href", "../tags/" + tag + ".html");
+        tag_link.setAttribute("class", "tag-link");
         post_tags.appendChild(tag_element);
+        tag_element.appendChild(tag_link);
     });
     
     post_info.appendChild(post_user_container);

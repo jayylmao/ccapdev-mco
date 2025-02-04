@@ -48,8 +48,13 @@
     padding-right: 0.5em;
 }
 
-.post-tags li:hover {
+.tag-link {
+    text-decoration: none;
+}
+
+.tag-link:hover {
     color: var(--fg-main);
+    cursor: pointer;
 }
 
 .post-title {
@@ -65,7 +70,7 @@
     align-items: center;
 }
 
-.flex-section{
+.flex-section {
     display: flex;
     width: 100vw;
     justify-content: space-between;
@@ -97,7 +102,7 @@
     color: var(--fg-secondary);
 }
 
-.btnDel{
+.btnDel {
     border: 1px solid var(--border-light);
     background-color: var(--accent-dark);
     color: var(--bg-main);
@@ -108,7 +113,7 @@
     cursor: pointer;
 }
 
-.btnDel:hover{
+.btnDel:hover {
     background-color: var(--accent-light);
     border: 1px solid var(--border-dark);
     transition: all 0.15s;

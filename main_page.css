@@ -2,22 +2,59 @@
 @import "./global-styles/global.css";
 
 /* main part of site */
+body {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+#main-page {
+    display: flex;
+    justify-content: center;
+}
+
 #main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 95vh;
+    overflow-y: scroll;
+}
+
+#sidebar {
+    height: 100vh;
+    border-right: 1px solid var(--border-light);
+    padding: 0 1em;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 1em;
+    margin-bottom: 0.25em;
+    border-radius: 100px;
+    text-decoration: none;
+    color: var(--fg-main);
+}
+
+.sidebar-option img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+}
+
+.active-sidebar-option {
+    background-color: var(--bg-secondary);
+}
+
+#home:hover, #tags:hover {
+    background-color: var(--bg-secondary-hover);
 }
 
 #sort {
-    padding: 0.5em 1em;
+    padding: 0.5em 0em;
     justify-self: center;
     box-sizing: border-box;
-    width: 50vw;
-    border-bottom: 1px solid var(--border-light);
-}
-
-#sort * {
-    padding-right: 0.25em;
 }
 
 #sort-button {
@@ -81,7 +118,7 @@
 }
 
 @media only screen and (max-width: 1279px) {
-    #sort {
-        width: 100vw;
+    #sidebar {
+        display: none;
     }
 }

@@ -56,7 +56,7 @@ loginAccount('leibee');
 
 users[0].createPost({
     id: 1,
-    tags: ["gardening", "images"],
+    tags: ["gardening"],
     postCreator: "mythicalbanana_",
     datePosted: "January 30 2025",
     title: "look at this cool thing i found in my garden",
@@ -67,7 +67,7 @@ users[0].createPost({
 
 users[0].createPost({
     id: 2,
-    tags: ["cars", "vehicles"],
+    tags: ["cars"],
     postCreator: "mythicalbanana_",
     datePosted: "January 26 2025",
     title: "General Motors' EVs Are Finally Earning More Than It Takes To Build Them",
@@ -78,7 +78,7 @@ users[0].createPost({
 
 users[1].createPost({
     id: 3,
-    tags: ["tech", "smartwatches", "google", "pebble"],
+    tags: ["tech"],
     postCreator: "froolies",
     datePosted: "January 18 2025",
     title: "Pebble cements its smartwatch legacy as Google shares source code with the community",
@@ -100,7 +100,7 @@ users[2].createPost({
 
 users[3].createPost({
     id: 5,
-    tags: ["nintendo", "nintendoswitch2"],
+    tags: ["tech"],
     postCreator: "jayylmao",
     datePosted: "January 15 2025",
     title: "Switch 2 preview invites are being sent out!",
@@ -111,7 +111,7 @@ users[3].createPost({
 
 users[4].createPost({
     id: 6,
-    tags: ["food", "q&a"],
+    tags: ["food"],
     postCreator: 'leibee',
     datePosted: 'January 17, 2018',
     title: 'What is your favorite food?',
@@ -125,7 +125,7 @@ users[4].createPost({
 
 users[4].createPost({
     id: 7,
-    tags: ["html", "css", "js", "web"],
+    tags: ["tech"],
     postCreator: 'leibee',
     datePosted: 'December 30, 2022',
     title: 'Why learning HTML, CSS, and JavaScript are important for Computer Studies Student?',
@@ -138,7 +138,7 @@ users[4].createPost({
 
 users[4].createPost({
     id: 8,
-    tags: ["q&a", "discussion", "srs"],
+    tags: ["q&a"],
     postCreator: 'leibee',
     datePosted: 'March 2, 2024',
     title: 'Do you love youself?',
