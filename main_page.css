@@ -17,13 +17,25 @@ body {
     flex-direction: column;
     align-items: center;
     height: 95vh;
+    margin-top: 5vh;
     overflow-y: scroll;
 }
 
 #sidebar {
-    height: 100vh;
+    height: 95vh;
+    margin-top: 5vh;
     border-right: 1px solid var(--border-light);
     padding: 0 1em;
+}
+
+#sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#nav-sign-in {
+    margin-right: 0.5em;
 }
 
 .sidebar-option {
