@@ -172,7 +172,22 @@ let commentDetails = [
         }
     ],
     [
-        
+        {
+            id: 20,
+            user: "jayylmao",
+            comment: "Really good news for the EV industry. More competition for Tesla is always welcome.",
+            date: "February 2, 2025",
+            votes: 4
+        }
+    ],
+    [
+        {
+            id: 30,
+            user: "leibee",
+            comment: "<3 pebble",
+            date: "February 3, 2025",
+            votes: 2
+        }
     ]
 ];
 
