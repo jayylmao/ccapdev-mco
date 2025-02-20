@@ -1,0 +1,28 @@
+{
+  "name": "ccapdev-mco",
+  "version": "1.0.0",
+  "description": "A general-purpose forum website. Submitted in partial fulfillment of the CCAPDEV course.",
+  "keywords": [
+    "forum"
+  ],
+  "homepage": "https://github.com/jayylmao/ccapdev-mco#readme",
+  "bugs": {
+    "url": "https://github.com/jayylmao/ccapdev-mco/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayylmao/ccapdev-mco.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1"
+  }
+}
