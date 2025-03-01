@@ -1,5 +1,5 @@
-@import "./global-styles/post.css";
-@import "./global-styles/global.css";
+@import "/common/post.css";
+@import "/common/global.css";
 
 /* main part of site */
 body {

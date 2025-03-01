@@ -1,4 +1,4 @@
-@import "../global-styles/global.css";
+@import "/common/global.css";
 
 .background-image-section{
     display: flex;

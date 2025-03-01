@@ -1,5 +1,5 @@
-import { User } from "./datatypes/user.js";
-import { Comment } from "./datatypes/comment.js";
+import { User } from "../datatypes/user.js";
+import { Comment } from "../datatypes/comment.js";
 
 
 export let users = [];

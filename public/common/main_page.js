@@ -1,4 +1,4 @@
-import { displayPost } from "./render/render-post.js";
+import { displayPost } from "../../render/render-post.js";
 import { users } from "../test-data.js";
 
 /**
