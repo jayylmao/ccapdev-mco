@@ -25,8 +25,6 @@ function viewPassword() {
     }
 
     return false;
-     
-    
 }
 
 // TODO: Check if account exists before logging in
