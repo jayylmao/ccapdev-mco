@@ -14,14 +14,6 @@ server.engine('hbs', handlebars.engine({
 
 server.use(express.static('public'));
 
-// render main page.
-server.get('/', function(req, resp) {
-	resp.render('main', {
-		layout: 'index',
-		title: 'rabble'
-	})
-});
-
 const port = process.env.PORT || 9090;
 server.listen(port, function() {
 	console.log('rabble app initialized. listening at port ' + port);
