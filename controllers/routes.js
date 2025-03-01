@@ -7,8 +7,9 @@ function add(server) {
 	server.get('/', function(req, resp) {
 		resp.render('main', {
 			layout: 'index',
-			title: 'rabble',
-			posts: posts
+			title: 'rabble'
 		});
 	});
 }
+
+module.exports.add = add;
