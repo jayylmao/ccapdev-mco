@@ -1,5 +1,5 @@
-@import "/common/post.css";
-@import "/common/global.css";
+@import "post.css";
+@import "global.css";
 
 /* main part of site */
 body {
@@ -17,13 +17,10 @@ body {
     flex-direction: column;
     align-items: center;
     height: 95vh;
-    margin-top: 5vh;
     overflow-y: scroll;
 }
 
 #sidebar {
-    height: 95vh;
-    margin-top: 5vh;
     border-right: 1px solid var(--border-light);
     padding: 0 1em;
 }

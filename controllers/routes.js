@@ -12,13 +12,13 @@ const commentCollection = 'comments';
  * the collections if the database does not contain them.
  */
 async function initialConnection() {
-	let connection = await mongoClient.connect();
+	let con = await mongoClient.connect();
 	console.log("Creating collections...");
-	const database = mongoClient.db(databaseName);
+	const dbo = mongoClient.db(databaseName);
 
-	database.createCollection(postCollection);
-	database.createCollection(userCollection);
-	database.createCollection(commentCollection);
+	dbo.createCollection(postCollection);
+	dbo.createCollection(userCollection);
+	dbo.createCollection(commentCollection);
 }
 
 /**
@@ -29,10 +29,29 @@ function add(server) {
 	initialConnection();
 
 	// render main page.
-	server.get('/', function(req, resp) {
+	server.get('/', async function(req, resp) {
+		const dbo = mongoClient.db(databaseName);
+		const posts = dbo.collection(postCollection);
+
+		let query = {
+			tags: req.body.tags,
+			postCreator: req.body.postCreator,
+			datePosted: req.body.datePosted,
+			title: req.body.title,
+			content: req.body.content,
+			votes: req.body.votes
+		};
+
+		// get 10 most voted posts.
+		let cursor = posts.find().sort({ votes: -1 }).limit(10);
+		let vals = await cursor.toArray();
+
+		console.log(vals);
+		
 		resp.render('main', {
 			layout: 'index',
-			title: 'rabble'
+			title: 'rabble',
+			posts: vals
 		});
 	});
 

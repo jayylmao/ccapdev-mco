@@ -1,47 +1,84 @@
 <div id="main-page">
-    <div id="sidebar">
-        <div id="sort">
-            <div id="sort-button">
-                <img src="sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
-                <p>post sorting</p>
-                <img src="chevron-down-svgrepo-com.svg" class="button-svg" id="sort-dropdown">
-            </div>
-            <div id="sort-dropdown-menu">
-                <div class="dropdown-option">
-                    <img src="medal-ribbon-star-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
-                    <p>highly voted</p>
-                    <img src="check-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
-                </div>
-                <div class="dropdown-option">
-                    <img src="clock-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
-                    <p>recent</p>
-                </div>
-            </div>
-        </div>
+	<div id="sidebar">
+		<div id="sort">
+			<div id="sort-button">
+				<img src="sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+				<p>post sorting</p>
+				<img src="chevron-down-svgrepo-com.svg" class="button-svg" id="sort-dropdown">
+			</div>
+			<div id="sort-dropdown-menu">
+				<div class="dropdown-option">
+					<img src="medal-ribbon-star-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+					<p>highly voted</p>
+					<img src="check-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+				</div>
+				<div class="dropdown-option">
+					<img src="clock-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+					<p>recent</p>
+				</div>
+			</div>
+		</div>
 
-        <a id="home" class="sidebar-option active-sidebar-option" href="./index.html">
-            <img src="home-svgrepo-com.svg" class="button-svg"></img>
-            <p>home</p>
-        </a>
-        <a id="tags" class="sidebar-option" href="./tags/tags.html">
-            <img src="hashtag-svgrepo-com.svg" class="button-svg"></img>
-            <p>tags</p>
-        </a>
+		<a id="home" class="sidebar-option active-sidebar-option" href="./index.html">
+			<img src="home-svgrepo-com.svg" class="button-svg"></img>
+			<p>home</p>
+		</a>
+		<a id="tags" class="sidebar-option" href="./tags/tags.html">
+			<img src="hashtag-svgrepo-com.svg" class="button-svg"></img>
+			<p>tags</p>
+		</a>
 
-        <div id="pagination-control" class="sidebar-option">
-            <div id="previous" class="pagination-control-link">
-                <p>
-                    previous
-                </p>
-            </div>
-            <div id="next" class="pagination-control-link">
-                <p>
-                    <a href="index2.html">
-                        next
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div id="main-content"></div>
+		<div id="pagination-control" class="sidebar-option">
+			<div id="previous" class="pagination-control-link">
+				<p>
+					previous
+				</p>
+			</div>
+			<div id="next" class="pagination-control-link">
+				<p>
+					<a href="index2.html">
+						next
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="main-content">
+		{{#each posts}}
+			<div class="post">
+				<div class="post-info-controls">
+					<hgroup class="post-info">
+						<ul class="post-tags">
+							{{#each tags}}
+								<li>{{tag}}</li>
+							{{/each}}
+						</ul>
+						<div class="post-user-container">
+							<div class="post-user-icon" style="background-image: url();"></div>
+							<a class="post-user" href="">{{ postCreator }}</a>
+						</div>
+						<a class="post-link" href="">
+							<h3 class="post-title">{{ title }}</h3>
+						</a>
+						<p class="post-description">{{ content }}</p>
+					</hgroup>
+					<div class="post-controls-container">
+						<div class="post_votes">
+							<p class="vote-counter">{{ votes }}</p>
+						</div>
+						<div class="post-controls">
+							<div class="post-control-button upvote-button">
+								<img class="post-icon upvote-icon button-svg" src="chevron-up-svgrepo-com.svg">
+								<p>upvote</p>
+							</div>
+							<div class="post-control-button downvote-button">
+								<img class="post-icon downvote-icon button-svg" src="chevron-down-svgrepo-com.svg">
+								<p>downvote</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
 </div>
