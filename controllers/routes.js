@@ -43,6 +43,16 @@ function add(server) {
 			title: 'rabble - post',
 		});
 	});
+
+	// render tags page.
+	server.get('/tag', function(req, resp) {
+
+	});
+
+	// render user page.
+	server.get('/user', function(req, resp) {
+
+	});
 }
 
 module.exports.add = add;
