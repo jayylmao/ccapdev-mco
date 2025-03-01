@@ -21,7 +21,7 @@ controllers.forEach(controller => {
 	model.add(server);
 });
 
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 3000;
 server.listen(port, function() {
 	console.log('rabble app initialized. listening at port ' + port);
 });

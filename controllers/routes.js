@@ -38,10 +38,9 @@ function add(server) {
 
 	// render post page.
 	server.get('/post', function(req, resp) {
-		resp.render('post', {
-			layout: 'post',
+		resp.render('post_viewer', {
+			layout: 'index',
 			title: 'rabble - post',
-			post: post
 		});
 	});
 }
