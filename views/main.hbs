@@ -55,16 +55,17 @@
 						</ul>
 						<div class="post-user-container">
 							<div class="post-user-icon" style="background-image: url();"></div>
-							<a class="post-user" href="">{{ postCreator }}</a>
+							<a class="post-user" href="">@{{ postCreator }}</a>
 						</div>
-						<a class="post-link" href="">
+						<a class="post-link" href="/post/{{ _id }}">
 							<h3 class="post-title">{{ title }}</h3>
 						</a>
+						<p class="post-description">{{ datePosted }}</p>
 						<p class="post-description">{{ content }}</p>
 					</hgroup>
 					<div class="post-controls-container">
 						<div class="post_votes">
-							<p class="vote-counter">{{ votes }}</p>
+							<p class="vote-counter">{{ votes }} votes</p>
 						</div>
 						<div class="post-controls">
 							<div class="post-control-button upvote-button">

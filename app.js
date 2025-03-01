@@ -12,7 +12,11 @@ server.engine('hbs', handlebars.engine({
 	extname: 'hbs'
 }));
 
+const path = require('path');
+
 server.use(express.static('public'));
+server.use('/svg', express.static(path.join(__dirname, 'svg')));
+server.use(express.static(path.join(__dirname, 'public')));
 
 // add controllers to app.
 const controllers = ['routes'];
