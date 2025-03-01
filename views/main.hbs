@@ -2,29 +2,29 @@
 	<div id="sidebar">
 		<div id="sort">
 			<div id="sort-button">
-				<img src="sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+				<img src="/svg/sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
 				<p>post sorting</p>
-				<img src="chevron-down-svgrepo-com.svg" class="button-svg" id="sort-dropdown">
+				<img src="/svg/chevron-down-svgrepo-com.svg" class="button-svg" id="sort-dropdown">
 			</div>
 			<div id="sort-dropdown-menu">
 				<div class="dropdown-option">
-					<img src="medal-ribbon-star-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+					<img src="/svg/medal-ribbon-star-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
 					<p>highly voted</p>
-					<img src="check-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+					<img src="/svg/check-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
 				</div>
 				<div class="dropdown-option">
-					<img src="clock-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
+					<img src="/svg/clock-circle-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
 					<p>recent</p>
 				</div>
 			</div>
 		</div>
 
-		<a id="home" class="sidebar-option active-sidebar-option" href="./index.html">
-			<img src="home-svgrepo-com.svg" class="button-svg"></img>
+		<a id="home" class="sidebar-option active-sidebar-option" href="/">
+			<img src="/svg/home-svgrepo-com.svg" class="button-svg"></img>
 			<p>home</p>
 		</a>
-		<a id="tags" class="sidebar-option" href="./tags/tags.html">
-			<img src="hashtag-svgrepo-com.svg" class="button-svg"></img>
+		<a id="tags" class="sidebar-option" href="/tags">
+			<img src="/svg/hashtag-svgrepo-com.svg" class="button-svg"></img>
 			<p>tags</p>
 		</a>
 
@@ -49,9 +49,9 @@
 				<div class="post-info-controls">
 					<hgroup class="post-info">
 						<ul class="post-tags">
-							{{#each tags}}
-								<li>{{tag}}</li>
-							{{/each}}
+							{{#tags}}
+								<li>#{{this}}</li>
+							{{/tags}}
 						</ul>
 						<div class="post-user-container">
 							<div class="post-user-icon" style="background-image: url();"></div>
@@ -69,11 +69,11 @@
 						</div>
 						<div class="post-controls">
 							<div class="post-control-button upvote-button">
-								<img class="post-icon upvote-icon button-svg" src="chevron-up-svgrepo-com.svg">
+								<img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg">
 								<p>upvote</p>
 							</div>
 							<div class="post-control-button downvote-button">
-								<img class="post-icon downvote-icon button-svg" src="chevron-down-svgrepo-com.svg">
+								<img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg">
 								<p>downvote</p>
 							</div>
 						</div>
