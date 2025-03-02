@@ -37,7 +37,7 @@ function add(server) {
 			{ $sort: { votes: -1 } }, 			// sort posts by descending.
 			{ $limit: 10 }, 					// only get 10.
 			{ $lookup: {
-				from: userCollection,			// get posts from user collection.
+				from: userCollection,			// get post creator from user collection.
 				localField: "postCreator",		// search query is post creator id in post collection.
 				foreignField: "_id",			// search in _id field in user collection.
 				as: "postCreatorObj"			// save results to postCreatorObj field in post.
@@ -71,8 +71,7 @@ function add(server) {
 		const dbo = mongoClient.db(databaseName);
 		const posts = dbo.collection(postCollection);
 
-		console.log("id: " + req.params.id);
-
+		// find post with id specified in url.
 		let post = await posts.findOne({
 			_id: ObjectId.createFromHexString(req.params.id)
 		});
@@ -81,8 +80,6 @@ function add(server) {
 			return resp.status(404).send('Post not found.');
 		}
 
-		console.log(post);
-		
 		resp.render('post', {
 			layout: 'post_viewer_layout',
 			pageTitle: 'rabble - ' + post.title,
@@ -92,13 +89,39 @@ function add(server) {
 	});
 
 	// render tags page.
-	server.get('/tag', function(req, resp) {
+	server.get('/tag', async function(req, resp) {
 
 	});
 
 	// render user page.
-	server.get('/user', function(req, resp) {
+	server.get('/user/:username', async function(req, resp) {
+		const dbo = mongoClient.db(databaseName);
+		const users = dbo.collection(userCollection);
+		const posts = dbo.collection(postCollection);
 
+		let user = await users.findOne({
+			username: req.params.username
+		});
+
+		let cursor = posts.aggregate([
+			{ $sort: { datePosted: -1 } },
+			{ $lookup: {
+				from: postCollection,
+				localField: "postCreator",
+				foreignField: "_id",
+				as: "posts"
+			}},
+			{ $unwind: "$posts" }
+		]);
+
+		let postsArray = cursor.toArray();
+
+		console.log(postsArray);
+
+		resp.render('profile_page', {
+			layout: 'user_profile_layout',
+			pageTitle: 'rabble - ' + req.params.username
+		});
 	});
 }
 
