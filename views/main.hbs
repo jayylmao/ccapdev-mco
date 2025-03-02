@@ -54,8 +54,8 @@
 							{{/tags}}
 						</ul>
 						<div class="post-user-container">
-							<div class="post-user-icon" style="background-image: url();"></div>
-							<a class="post-user" href="">@{{ postCreator }}</a>
+							<div class="post-user-icon" style="background-image: url('{{postCreatorObj.profileImg}}');"></div>
+							<a class="post-user" href="">@{{ postCreatorObj.username }}</a>
 						</div>
 						<a class="post-link" href="/post/{{ _id }}">
 							<h3 class="post-title">{{ title }}</h3>

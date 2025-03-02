@@ -1,34 +1,33 @@
 <div id="main-content">
 	<div id="post-container">
-		<div id="main-content">
-			<div class="post">
-				<div class="post-info-controls">
-					<hgroup class="post-info">
-						<ul class="post-tags"></ul>
-						<div class="post-user-container">
-							<div class="post-user-icon"></div>
-							<a class="post-user" href="">@{{ post.postCreator }}</a>
-						</div>
-						<a class="post-link" href="">
-							<h3 class="post-title">{{ post.title }}</h3>
-						</a>
-						<p class="post-description"></p>
-					</hgroup>
-					<div class="post-controls-container">
-						<div class="post_votes">
-							<p class="vote-counter">{{ post.votes }} votes</p>
-						</div>
-						<div class="post-controls">
-							<div class="post-control-button upvote-button">
-								<img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg">
-								<p>upvote</p>
-							</div>
-							<div class="post-control-button downvote-button">
-								<img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg">
-								<p>downvote</p>
-							</div>
-						</div>
-					</div>
+		<div id="back-button" onclick="history.back()">
+			<img class="button-svg" id="back-icon" src="/svg/chevron-left-svgrepo-com.svg">
+		</div>
+
+		<ul id="post-tags"></ul>
+
+		<a id="post-creator-link" href="../user-profile/user-profile.html">
+			<p id="post-creator">@{{ post.postCreator }}</p>
+		</a>
+
+		<h1 id="post-header">{{ post.title }}</h1>
+
+		<p id="post-date">{{ post.datePosted }}</p>
+
+		<p id="post-content">{{ post.content }}</p>
+
+		<div class="post-controls-container">
+			<div class="post-votes">{{ post.votes }} votes</div>
+
+			<div class="post-controls">
+				<div class="upvote-button">
+					<img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg">
+					<p class="upvote-label">upvote</p>
+				</div>
+
+				<div class="downvote-button">
+					<img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg">
+					<p class="downvote-label">downvote</p>
 				</div>
 			</div>
 		</div>
