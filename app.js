@@ -20,11 +20,11 @@ server.use(express.static(path.join(__dirname, 'public')));
 // add controllers to app.
 const controllers = ['routes'];
 controllers.forEach(controller => {
-	const model = require('./controllers/' + controller);
-	model.add(server);
+    const model = require('./controllers/' + controller);
+    model.add(server);
 });
 
 const port = process.env.PORT || 3000;
 server.listen(port, function() {
-	console.log('rabble app initialized. listening at port ' + port);
+    console.log('rabble app initialized. listening at port ' + port);
 });
