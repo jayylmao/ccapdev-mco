@@ -4,7 +4,7 @@ const mongoClient = new MongoClient(databaseURL);
 
 const databaseName = 'rabble';
 const postCollection = 'posts';
-const userCollection = 'user';
+const userCollection = 'users';
 const commentCollection = 'comments';
 
 /**
