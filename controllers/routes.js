@@ -153,6 +153,22 @@ function add(server) {
             user: user
         });
     });
+
+    // render login page
+    server.get('/login', async function(req, resp){
+        resp.render('login',{
+            layout: 'login_layout',
+            title: 'Log In to rabble*'
+        });
+    });
+
+    // render register page
+    server.get('/register', async function(req, resp){
+        resp.render('register',{
+            layout: 'register_layout',
+            title: 'Register for rabble*'
+        });
+    });
 }
 
 /**
