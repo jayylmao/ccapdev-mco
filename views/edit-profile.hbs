@@ -4,7 +4,8 @@
             <button class="btnClose">&#10005;</button>
         </div>
 
-        <form action="/user/edit-profile/{{user._id}}" method="post" >
+        <!-- process the methodOverride before the multer (or else method=post not put), use a query parameter for _method -->
+        <form action="/user/edit-profile/{{user._id}}?_method=PUT" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="_method" value="PUT"> <!-- hidden -->
 

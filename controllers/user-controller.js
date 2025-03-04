@@ -29,21 +29,35 @@ const renderEditProfilePage = async (req, res) => {
 }
 
 const editProfileInformation = async (req, res) => {
-    console.log(req.params.id)
-    console.log(req.body)
-
     try {
-        const user = await User.findOneAndUpdate({_id: req.params.id}, req.body, {
-            new: true,          
-            runValidators: true 
-        })
+        const updateData = { ...req.body };
+
+        // If files were uploaded, add their paths to the update data
+        if (req.files) {
+            if (req.files['profileImg']) {
+                updateData.profileImg = `/uploads/${req.files['profileImg'][0].filename}`;
+            }
+            if (req.files['backgroundImg']) {
+                updateData.backgroundImg = `/uploads/${req.files['backgroundImg'][0].filename}`;
+            }
+        }
+
+        const user = await User.findOneAndUpdate(
+            { _id: req.params.id },
+            updateData,
+            {
+                new: true,
+                runValidators: true
+            }
+        );
 
         res.redirect('/user/profile');
 
     } catch (error) {
         console.error(error);
+        res.status(500).send('Server Error');
     }
-}
+};
 
 module.exports = {
     renderProfilePage,
