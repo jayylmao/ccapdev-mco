@@ -1,0 +1,28 @@
+<div>
+    <nav id="logo">
+            <h1>rabble*</h1>
+    </nav>
+    
+    <div id="register-container">
+        <h2 class="registertitle">Create a new account</h2>
+        <form name="register-form" onsubmit="return checkPasswords()" method="get">
+            <div class="nameinfo">
+                <input type="text" id="sign-in" name="firstname" placeholder="First name" required>
+                <input type="text" id="sign-in" name="lastname" placeholder="Last name" required>
+            </div>
+                <input type="text" id="sign-in" name="username" placeholder="Username" required>
+                <input type="password" id="sign-in" name="password1" placeholder="New Password" required>
+                <input type="password" id="sign-in" name="password2" placeholder="Confirm Password" required>
+                <br><br>
+                <input type="submit" id="login-register">
+                <div id="error-msg">
+                    Error
+                </div>
+                <br> <br>
+                <span class="account-text">Already have an account?</span> <br>
+                <a href="/login">
+                    Login
+                </a>
+        </form>
+    </div>
+</div>
