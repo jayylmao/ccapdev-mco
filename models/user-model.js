@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        default: 'No description yet',
         trim: true
     },
     backgroundImg: {
@@ -28,10 +29,6 @@ const userSchema = new mongoose.Schema({
     profileImg: {
         type: String,
         default: 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
     }
 });
 

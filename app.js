@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars');
 const path = require('path');
 const dotenv = require('dotenv');
+const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
 const server = express();
@@ -14,6 +15,16 @@ const PORT = process.env.PORT || 3000;
 // Body parser
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+// Method override
+// Purpose: Using method override to allow PUT, DELETE, and other HTTP methods in HTML forms, which normally only support GET and POST
+server.use(methodOverride((req, res) => {  
+    if(req.body && typeof req.body === 'object' && '_method' in req.body){
+        let method = req.body._method; 
+        delete req.body._method;       
+        return method;                  
+    }
+}));
 
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
