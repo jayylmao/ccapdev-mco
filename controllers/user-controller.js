@@ -28,7 +28,16 @@ const renderEditProfilePage = async (req, res) => {
     }
 }
 
+const editProfileInformation = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 module.exports = {
     renderProfilePage,
-    renderEditProfilePage
+    renderEditProfilePage,
+    editProfileInformation
 }
