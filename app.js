@@ -17,6 +17,9 @@ server.use(express.static('public'));
 server.use('/svg', express.static(path.join(__dirname, 'svg')));
 server.use(express.static(path.join(__dirname, 'public')));
 
+const dotenv = require('dotenv');
+const connectDB = require('./db/connect.js');
+
 // add controllers to app.
 const controllers = ['routes'];
 controllers.forEach(controller => {
@@ -24,8 +27,16 @@ controllers.forEach(controller => {
     model.add(server);
 });
 
-// initialize rabble app at port 3000.
-const port = process.env.PORT || 3000;
-server.listen(port, function() {
-    console.log('rabble app initialized. listening at port ' + port);
-});
+// Start server when db connected
+const startServer = async() => {
+    try {
+        await connectDB(process.env.MONGO_URI);
+        server.listen(PORT, () => {
+            console.log(`server running on port ${PORT}`);
+        })
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+startServer();
