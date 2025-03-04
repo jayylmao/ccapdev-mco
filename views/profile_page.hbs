@@ -16,6 +16,46 @@
 </div>
 
 <div id="main-content">
-    
+    {{#each posts}}
+        <div class="post">
+            <div class="post-info-controls">
+                <hgroup class="post-info">
+                    <ul class="post-tags"></ul>
+                    <div class="post-user-container">    
+                        {{{deleteIcon this.postCreator ../user this._id}}}
+                    </div>
+                    <a class="post-link" href="../post/post${post.getPostId()}.html">
+                        <h3 class="post-title">{{this.title}}</h3>
+                    </a>
+                    <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
+                    <p class="description">{{truncate (stripTags this.content) 450}}</p>
+                </hgroup>
+
+                <div class="post-controls-container">
+                    <div class="post-votes">
+                        <p class="vote-counter">{{this.votes}} votes</p>
+                    </div>
+
+                    <div class="post-controls">
+                        <div class="post-control-button upvote-button">
+                            <img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg"></img>
+                            <p>upvote</p>
+                        </div>
+
+                        <div class="post-control-button downvote-button">
+                            <img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg"></img>
+                            <p>downvote</p>
+                        </div>
+                        
+                        <a class="post-control-button edit-button" href="../post/post-editor.html">
+                            <img class="post-icon edit-icon button-svg" src="/svg/pen-new-square-svgrepo-com.svg"></img>
+                            <p>edit</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {{/each}}
     <!--todo: add main content -->
 </div>

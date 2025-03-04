@@ -1,13 +1,16 @@
 const User = require('../models/user-model.js');
+const Post = require('../models/post-model.js');
 
 const renderProfilePage = async (req, res) => {
     try {
         // change to findById
         const user = await User.findOne({username: 'dwarma'}).lean();
+        const posts = await Post.find({postCreator: user._id}).lean();
 
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',
-            user: user
+            user: user,
+            posts: posts
         })
     } catch (error) {
         console.error(error);
@@ -42,10 +45,7 @@ const editProfileInformation = async (req, res) => {
             }
         }
 
-        const user = await User.findOneAndUpdate(
-            { _id: req.params.id },
-            updateData,
-            {
+        const user = await User.findOneAndUpdate({ _id: req.params.id }, updateData, {
                 new: true,
                 runValidators: true
             }
