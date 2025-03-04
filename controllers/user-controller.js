@@ -2,6 +2,7 @@ const User = require('../models/user-model.js');
 
 const renderProfilePage = async (req, res) => {
     try {
+        // change to findById
         const user = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('profile_page.hbs', {
@@ -15,6 +16,7 @@ const renderProfilePage = async (req, res) => {
 
 const renderEditProfilePage = async (req, res) => {
     try {
+        // change to findById
         const user = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('edit-profile.hbs', {
