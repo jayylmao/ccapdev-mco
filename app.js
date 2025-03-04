@@ -20,20 +20,18 @@ server.use(express.urlencoded({ extended: true }));
 // Method override
 // Purpose: Using method override to allow PUT, DELETE, and other HTTP methods in HTML forms, which normally only support GET and POST
 server.use(methodOverride((req, res) => {
-    // Check for `_method` in the query parameters
     if (req.query && typeof req.query === 'object' && '_method' in req.query) {
-      const method = req.query._method; // Get the method from the query
-      delete req.query._method; // Remove `_method` from the query
-      return method; // Override the HTTP method
+      const method = req.query._method; 
+      delete req.query._method; 
+      return method; 
     }
-  
-    // Fallback to checking `req.body` (for non-multipart requests)
+    
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      const method = req.body._method; // Get the method from the body
-      delete req.body._method; // Remove `_method` from the body
-      return method; // Override the HTTP method
+      const method = req.body._method; 
+      delete req.body._method; 
+      return method; 
     }
-  }));
+}));
 
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
