@@ -126,4 +126,17 @@ function add(server) {
     });
 }
 
+/**
+ * close() cleans up database resources and exits the process properly.
+ */
+function close() {
+    console.log('rabble app terminated.');
+    mongoClient.close();
+    process.exit();
+}
+
+process.on('SIGTERM', close);
+process.on('SIGINT', close);
+process.on('SIGQUIT', close);
+
 module.exports.add = add;
