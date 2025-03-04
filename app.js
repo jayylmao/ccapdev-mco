@@ -25,6 +25,12 @@ server.set('view engine', 'hbs');
 server.use(express.static(path.join(__dirname, 'public/common')));
 server.use('/svg', express.static(path.join(__dirname, 'public/svg')));
 
+// add controllers to app.
+const controllers = ['routes'];
+controllers.forEach(controller => {
+    const model = require('./controllers/' + controller);
+    model.add(server);
+});
 
 // Start server when db connected
 const startServer = async() => {
