@@ -45,6 +45,10 @@ p {
     font-size: 1.5em;
 }
 
+#post-container, #comments-section {
+    width: 100%;
+}
+
 .post-controls-container {
     width: 100%;
     display: flex;
