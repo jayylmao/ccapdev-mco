@@ -23,9 +23,10 @@ const postSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    type: [String],     // Array of strings 
-    default: []         // Default to an empty array
-
+    tags: {
+        type: [String],     // Array of strings 
+        default: []         // Default to an empty array
+    }
 });
 
 module.exports = mongoose.model('Post', postSchema);
