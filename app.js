@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
 const accountRouter = require('./routers/account-router.js')
+const {formatDate, deleteIcon, truncate, stripTags} = require('./helpers/helper.js');
 const server = express();
 
 // Set dotenv
@@ -36,6 +37,7 @@ server.use(methodOverride((req, res) => {
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
 server.engine('hbs', handlebars.engine({
+    helpers: {formatDate, deleteIcon, truncate, stripTags},
 	extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));
