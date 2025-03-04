@@ -26,23 +26,6 @@ server.use(express.static('public'));
 server.use('/svg', express.static(path.join(__dirname, 'svg')));
 server.use(express.static(path.join(__dirname, 'public')));
 
-const dotenv = require('dotenv');
-const connectDB = require('./db/connect.js');
-
-
-// Start server when db connected
-const startServer = async() => {
-    try {
-        await connectDB(process.env.MONGO_URI);
-        server.listen(PORT, () => {
-            console.log(`server running on port ${PORT}`);
-        })
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-startServer();
 // add controllers to app.
 const controllers = ['routes'];
 controllers.forEach(controller => {
