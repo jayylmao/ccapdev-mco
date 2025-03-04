@@ -23,11 +23,11 @@ module.exports = {
             .replace(/&nbsp;/g, ' ')        
             .trim();                        
     },
-    deleteIcon: (storyUserId, loggedUser, storyId) => {
+    deleteIcon: (postUserId, loggedUser, postId) => {
         const loggedUserProfile = loggedUser.profileImg;
         const loggedUsername = loggedUser.username;
 
-        if(storyUserId.equals(loggedUser._id)){
+        if(postUserId.equals(loggedUser._id)){
             return `<div class="flex-section">
                         <div class="user-info">
                             <div class="post-user-icon" style='background-image: url("${loggedUserProfile}")'></div>
@@ -37,7 +37,7 @@ module.exports = {
                         </div>
                         
                         <div>
-                            <a href="/post/delete">
+                            <a href="/post/delete/${postId}">
                                 <button class="btnDel">Delete Post</button>
                             </a>
                         </div>
