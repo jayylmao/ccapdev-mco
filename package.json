@@ -1,29 +1,26 @@
 {
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.12.0",
+    "nodemon": "^3.1.9"
+  },
   "name": "ccapdev-mco",
   "version": "1.0.0",
-  "description": "A general-purpose forum website. Submitted in partial fulfillment of the CCAPDEV course.",
-  "keywords": [
-    "forum"
-  ],
-  "homepage": "https://github.com/jayylmao/ccapdev-mco#readme",
-  "bugs": {
-    "url": "https://github.com/jayylmao/ccapdev-mco/issues"
+  "description": "Our major course output for our web application development course.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jayylmao/ccapdev-mco.git"
   },
-  "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayylmao/ccapdev-mco/issues"
   },
-  "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2",
-    "express-handlebars": "^8.0.1",
-    "mongodb": "^6.14.1"
-  }
+  "homepage": "https://github.com/jayylmao/ccapdev-mco#readme"
 }
