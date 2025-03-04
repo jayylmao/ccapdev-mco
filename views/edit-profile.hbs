@@ -4,20 +4,20 @@
             <button class="btnClose">&#10005;</button>
         </div>
 
-        <form action="edit-profile/{{user._id}}" method="post">
+        <form action="/user/edit-profile/{{user._id}}" method="post" >
 
             <input type="hidden" name="_method" value="PUT"> <!-- hidden -->
 
             <div class="overall-image-section">
                 <div class="image-section">
                     <label for="profileImage">Choose your profile image:</label>
-                    <input class="chosenProfileFile" type="file">
+                    <input class="chosenProfileFile" type="file" name="profileImg">
                     <img class="chosenProfileImage" src="{{user.profileImg}}">
                 </div>
 
                 <div class="image-section">    
                     <label for="backgroundImage">Choose your background image:</label>
-                    <input class="chosenBackgroundFile" type="file">
+                    <input class="chosenBackgroundFile" type="file" name="backgroundImg">
                     <img class="chosenBackgroundImage" src="{{user.backgroundImg}}">
                 </div>
             </div>
@@ -27,24 +27,24 @@
                 <div>
                     <div class="input-section">
                         <label>Username:</label>
-                        <input class="username" type="text" value="{{user.username}}">
+                        <input class="username" type="text" name="username" value="{{user.username}}">
                     </div>
 
                     <div class="input-section">
                         <label>First Name:</label>
-                        <input class="fName" type="text" value="{{user.fName}}">
+                        <input class="fName" type="text" name="fName" value="{{user.fName}}">
                     </div>
                 </div>
 
                 <div>
                     <div class="input-section">
                         <label>Last Name:</label>
-                        <input class="lName" type="text" value="{{user.lName}}">
+                        <input class="lName" type="text" name="lName" value="{{user.lName}}">
                     </div>
 
                     <div class="input-section input-textarea">
                         <label>Description:</label>
-                        <textarea class="description">{{user.description}}</textarea>
+                        <textarea class="description" name="description">{{user.description}}</textarea>
                     </div>
                 </div>
             </div>

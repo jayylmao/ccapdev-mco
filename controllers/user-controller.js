@@ -29,8 +29,17 @@ const renderEditProfilePage = async (req, res) => {
 }
 
 const editProfileInformation = async (req, res) => {
+    console.log(req.params.id)
+    console.log(req.body)
+
     try {
-        
+        const user = await User.findOneAndUpdate({_id: req.params.id}, req.body, {
+            new: true,          
+            runValidators: true 
+        })
+
+        res.redirect('/user/profile');
+
     } catch (error) {
         console.error(error);
     }

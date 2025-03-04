@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const {renderProfilePage, renderEditProfilePage, editProfileInformation} = require('../controllers/user-controller.js');
 
