@@ -3,6 +3,7 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const dotenv = require('dotenv');
 const connectDB = require('./db/connect.js');
+const userRouter = require('./routers/user-router.js');
 const server = express();
 
 // Set dotenv
@@ -17,7 +18,8 @@ server.use(express.urlencoded({ extended: true }));
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
 server.engine('hbs', handlebars.engine({
-	extname: 'hbs'
+	extname: 'hbs',
+    layoutsDir: path.join(__dirname, 'views/layouts')
 }));
 server.set('view engine', 'hbs');
 
@@ -25,12 +27,10 @@ server.set('view engine', 'hbs');
 server.use(express.static(path.join(__dirname, 'public/common')));
 server.use('/svg', express.static(path.join(__dirname, 'public/svg')));
 
-// add controllers to app.
-const controllers = ['routes'];
-controllers.forEach(controller => {
-    const model = require('./controllers/' + controller);
-    model.add(server);
-});
+
+// Routers
+server.use('/user', userRouter);
+
 
 // Start server when db connected
 const startServer = async() => {

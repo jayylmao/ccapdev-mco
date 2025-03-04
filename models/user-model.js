@@ -13,15 +13,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    password: {
+        type:String,
+        required: true
+    },
     description: {
         type: String,
         trim: true
     },
     backgroundImg: {
-        type: String
+        type: String,
+        default: 'https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg'
     },
     profileImg: {
-        type: String
+        type: String,
+        default: 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
     },
     createdAt: {
         type: Date,
