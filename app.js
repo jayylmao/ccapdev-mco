@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
+const accountRouter = require('./routers/account-router.js')
 const server = express();
 
 // Set dotenv
@@ -41,6 +42,7 @@ server.use('/svg', express.static(path.join(__dirname, 'public/svg')));
 
 // Routers
 server.use('/user', userRouter);
+server.use('/account', accountRouter);
 
 
 // Start server when db connected
