@@ -1,0 +1,123 @@
+@import "global.css";
+
+#logo{
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-size: 25px;
+}
+#account-container{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 25%;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--accent-dark);
+}
+.notbold{
+    font-weight: normal;
+    color: var(--fg-main)
+}
+.account-text{
+    font-size:13px;
+}
+#sign-in{
+    border: 2px solid var(--border-light);
+    border-radius: 7px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+}
+#sign-in:focus{
+    background-color: var(--bg-tertiary);
+    color: var(--fg-main);
+}
+#register-container{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--accent-dark);
+}
+#remember{
+    margin:15px 5px 15px -75px;
+}
+#login-register{
+    border: 2px none;
+    border-radius: 7px;
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: var(--accent-light);
+    color: var(--fg-main);
+    font-weight: bold;
+    cursor: pointer;
+}
+#login-register:hover{
+    background-color: var(--accent-dark);
+    transition: 0.5s;
+}
+.registertitle{
+    color: var(--accent-dark);
+}
+.nameinfo{
+    display: flex;
+    justify-content: space-between;
+}
+#error-msg{
+    border: 2px solid var(--downvote);
+    border-radius: 7px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: var(--downvote);
+    display: none;
+}
+#togglePassword{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+#eye{
+    width: 25px;
+    height: 25px;
+}
+.password-container{
+    display: flex;
+    align-items: center;
+
+    border: 2px solid var(--border-light);
+    border-radius: 7px;
+    width: 100%;
+    padding: 6px 20px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+}
+.password-container input{
+    font-size: 15px;
+    
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--fg-main);
+}
