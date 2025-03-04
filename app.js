@@ -1,27 +1,18 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
-const path = require('path');
-const dotenv = require('dotenv');
-const connectDB = require('./db/connect.js');
 const server = express();
 
-// Set dotenv
-dotenv.config();
-
-const PORT = process.env.PORT || 3000;
-
-// Body parser
+const bodyParser = require('body-parser');
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-// Set handlebars
-server.set('views', path.join(__dirname, 'views'))
+const handlebars = require('express-handlebars');
+server.set('view engine', 'hbs');
 server.engine('hbs', handlebars.engine({
 	extname: 'hbs'
 }));
-server.set('view engine', 'hbs');
 
-// Set static folder
+const path = require('path');
+
 server.use(express.static('public'));
 server.use('/svg', express.static(path.join(__dirname, 'svg')));
 server.use(express.static(path.join(__dirname, 'public')));
@@ -33,16 +24,8 @@ controllers.forEach(controller => {
     model.add(server);
 });
 
-// Start server when db connected
-const startServer = async() => {
-    try {
-        await connectDB(process.env.MONGO_URI);
-        server.listen(PORT, () => {
-            console.log(`server running on port ${PORT}`);
-        })
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-startServer();
+// initialize rabble app at port 3000.
+const port = process.env.PORT || 3000;
+server.listen(port, function() {
+    console.log('rabble app initialized. listening at port ' + port);
+});
