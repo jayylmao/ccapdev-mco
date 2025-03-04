@@ -22,9 +22,8 @@ server.engine('hbs', handlebars.engine({
 server.set('view engine', 'hbs');
 
 // Set static folder
-server.use(express.static('public'));
-server.use('/svg', express.static(path.join(__dirname, 'svg')));
-server.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'public/common')));
+server.use('/svg', express.static(path.join(__dirname, 'public/svg')));
 
 
 // Start server when db connected
