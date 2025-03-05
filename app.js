@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
-const accountRouter = require('./routers/account-router.js')
+const accountRouter = require('./routers/account-router.js');
 const {formatDate, deleteIcon, truncate, stripTags} = require('./helpers/helper.js');
 const server = express();
 
