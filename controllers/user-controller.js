@@ -3,9 +3,10 @@ const Post = require('../models/post-model.js');
 
 const renderProfilePage = async (req, res) => {
     try {
-        // change to findById
+        // change to findById req.user
         const user = await User.findOne({username: 'dwarma'}).lean();
         const posts = await Post.find({postCreator: user._id}).lean();
+
 
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',
@@ -19,7 +20,7 @@ const renderProfilePage = async (req, res) => {
 
 const renderEditProfilePage = async (req, res) => {
     try {
-        // change to findById
+        // change to findById req.user
         const user = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('edit-profile.hbs', {
