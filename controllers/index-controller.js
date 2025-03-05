@@ -26,8 +26,6 @@ const renderMainPage = async (req, res) => {
             }}
         ]).exec();
 
-        console.log(posts);
-
         res.render('main', {
             layout: 'index_layout',
             pageTitle: 'rabble',
