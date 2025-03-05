@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
 const accountRouter = require('./routers/account-router.js');
+const indexRouter = require('./routers/index-router.js');
 const {formatDate, deleteIcon, truncate, stripTags} = require('./helpers/helper.js');
 const server = express();
 
@@ -50,6 +51,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 // Routers
 server.use('/user', userRouter);
 server.use('/account', accountRouter);
+server.use('/', indexRouter);
 
 
 // Start server when db connected
