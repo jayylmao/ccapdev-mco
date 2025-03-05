@@ -159,15 +159,3 @@ a {
 #create-post:hover {
     background-color: var(--accent-light);
 }
-
-#copyright-info {
-    box-sizing: border-box;
-    width: 100%;
-    background-color: var(--bg-tertiary);
-    padding: 0.1em;
-}
-
-#copyright-info p {
-    padding: 0 1em;
-    color: var(--fg-tertiary);
-}
