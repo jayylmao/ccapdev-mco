@@ -23,17 +23,15 @@ module.exports = {
             .replace(/&nbsp;/g, ' ')        
             .trim();                        
     },
-    deleteIcon: (postUserId, loggedUser, postId) => {
-        const loggedUserProfile = loggedUser.profileImg;
-        const loggedUsername = loggedUser.username;
+    deleteIcon: (postUser, loggedUser, postId) => {
+        const postUserProfile = postUser.profileImg;
+        const postUsername = postUser.username;
 
-        if(postUserId.equals(loggedUser._id)){
+        if(postUser._id.equals(loggedUser._id)){
             return `<div class="flex-section">
                         <div class="user-info">
-                            <div class="post-user-icon" style='background-image: url("${loggedUserProfile}")'></div>
-                            <a class="post-user" href="../post/post1.html">
-                                <p>@${loggedUsername}</p>
-                            </a>
+                            <div class="post-user-icon" style='background-image: url("${postUserProfile}")'></div>
+                            <p>@${postUsername}</p>
                         </div>
                         
                         <div>
@@ -44,9 +42,26 @@ module.exports = {
                     </div>`
         }
 
-        return `<div class="post-user-icon" style='background-image: url("${loggedUserProfile}")'></div>
-                <a class="post-user" href="../post/post1.html">
-                    <p>@${loggedUsername}</p>
+        return `<div class="post-user-icon" style='background-image: url("${postUserProfile}")'></div>
+                <p>@${postUsername}</p>`
+
+    },
+    editPostIcon: (postUserId, loggedUser) => {
+        if(postUserId.equals(loggedUser._id)){
+            return `
+                <a class="post-control-button edit-button" href="/post/edit/${loggedUser._id}">
+                    <img class="post-icon edit-icon button-svg" src="/svg/pen-new-square-svgrepo-com.svg"></img>
+                    <p>edit</p>
                 </a>`
+        }
+    },
+    editProfileIcon: (profileUser, loggedUser) => {
+        if(profileUser._id.equals(loggedUser._id)){
+            return `
+                <a href="/user/edit-profile/${loggedUser.username}">
+                    <button class="btnEdit">Edit Profile</button>
+                </a>
+            `
+        }
     }
 }

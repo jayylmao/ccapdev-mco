@@ -6,9 +6,7 @@
         <div class="username-section">
             <p class="username"><span class="userFLnames">{{user.fName}} {{user.lName}}</span> &#64;{{user.username}}</p>
 
-            <a href="/user/edit-profile">
-                <button class="btnEdit">Edit Profile</button>
-            </a>
+            {{{editProfileIcon user loggedUser}}}
         </div>
         
         <p class="description">{{user.description}}</p>
@@ -22,7 +20,7 @@
                 <hgroup class="post-info">
                     <ul class="post-tags"></ul>
                     <div class="post-user-container">    
-                        {{{deleteIcon this.postCreator ../user this._id}}}
+                        {{{deleteIcon ../user ../loggedUser this._id}}}
                     </div>
                     <a class="post-link" href="/post/{{this._id}}">
                         <h3 class="post-title">{{this.title}}</h3>
@@ -47,10 +45,7 @@
                             <p>downvote</p>
                         </div>
                         
-                        <a class="post-control-button edit-button" href="/post/edit/{{this._id}}">
-                            <img class="post-icon edit-icon button-svg" src="/svg/pen-new-square-svgrepo-com.svg"></img>
-                            <p>edit</p>
-                        </a>
+                        {{{editPostIcon this.postCreator ../loggedUser}}}
                     </div>
                 </div>
 

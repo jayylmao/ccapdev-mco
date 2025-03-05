@@ -3,15 +3,18 @@ const Post = require('../models/post-model.js');
 
 const renderProfilePage = async (req, res) => {
     try {
-        // change to findById req.user
-        const user = await User.findOne({username: 'dwarma'}).lean();
+        const user = await User.findOne({username: req.params.username}).lean();
         const posts = await Post.find({postCreator: user._id}).lean();
+
+        // todo: change to req.user
+        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
 
 
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',
             user: user,
-            posts: posts
+            posts: posts,
+            loggedUser: loggedUser
         })
     } catch (error) {
         console.error(error);
@@ -20,8 +23,7 @@ const renderProfilePage = async (req, res) => {
 
 const renderEditProfilePage = async (req, res) => {
     try {
-        // change to findById req.user
-        const user = await User.findOne({username: 'dwarma'}).lean();
+        const user = await User.findOne({username: req.params.username}).lean();
 
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
@@ -46,13 +48,14 @@ const editProfileInformation = async (req, res) => {
             }
         }
 
-        const user = await User.findOneAndUpdate({ _id: req.params.id }, updateData, {
+        const user = await User.findOneAndUpdate({username: req.params.username }, updateData, {
                 new: true,
                 runValidators: true
             }
         );
 
-        res.redirect('/user/profile');
+        // todo: change to req.user
+        res.redirect(`/user/${user.username}`);
 
     } catch (error) {
         console.error(error);

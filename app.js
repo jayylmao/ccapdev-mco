@@ -7,7 +7,7 @@ const connectDB = require('./db/connect.js');
 const userRouter = require('./routers/user-router.js');
 const accountRouter = require('./routers/account-router.js');
 const indexRouter = require('./routers/index-router.js');
-const {formatDate, deleteIcon, truncate, stripTags} = require('./helpers/helper.js');
+const {formatDate, deleteIcon, truncate, stripTags, editPostIcon, editProfileIcon} = require('./helpers/helper.js');
 const server = express();
 
 // Set dotenv
@@ -38,7 +38,7 @@ server.use(methodOverride((req, res) => {
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
 server.engine('hbs', handlebars.engine({
-    helpers: {formatDate, deleteIcon, truncate, stripTags},
+    helpers: {formatDate, deleteIcon, truncate, stripTags, editPostIcon, editProfileIcon},
 	extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));
