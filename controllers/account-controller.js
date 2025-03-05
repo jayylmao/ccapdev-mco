@@ -1,3 +1,5 @@
+const user = require('../models/user-model.js');
+
 const renderLoginPage = async (req, res) => {
     res.render('login',{
         layout: 'login_layout',
@@ -12,7 +14,44 @@ const renderRegisterPage = async (req, res) => {
     });
 }
 
+const registerData = async (req,res) => {
+    const data = {
+        username : req.body.username,
+        fName : req.body.firstname,
+        lName : req.body.lastname,
+        password : req.body.password1,
+        description : 'No description yet',
+        backgroundImg : 'https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg',
+        profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
+    }
+    await user.insertMany([data]);
+    
+    //FIX: GO TO INDEX PAGE
+    res.render('./');
+}
+
+const loginData = async (req,res) => {
+    try{
+        const check = await user.findOne({username:req.body.username});
+
+        // if password matches that of the user
+        if (check.password === req.body.password) {
+            //FIX: GO TO INDEX PAGE
+            res.render('./');
+        } else {
+            res.send("Incorrect password.");
+        }
+    } 
+    // both username and password are incorrect
+    catch {
+        res.send("Wrong details.");
+    }
+    
+}
+
 module.exports = {
     renderLoginPage,
-    renderRegisterPage
+    renderRegisterPage,
+    registerData,
+    loginData
 }

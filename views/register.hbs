@@ -5,7 +5,7 @@
     
     <div id="register-container">
         <h2 class="registertitle">Create a new account</h2>
-        <form name="register-form" onsubmit="return checkPasswords()" method="get">
+        <form name="register-form" action="/account/register" method="post">
             <div class="nameinfo">
                 <input type="text" id="sign-in" name="firstname" placeholder="First name" required>
                 <input type="text" id="sign-in" name="lastname" placeholder="Last name" required>
