@@ -27,7 +27,7 @@ const registerData = async (req,res) => {
     await user.insertMany([data]);
     
     //FIX: GO TO INDEX PAGE
-    res.render('./');
+    res.redirect('/');
 }
 
 const loginData = async (req,res) => {
@@ -37,7 +37,7 @@ const loginData = async (req,res) => {
         // if password matches that of the user
         if (check.password === req.body.password) {
             //FIX: GO TO INDEX PAGE
-            res.render('./');
+            res.redirect('/');
         } else {
             res.send("Incorrect password.");
         }
