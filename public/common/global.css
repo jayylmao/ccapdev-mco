@@ -22,7 +22,7 @@
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --bg-main: #342f36;
-        --bg-secondary: #5f4f66;
+        --bg-secondary: #403b45;
         --bg-secondary-hover: #635372;
         --bg-tertiary: #403744;
         --fg-main: #f3eef7;
