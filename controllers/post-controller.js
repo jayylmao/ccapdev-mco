@@ -26,13 +26,15 @@ const renderPostEditorPage = async (req, res) => {
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
 
-        console.log(user);
+        console.log(post);
 
         res.render('edit_post', {
             layout: 'edit_post_layout',
             pageTitle: 'rabble - ' + post.title,
             post: post,
-            postCreator: user.username
+            postCreator: user.username,
+            title: post.title,
+            description: post.content
         });
     } catch (error) {
 

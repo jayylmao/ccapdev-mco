@@ -43,6 +43,7 @@ p {
 
 #post-header {
     font-size: 1.5em;
+    font-family: var(--header-font);
 }
 
 #post-container, #comments-section {
@@ -137,6 +138,10 @@ p {
 
 #comment-creator {
     width: 100%;
+}
+
+#comments-header {
+    font-family: var(--header-font);
 }
 
 #comment-box {

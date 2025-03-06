@@ -56,6 +56,8 @@
     color: var(--fg-main);
     font-family: var(--body-font);
     border: 1px solid var(--border-light);
+    display: flex;
+    align-items: start;
 }
 
 .edit-form-input:hover {

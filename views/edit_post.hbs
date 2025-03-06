@@ -5,12 +5,12 @@
     <h3>edit your post</h3>
     <div class="edit-form">
         <label for="title-edit">title</label>
-        <input type="text" name="title-edit" id="title-edit" class="edit-form-input"> </input>
+        <input type="text" name="title-edit" id="title-edit" class="edit-form-input" value="{{title}}"> </input>
         <label for="title-edit">description</label>
-        <input type="text" name="description-edit" id="description-edit" class="edit-form-input"> </input>
+        <input type="text" name="description-edit" id="description-edit" class="edit-form-input" value="{{description}}"> </input>
     </div>
     <div class="edit-controls">
         <div class="submit-button">save</div>
-        <div class="cancel-button" onclick="history.back()">cancel</div>
+        <div class="cancel-button" onclick="/post/{{_id}}">cancel</div>
     </div>
 </div>
