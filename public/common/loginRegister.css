@@ -2,6 +2,7 @@
 
 #logo{
     justify-self: start;
+    text-align: center;
     font-family: var(--header-font);
     text-decoration: none;
     font-size: var(--title-font-size);
@@ -45,15 +46,6 @@ input{
     background-color: var(--bg-tertiary);
     color: var(--fg-main);
 }
-#register-container{
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-    width: 30%;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px var(--accent-dark);
-}
 #remember{
     margin:15px 5px 15px -75px;
 }
@@ -74,12 +66,15 @@ input{
     background-color: var(--accent-dark);
     transition: 0.5s;
 }
-.registertitle{
-    color: var(--accent-dark);
-}
 .nameinfo{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    border: 0px solid var(--border-light);
+    padding: 0px;
+    margin: 8px 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: var(--fg-main);
 }
 #error-msg{
     border: 2px solid var(--downvote);
@@ -120,7 +115,6 @@ input{
 }
 .password-container input{
     font-size: 15px;
-    
     width: 100%;
     border: 0;
     outline: 0;

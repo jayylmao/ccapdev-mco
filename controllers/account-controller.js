@@ -25,9 +25,16 @@ const registerData = async (req,res) => {
         profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
     }
     await user.insertMany([data]);
+
+    let pass1 = req.body.password1;
+    let pass2 = req.body.password2;
+    // check if both passwords are same 
+    if (pass1 != pass2) {
+        res.send("Mismatched passwords.");
+    } else {
+        res.redirect('/');
+    }
     
-    //FIX: GO TO INDEX PAGE
-    res.redirect('/');
 }
 
 const loginData = async (req,res) => {
@@ -36,7 +43,6 @@ const loginData = async (req,res) => {
 
         // if password matches that of the user
         if (check.password === req.body.password) {
-            //FIX: GO TO INDEX PAGE
             res.redirect('/');
         } else {
             res.send("Incorrect password.");

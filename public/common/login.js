@@ -1,3 +1,4 @@
+// TODO: FIX
 function checkPasswords() {
     var password1 = document.forms["register-form"]["password1"].value;
     var password2 = document.forms["register-form"]["password2"].value;
@@ -7,7 +8,6 @@ function checkPasswords() {
         document.getElementById("error-msg").style.display = "block";
     } else {
         document.getElementById("error-msg").style.display = "none";
-        window.location.href = "/";
     }
     return false;
 }
@@ -23,12 +23,5 @@ function viewPassword() {
         document.getElementById("eye").src = "/svg/eye-closed-svgexport-1.svg";
     }
 
-    return false;
-}
-
-// TODO: Check if account exists before logging in
-function verifyLogin() {
-    window.location.href = "/";
-    
     return false;
 }
