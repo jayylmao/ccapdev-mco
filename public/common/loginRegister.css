@@ -1,21 +1,24 @@
 @import "global.css";
 
 #logo{
-    text-align: center;
-    justify-content: center;
-    margin-top: 20px;
-    color: var(--accent-light);
+    justify-self: start;
+    font-family: var(--header-font);
     text-decoration: none;
-    font-size: 25px;
+    font-size: var(--title-font-size);
+}
+#logo-color{
+    background-color: var(--accent-light);
+    color: var(--bg-main);
+    padding: 0 0.1em;
 }
 #account-container{
     justify-content: center;
     text-align: center;
     margin: auto;
-    width: 25%;
+    width: 50vw;
+    height: 100vh;
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 0 10px var(--accent-dark);
 }
 .notbold{
     font-weight: normal;
@@ -23,6 +26,9 @@
 }
 .account-text{
     font-size:13px;
+}
+input{
+    font-family: var(--body-font);
 }
 #sign-in{
     border: 2px solid var(--border-light);
