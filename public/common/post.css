@@ -11,12 +11,15 @@
     padding: 1em 2em;
     display: flex;
     flex-direction: row;
-    width: 50vw;
+    width: 60vw;
+    background-color: var(--bg-main);
     color: var(--fg-main);
     text-decoration: none;
     border-bottom: 1px solid var(--border-light);
     overflow-wrap: break-word;
     box-sizing: border-box;
+    border-right: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
 }
 
 @media only screen and (max-width: 1279px) {

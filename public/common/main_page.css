@@ -5,6 +5,7 @@
 body {
     max-height: 100vh;
     overflow: hidden;
+    background-color: var(--bg-secondary);
 }
 
 #main-page {
@@ -21,7 +22,6 @@ body {
 }
 
 #sidebar {
-    border-right: 1px solid var(--border-light);
     padding: 0 1em;
 }
 
@@ -40,9 +40,10 @@ body {
     align-items: center;
     padding: 0 1em;
     margin-bottom: 0.25em;
-    border-radius: 100px;
+    border-radius: 16px;
     text-decoration: none;
     color: var(--fg-main);
+    transition: 0.25s background-color;
 }
 
 .sidebar-option img {
@@ -52,10 +53,14 @@ body {
 }
 
 .active-sidebar-option {
-    background-color: var(--bg-secondary);
+    color: var(--accent-light);
 }
 
 #home:hover, #tags:hover {
+    background-color: var(--bg-main);
+}
+
+#home:active, #tags:active {
     background-color: var(--bg-secondary-hover);
 }
 
