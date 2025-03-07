@@ -23,8 +23,8 @@
 }
 
 @media only screen and (max-width: 1279px) {
-    .post {
-        width: 100%;
+    .main-content {
+        width: calc(100vw - var(--sidebar-width));
     }
 }
 
@@ -63,7 +63,6 @@
 .post-title {
     user-select: text;
     margin-bottom: -8px;
-    margin-top: -8px;
     font-size: 1.2em;
     cursor: pointer;
 }
@@ -152,11 +151,12 @@
 
 .post-control-button {
     display: flex;
+    justify-content: center;
     text-decoration: none;
     color: var(--fg-tertiary);
-    border-radius: 100px;
-    padding: 0 0.5em;
-    margin: 0 0.25em;
+    border-radius: 12px;
+    aspect-ratio: 1;
+    margin: 0 0.25rem;
 }
 
 .post-control-button:hover {
@@ -165,11 +165,13 @@
 }
 
 .upvote-button:hover {
-    color: var(--accent-light);
+    color: var(--upvote);
+    background-color: var(--upvote-bg);
 }
 
 .downvote-button:hover {
     color: var(--downvote);
+    background-color: var(--downvote-bg);
 }
 
 .edit-button:hover {

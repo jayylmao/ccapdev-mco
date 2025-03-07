@@ -8,7 +8,7 @@
             <div id="sort-button">
                 <img src="/svg/sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
                 <p>Sort</p>
-                <img src="/svg/chevron-down-svgrepo-com.svg" class="button-svg" id="sort-dropdown">
+                <img src="/svg/arrow-down.svg" class="button-svg" id="sort-dropdown">
             </div>
             <div id="sort-dropdown-menu">
                 <div class="dropdown-option">
@@ -35,10 +35,10 @@
                             <div class="post-user-icon" style="background-image: url('{{ postCreatorObj.profileImg }}');"></div>
                             <a class="post-user" href="/user/{{ postCreatorObj.username }}">@{{ postCreatorObj.username }}</a>
                         </div>
+                        <p class="post-description">{{ formatDate datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
                         <a class="post-link" href="/post/{{ _id }}">
                             <h3 class="post-title">{{ title }}</h3>
                         </a>
-                        <p class="post-description">{{ formatDate datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
                         <p class="post-description">{{ content }}</p>
                     </hgroup>
                     <div class="post-controls-container">
@@ -47,12 +47,10 @@
                         </div>
                         <div class="post-controls">
                             <div class="post-control-button upvote-button">
-                                <img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg">
-                                <p>upvote</p>
+                                <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
                             </div>
                             <div class="post-control-button downvote-button">
-                                <img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg">
-                                <p>downvote</p>
+                                <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
                             </div>
                         </div>
                     </div>

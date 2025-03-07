@@ -1,11 +1,8 @@
-p {
-    font-size: 0.9em;
-}
-
 #main-content {
     justify-self: center;
     padding: 2em;
     width: 70vw;
+    height: 100vh;
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
     box-sizing: border-box;

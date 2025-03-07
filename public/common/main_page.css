@@ -30,7 +30,7 @@ body {
 }
 
 #sort {
-    padding: 0.5em 0em;
+    padding: 0.5rem 0;
     box-sizing: border-box;
     align-self: flex-start;
 }

@@ -1,9 +1,8 @@
 #sidebar {
-    padding: 0 1em;
     position: fixed;
+    top: calc(var(--nav-height) + 0.5rem);
     left: 0;
-    height: calc(100vh - var(--nav-height));
-    width: 10vw;
+    height: calc(100vh - var(--nav-height) - 1rem);
     overflow-y: auto;
     font-family: var(--header-font);
 }
@@ -15,13 +14,14 @@
 }
 
 #nav-sign-in {
-    margin-right: 0.5em;
+    margin-right: 0.5rem;
 }
 
 .sidebar-option {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0 1rem;
+    margin-left: 2rem;
     border-radius: 16px;
     text-decoration: none;
     color: var(--fg-main);
@@ -46,12 +46,24 @@
     background-color: var(--bg-secondary-hover);
 }
 
+#sidebar hr {
+    border: 1px solid var(--border-light);
+    padding: 0 1rem;
+    margin-left: 2rem;
+}
+
 @media only screen and (max-width: 1279px) {
-    #sidebar {
-        width: 5vw;
+    .sidebar-option img {
+        width: 2rem;
+        height: 2rem;
+        margin: 0;
     }
 
     .sidebar-option p {
         display: none;
+    }
+
+    .sidebar-option, #sidebar hr {
+        margin-left: 0.5rem;
     }
 }
