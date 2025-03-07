@@ -3,15 +3,13 @@
 
 /* main part of site */
 body {
-    max-height: 100vh;
-    overflow: hidden;
     background-color: var(--bg-secondary);
 }
 
 #main-page {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    height: 100vh;
     overflow-y: hidden;
 }
 
@@ -19,73 +17,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: var(--nav-height);
-    height: calc(100vh - var(--nav-height));
-    overflow-y: auto;
-    overflow-x: hidden;
+    width: fit-content;
 }
 
-.post:first-child {
-    border-radius: 8px 8px 0 0;
+.post:nth-child(2) {
+    border-radius: 12px 12px 0 0;
     border-top: 1px solid var(--border-light);
 }
 
 .post:last-child {
-    border-radius: 0 0 8px 8px;
-}
-
-#sidebar {
-    padding: 0 1em;
-    position: sticky;
-    top: var(--nav-height);
-    height: calc(100vh - var(--nav-height));
-    overflow-y: auto;
-    font-family: var(--header-font);
-}
-
-#sign-in {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#nav-sign-in {
-    margin-right: 0.5em;
-}
-
-.sidebar-option {
-    display: flex;
-    align-items: center;
-    padding: 0 1em;
-    margin-bottom: 0.25em;
-    border-radius: 16px;
-    text-decoration: none;
-    color: var(--fg-main);
-    transition: 0.25s background-color;
-}
-
-.sidebar-option img {
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: 0.5em;
-}
-
-.active-sidebar-option {
-    color: var(--accent-light);
-}
-
-#home:hover, #tags:hover {
-    background-color: var(--bg-main);
-}
-
-#home:active, #tags:active {
-    background-color: var(--bg-secondary-hover);
+    border-radius: 0 0 12px 12px;
 }
 
 #sort {
     padding: 0.5em 0em;
-    justify-self: center;
     box-sizing: border-box;
+    align-self: flex-start;
 }
 
 #sort-button {
@@ -95,12 +42,12 @@ body {
     width: fit-content;
     border-radius: 12px;
     border: 1px solid var(--border-light);
+    background-color: var(--bg-main);
     font-size: 0.75em;
 }
 
 #sort-button:hover,
 #sort:hover #sort-button {
-    background-color: var(--bg-secondary);
     border: 1px solid var(--border-dark);
     border-radius: 12px 12px 0px 0px;
 }
@@ -146,10 +93,4 @@ body {
 
 #sort-dropdown-menu .dropdown-option:last-child {
     border-radius: 0px 0px 12px 12px;
-}
-
-@media only screen and (max-width: 1279px) {
-    #sidebar {
-        display: none;
-    }
 }

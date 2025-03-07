@@ -11,7 +11,7 @@
     padding: 1em 2em;
     display: flex;
     flex-direction: row;
-    width: 60vw;
+    width: 70vw;
     background-color: var(--bg-main);
     color: var(--fg-main);
     text-decoration: none;

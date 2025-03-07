@@ -1,0 +1,57 @@
+#sidebar {
+    padding: 0 1em;
+    position: fixed;
+    left: 0;
+    height: calc(100vh - var(--nav-height));
+    width: 10vw;
+    overflow-y: auto;
+    font-family: var(--header-font);
+}
+
+#sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#nav-sign-in {
+    margin-right: 0.5em;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--fg-main);
+    transition: 0.25s background-color;
+}
+
+.sidebar-option img {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+}
+
+.active-sidebar-option {
+    color: var(--accent-light);
+}
+
+#home:hover, #tags:hover {
+    background-color: var(--bg-main);
+}
+
+#home:active, #tags:active {
+    background-color: var(--bg-secondary-hover);
+}
+
+@media only screen and (max-width: 1279px) {
+    #sidebar {
+        width: 5vw;
+    }
+
+    .sidebar-option p {
+        display: none;
+    }
+}

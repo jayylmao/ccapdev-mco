@@ -5,7 +5,7 @@ p {
 #main-content {
     justify-self: center;
     padding: 2em;
-    width: 50vw;
+    width: 70vw;
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
     box-sizing: border-box;

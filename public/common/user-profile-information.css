@@ -1,5 +1,21 @@
 @import "global.css";
 
+body {
+    overflow-y: auto;
+    background-color: var(--bg-secondary);
+}
+
+#profile-page-container{
+    display: flex;
+    justify-content: center;
+}
+
+#profile-page{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
 .background-image-section{
     display: flex;
     height: 30vh;
