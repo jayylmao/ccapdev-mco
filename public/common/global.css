@@ -71,8 +71,9 @@ a {
     padding: 0 2rem;
     min-height: 50px;
     height: var(--nav-height);
+    width: 100vw;
     border-bottom: 1px solid var(--border-light);
-    position: sticky;
+    position: fixed;
     top: 0;
     background-color: var(--bg-main);
     z-index: 1000;
@@ -165,15 +166,16 @@ a {
 
 #create-post {
     position: fixed;
-    background-color: var(--accent-dark);
+    background-color: var(--accent-light);
     bottom: 0.5rem;
     right: 0.5rem;
     border-radius: 100px;
     padding: 0 1rem;
     color: var(--bg-main);
+    font-family: var(--header-font);
     cursor: pointer;
 }
 
 #create-post:hover {
-    background-color: var(--accent-light);
+    background-color: var(--accent-dark);
 }

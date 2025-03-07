@@ -1,5 +1,4 @@
 <div id="profile-page-container">
-
     {{>sidebar}}
     <div id="profile-page">
         <div class="background-image-section" style="background-image: url('{{user.backgroundImg}}')"></div>
@@ -26,10 +25,10 @@
                             <div class="post-user-container">    
                                 {{{deleteIcon ../user ../loggedUser this._id}}}
                             </div>
+                            <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
                             <a class="post-link" href="/post/{{this._id}}">
                                 <h3 class="post-title">{{this.title}}</h3>
                             </a>
-                            <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
                             <p class="description">{{truncate (stripTags this.content) 450}}</p>
                         </hgroup>
 
@@ -40,13 +39,11 @@
 
                             <div class="post-controls">
                                 <div class="post-control-button upvote-button">
-                                    <img class="post-icon upvote-icon button-svg" src="/svg/chevron-up-svgrepo-com.svg"></img>
-                                    <p>upvote</p>
+                                    <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg"></img>
                                 </div>
 
                                 <div class="post-control-button downvote-button">
-                                    <img class="post-icon downvote-icon button-svg" src="/svg/chevron-down-svgrepo-com.svg"></img>
-                                    <p>downvote</p>
+                                    <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg"></img>
                                 </div>
                                 
                                 {{{editPostIcon this.postCreator ../loggedUser this._id}}}

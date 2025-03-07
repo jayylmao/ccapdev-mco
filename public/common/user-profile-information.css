@@ -8,6 +8,8 @@ body {
 #profile-page-container{
     display: flex;
     justify-content: center;
+    margin-left: var(--sidebar-width);
+    margin-top: var(--nav-height);
 }
 
 #profile-page{
@@ -92,6 +94,19 @@ body {
     background-color: var(--accent-light);
     border: 1px solid var(--border-dark);
     transition: all 0.15s;
+}
+
+#main-content {
+    margin-left: 0;
+}
+
+.post:first-child {
+    border-radius: 12px 12px 0 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.post:last-child {
+    border-radius: 0 0 12px 12px;
 }
 
 @media ((min-width: 400px) and (max-width: 950px)){

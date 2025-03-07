@@ -12,7 +12,8 @@
 
 @media only screen and (max-width: 1279px) {
     #main-content {
-        width: 100%;
+        width: 85vw;
+        margin-left: 15vw;
     }
 }
 
