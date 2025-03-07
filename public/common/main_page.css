@@ -11,18 +11,36 @@ body {
 #main-page {
     display: flex;
     justify-content: center;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 #main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 95vh;
-    overflow-y: scroll;
+    margin-top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.post:first-child {
+    border-radius: 8px 8px 0 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.post:last-child {
+    border-radius: 0 0 8px 8px;
 }
 
 #sidebar {
     padding: 0 1em;
+    position: sticky;
+    top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    font-family: var(--header-font);
 }
 
 #sign-in {
