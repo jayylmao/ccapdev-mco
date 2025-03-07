@@ -25,12 +25,6 @@
     --sidebar-width: 10vw;
 }
 
-@media screen and (max-width: 1279px) {
-    :root {
-        --sidebar-width: 10vw;
-    }
-}
-
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --bg-main: #342f36;
@@ -74,7 +68,6 @@ a {
 #global-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 2rem;
     min-height: 50px;
     height: var(--nav-height);
@@ -99,14 +92,14 @@ a {
 
 #nav-logo h3 {
     background-color: var(--accent-light);
-    padding: 0 0.5em;
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
     transition: 0.25s background-color;
 }
 
 #nav-global-search {
     padding: 0.5rem;
-    border-radius: 100px;
+    border-radius: 12px;
     background-color: var(--bg-main);
     color: var(--fg-secondary);
     border: 1px solid var(--border-dark);
@@ -114,7 +107,6 @@ a {
     width: 35vw;
     color: var(--fg-main);
 }
-
 
 #nav-sign-in {
     display: flex;

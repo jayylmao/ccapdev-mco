@@ -1,7 +1,10 @@
 const Post = require('../models/post-model.js');
+const User = require('../models/user-model.js');
 
 const renderMainPage = async (req, res) => {
     try {
+        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
+
         // get 10 most voted posts.
         let posts = await Post.aggregate([
             { $sort: { votes: -1 } }, 			// sort posts by descending.
@@ -29,7 +32,8 @@ const renderMainPage = async (req, res) => {
         res.render('main', {
             layout: 'index_layout',
             pageTitle: 'rabble',
-            posts: posts
+            posts: posts,
+            loggedUser: loggedUser
         });
     } catch (error) {
         console.log(error);

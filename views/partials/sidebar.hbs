@@ -9,18 +9,14 @@
     </a>
     <hr/>
 
-    <div id="pagination-control" class="sidebar-option">
-        <div id="previous" class="pagination-control-link">
-            <p>
-                Previous
-            </p>
-        </div>
-        <div id="next" class="pagination-control-link">
-            <p>
-                <a href="index2.html">
-                    Next
-                </a>
-            </p>
-        </div>
-    </div>
+    <a id="account" class="sidebar-option" href="/user/profile">
+        <img src="{{loggedUser.profileImg}}" class="" />
+        <p>@{{loggedUser.username}}</p>
+    </a>
+    <a id="account" class="sidebar-option" href="/user/profile">
+        <p>Edit profile</p>
+    </a>
+    <a id="account" class="sidebar-option" href="/account/login">
+        <p>Log out</p>
+    </a>
 </div>
