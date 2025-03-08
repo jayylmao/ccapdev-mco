@@ -15,11 +15,15 @@
 #account-container{
     justify-content: center;
     text-align: center;
+    align-content: center;
     margin: auto;
     width: 50vw;
     height: 100vh;
     padding: 25px;
     border-radius: 8px;
+}
+#remember-container{
+    padding: 10px 0px;
 }
 .notbold{
     font-weight: normal;
@@ -61,6 +65,8 @@ input{
     color: var(--fg-main);
     font-weight: bold;
     cursor: pointer;
+
+    text-decoration: none;
 }
 #login-register:hover{
     background-color: var(--accent-dark);
