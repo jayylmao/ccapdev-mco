@@ -1,0 +1,227 @@
+/* post styling */
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post {
+    min-height: fit-content;
+    padding: 0.5rem 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--bg-main);
+    color: var(--fg-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-light);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    border-right: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
+}
+
+@media only screen and (max-width: 1279px) {
+    .main-content {
+        width: calc(100vw - var(--sidebar-width));
+    }
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--fg-main);
+}
+
+.post-date {
+    color: var(--fg-secondary);
+}
+
+.post-info-controls {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.post-tags {
+    padding: 0;
+}
+
+.post-tags a {
+    text-decoration: none;
+    color: var(--fg-secondary);
+    transition: color 0.25s, background-color 0.25s;
+    border-radius: 4px;
+}
+
+.post-tags a:hover {
+    background-color: var(--accent-light);
+    color: var(--bg-main);
+}
+
+.post-tags li {
+    display: inline;
+    padding: 0.25rem;
+}
+
+.tag-link {
+    text-decoration: none;
+}
+
+.tag-link:hover {
+    color: var(--fg-main);
+    cursor: pointer;
+}
+
+.post-title {
+    user-select: text;
+    margin-bottom: -8px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.post-user-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.flex-section {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-user-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5em;
+    border: 1px solid var(--border-light);
+    border-radius: 100px;
+    background-color: var(--bg-tertiary);
+    background-size: cover;
+}
+
+.post-user {
+    text-decoration: none;
+    color: var(--fg-tertiary);
+}
+
+.post-user:hover {
+    color: var(--fg-secondary);
+}
+
+.btnDel {
+    border: 1px solid var(--border-light);
+    background-color: var(--accent-dark);
+    color: var(--bg-main);
+    font-family: var(--body-font);
+    border-radius: 100px;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btnDel:hover {
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+    transition: all 0.15s;
+}
+
+.post p {
+    font-size: 0.9em;
+    margin: 1em 0;
+}
+
+.post-description {
+    user-select: text;
+}
+
+.post-controls-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-votes {
+    padding-right: 1em;
+}
+
+.vote-counter {
+    color: var(--fg-secondary);
+}
+
+.post-controls {
+    display: flex;
+    align-content: start;
+}
+
+.post-control-button {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--fg-tertiary);
+    border-radius: 12px;
+    aspect-ratio: 1;
+    margin: 0 0.25rem;
+}
+
+.post-control-button:hover {
+    cursor: pointer;
+    background-color: var(--bg-secondary-hover);
+}
+
+.upvote-button:hover {
+    color: var(--upvote);
+    background-color: var(--upvote-bg);
+}
+
+.downvote-button:hover {
+    color: var(--downvote);
+    background-color: var(--downvote-bg);
+}
+
+.edit-button:hover {
+    color: var(--fg-secondary);
+}
+
+.post-thumbnail {
+    background-color: var(--bg-secondary);
+    width: 10%;
+    min-width: 80px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    align-self: center;
+    background-size: cover;
+}
+
+#pagination-control {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-control-link {
+    padding: 0.5em;
+}
+
+.accent-span {
+    color: var(--accent-light);
+    font-weight: bold;
+}
+
+#next p a {
+    color: var(--accent-dark);
+}
+
+.post-icon {
+    width: 1em;
+    aspect-ratio: 1;
+    margin-bottom: -2px;
+    padding: 0 0.5em;
+}

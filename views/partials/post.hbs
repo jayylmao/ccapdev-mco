@@ -1,0 +1,35 @@
+<div class="post">
+    <div class="post-info-controls">
+        <hgroup class="post-info">
+            <ul class="post-tags">
+                {{#tags}}
+                    <a href="/tag/{{this}}">
+                        <li>#{{this}}</li>
+                    </a>
+                {{/tags}}
+            </ul>
+            <div class="post-user-container">
+                <div class="post-user-icon" style="background-image: url('{{ postCreatorObj.profileImg }}');"></div>
+                <a class="post-user" href="/user/{{ postCreatorObj.username }}">@{{ postCreatorObj.username }}</a>
+            </div>
+            <p class="post-date">{{ formatDate datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
+            <a class="post-link" href="/post/{{ _id }}">
+                <h3 class="post-title">{{ title }}</h3>
+            </a>
+            <p class="post-description">{{ content }}</p>
+        </hgroup>
+        <div class="post-controls-container">
+            <div class="post_votes">
+                <p class="vote-counter">{{ votes }} votes</p>
+            </div>
+            <div class="post-controls">
+                <div class="post-control-button upvote-button">
+                    <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
+                </div>
+                <div class="post-control-button downvote-button">
+                    <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

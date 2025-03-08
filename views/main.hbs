@@ -1,0 +1,30 @@
+<div id="main-page">
+    {{>sidebar}}
+    <div id="main-content">
+        <div id="post-page-controls">
+            <div id="sort-button">
+                <img src="/svg/sort.svg" class="button-svg" id="sort-dropdown"></img>
+                <p>Sort</p>
+                <img src="/svg/arrow-down.svg" class="button-svg" id="sort-dropdown">
+            </div>
+            <div id="sort-dropdown-menu">
+                <div class="dropdown-option">
+                    <img src="/svg/medal.svg" class="button-svg" id="sort-dropdown"></img>
+                    <p>Top</p>
+                    <img src="/svg/check.svg" class="button-svg" id="sort-dropdown"></img>
+                </div>
+                <div class="dropdown-option">
+                    <img src="/svg/clock.svg" class="button-svg" id="sort-dropdown"></img>
+                    <p>Recent</p>
+                </div>
+            </div>
+            <a href="/create-post" id="create-post">
+                <img src="/svg/plus.svg" class="inverted-button-svg" id="sort-dropdown"></img>
+                <p>Create post</p>
+            </a>
+        </div>
+        {{#each posts}}
+            {{>post}}
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{user.fName}} {{user.lName}} - @{{user.username}}</title>
+        {{>font}}
+        <link rel="shortcut icon" href="/svg/rabble-favicon.svg">
+        <link rel="stylesheet" href="/common/global.css">
+        <link rel="stylesheet" href="/common/sidebar.css">
+        <link rel="stylesheet" href="/common/user-profile-information.css">
+        <link rel="stylesheet" href="/common/post.css">
+    </head>
+
+    <body>
+        {{>navbar}}
+        {{{body}}}
+    </body>
+</html>

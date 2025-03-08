@@ -1,0 +1,12 @@
+<div id="main-page">
+    {{>sidebar}}
+    <div id="main-content">
+        <div id="tag-description">
+            <h2 id="title">#{{tag}}</h2>
+            <p id="post-count">{{postCount}} posts</p>
+        </div>
+        {{#each posts}}
+            {{>post}}
+        {{/each}}
+    </div>
+</div>

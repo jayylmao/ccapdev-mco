@@ -1,0 +1,12 @@
+<div id="main-page">
+    {{>sidebar}}
+    <div id="main-content">
+        <div id="search-description">
+            <h1 id="title">Search results</h1>
+            <p id="result-count">{{postCount}} results found.</p>
+        </div>
+        {{#each posts}}
+            {{>post}}
+        {{/each}}
+    </div>
+</div>

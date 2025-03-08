@@ -1,0 +1,27 @@
+<div>
+    <div id="account-container">
+        <div id="logo">
+            <h1>Welcome back to <span id="logo-color">rabble*</span></h1>
+        </div>
+        <form name="login-form" action="/account/login" method="post">
+            <input type="text" id="sign-in" name="username" placeholder="Username"><br>
+            <div class="password-container">
+                <input type="password" name="password" placeholder="Password">
+                <button id="togglePassword" onclick="return viewPassword()">
+                    <img src="/svg/eye-closed-svgexport-1.svg" id="eye"/>
+                </button>
+            </div>
+
+            <div id="remember-container">
+                <label> <input type="checkbox" name="remember"> Remember me for 3 weeks</label> <br>
+            </div>
+            
+            <input type="submit" id="login-register" value="Log In">
+            <br> <br>
+            <span class="account-text" style="font-size:13px">Don't have an account?</span> <br>
+            <a href="/account/register">
+                Register
+            </a>
+        </form>
+    </div>
+</div>

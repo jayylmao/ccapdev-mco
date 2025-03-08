@@ -1,0 +1,120 @@
+@import "global.css";
+
+body {
+    overflow-y: auto;
+    background-color: var(--bg-secondary);
+}
+
+#profile-page-container{
+    display: flex;
+    justify-content: center;
+    margin-left: var(--sidebar-width);
+    margin-top: var(--nav-height);
+}
+
+#profile-page{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    width: 70vw;
+}
+
+.background-image-section{
+    display: flex;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.user-information-section{
+    display: flex;
+    box-sizing: content-box;
+    height: fit-content;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.profile-picture{
+    margin-top: -5em;
+
+    width: 12em;
+    height: 12em;
+    object-fit: cover;
+
+    border-radius: 100px;
+    border: 2px solid var(--border-light);
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.user-informations{
+    width: 720px;
+    min-width: 300px;
+    height: 70px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.username-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userFLnames{
+    color: var(--fg-main);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.username{
+    font-size: 13px;
+    color: var(--fg-secondary);
+}
+
+.description{
+    margin-top: 0px;
+    color: var(--fg-main);
+}
+
+.btnEdit{
+    border: 1px solid var(--border-light);
+    background-color: var(--accent-dark);
+    color: var(--bg-main);
+    font-family: var(--body-font);
+    border-radius: 100px;
+    font-weight: bold;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.btnEdit:hover{
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+    transition: all 0.15s;
+}
+
+#main-content {
+    margin-left: 0;
+}
+
+.post:first-child {
+    border-radius: 12px 12px 0 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.post:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+@media screen and (max-width: 1279px) {
+    #profile-page-container {
+        margin-left: 0;
+    }
+
+    #profile-page {
+        width: 100vw;
+    }
+}

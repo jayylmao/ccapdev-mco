@@ -1,0 +1,26 @@
+<div>
+    <div id="account-container">
+        <div id="logo">
+            <h1>Register for <span id="logo-color">rabble*</span></h1>
+        </div>
+        <form name="register-form" action="/account/register" method="post">
+            <div class="nameinfo">
+                <input type="text" id="sign-in" name="firstname" placeholder="First name" required>
+                <input type="text" id="sign-in" name="lastname" placeholder="Last name" required>
+            </div>
+                <input type="text" id="sign-in" name="username" placeholder="Username" required>
+                <input type="password" id="sign-in" name="password1" placeholder="New Password" required>
+                <input type="password" id="sign-in" name="password2" placeholder="Confirm Password" required>
+                <br><br>
+                <input type="submit" id="login-register">
+                <div id="error-msg">
+                    Error
+                </div>
+                <br> <br>
+                <span class="account-text">Already have an account?</span> <br>
+                <a href="/account/login">
+                    Login
+                </a>
+        </form>
+    </div>
+</div>

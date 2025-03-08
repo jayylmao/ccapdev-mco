@@ -1,0 +1,130 @@
+#main-content {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+
+    width: 70vw;
+    margin-left: var(--sidebar-width);
+    margin-top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+
+    padding: 2em;
+    box-sizing: border-box;
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+}
+
+#create-post-header {
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+label {
+    color: var(--fg-secondary);
+}
+
+#back-button {
+    padding: 0.5rem;
+    background-color: var(--bg-secondary);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 32px;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    transition: 0.25s background-color, 0.25s border;
+}
+
+#back-button:hover {
+    border: 1px solid var(--border-dark);
+    background-color: var(--bg-secondary-hover);
+    width: 1.5rem;
+}
+
+.back-button {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+.edit-form label {
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+.edit-form-input {
+    padding: 0.5em;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+    font-family: var(--body-font);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: start;
+}
+
+#description-edit {
+    height: 5rem;
+    resize: vertical;
+}
+
+.edit-form-input:hover {
+    background-color: var(--bg-secondary-hover);
+    border: 1px solid var(--border-dark);
+}
+
+.edit-controls {
+    display: flex;
+    justify-content: end;
+}
+
+.edit-controls div {
+    padding: 1em;
+    border-radius: 100px;
+    margin-left: 0.5em;
+}
+
+.submit-button {
+    background-color: var(--accent-dark);
+    border: 1px solid var(--border-light);
+    color: var(--bg-main);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+}
+
+.cancel-button {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+.cancel-button:hover {
+    background-color: var(--bg-secondary-hover);
+    border: 1px solid var(--border-dark);
+}
+
+@media screen and (max-width: 1279px) {
+    #main-content {
+        width: calc(100vw - var(--sidebar-width));
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #main-content {
+        width: 100vw;
+        margin-left: 0;
+        margin-bottom: calc(var(--nav-height) + 1rem);
+    }
+}

@@ -1,0 +1,38 @@
+<div id="sidebar">
+    {{#if (eq page "index")}}
+        <a id="home" class="sidebar-option active-sidebar-option" href="/">
+            <img src="/svg/home-filled.svg" class="active-button-svg"></img>
+            <p>Home</p>
+        </a>
+    {{else}}
+        <a id="home" class="sidebar-option" href="/">
+            <img src="/svg/home.svg" class="button-svg"></img>
+            <p>Home</p>
+        </a>
+    {{/if}}
+    {{#if (eq page "tags")}}
+        <a id="tags" class="sidebar-option active-sidebar-option" href="/tags">
+            <img src="/svg/hashtag.svg" class="active-button-svg"></img>
+            <p>Tags</p>
+        </a>
+    {{else}}
+        <a id="tags" class="sidebar-option" href="/tags">
+            <img src="/svg/hashtag.svg" class="button-svg"></img>
+            <p>Tags</p>
+        </a>
+    {{/if}}
+    <hr/>
+
+    <a id="account" class="sidebar-option" href="/user/{{loggedUser.username}}">
+        <img src="{{loggedUser.profileImg}}" class="account-image" />
+        <p>@{{loggedUser.username}}</p>
+    </a>
+    <a id="account" class="sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
+        <img src="/svg/edit.svg" class="button-svg"></img>
+        <p>Edit profile</p>
+    </a>
+    <a id="account" class="sidebar-option" href="/account/login">
+        <img src="/svg/log-out.svg" class="button-svg"></img>
+        <p>Log out</p>
+    </a>
+</div>
