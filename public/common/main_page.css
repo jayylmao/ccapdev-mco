@@ -118,7 +118,6 @@ body {
 @media screen and (max-width: 1279px) {
     #main-content {
         width: calc(100vw - var(--sidebar-width));
-        margin-left: var(--sidebar-width);
     }
 }
 

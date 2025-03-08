@@ -32,13 +32,12 @@ const renderTagPage = async (req, res) => {
             }}
         ]).exec();
 
-        console.log(posts);
-
         res.render('tags', {
             layout: 'tag_layout',
             loggedUser: loggedUser,
             tag: req.params.tag,
             posts: posts,
+            postCount: posts.length,
             page: 'tags'
         });
     } catch (error) {

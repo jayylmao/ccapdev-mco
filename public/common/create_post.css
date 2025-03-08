@@ -5,10 +5,12 @@
     background-color: var(--bg-main);
 
     width: 70vw;
-    height: calc(100vw - var(--nav-height));
-    box-sizing: border-box;
-    padding: 2em;
+    margin-left: var(--sidebar-width);
     margin-top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+
+    padding: 2em;
+    box-sizing: border-box;
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
 }
@@ -111,4 +113,18 @@ label {
 .cancel-button:hover {
     background-color: var(--bg-secondary-hover);
     border: 1px solid var(--border-dark);
+}
+
+@media screen and (max-width: 1279px) {
+    #main-content {
+        width: calc(100vw - var(--sidebar-width));
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #main-content {
+        width: 100vw;
+        margin-left: 0;
+        margin-bottom: calc(var(--nav-height) + 1rem);
+    }
 }
