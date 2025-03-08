@@ -5,6 +5,11 @@ const renderTagPage = async (req, res) => {
     try {
         const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         let posts = await Post.aggregate([
+            { $match: {
+                $expr: {
+                    $in: [req.params.tag, "$tags"]
+                }
+            }},
             { $sort: { votes: -1 } }, 			// sort posts by descending.
             { $limit: 10 }, 					// only get 10.
             { $lookup: {
@@ -32,8 +37,9 @@ const renderTagPage = async (req, res) => {
         res.render('tags', {
             layout: 'tag_layout',
             loggedUser: loggedUser,
+            tag: req.params.tag,
             posts: posts,
-            page: 'post_viewer'
+            page: 'tags'
         });
     } catch (error) {
         console.error(error);
