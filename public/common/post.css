@@ -41,14 +41,23 @@
 
 .post-tags {
     padding: 0;
-    margin: 0;
+}
+
+.post-tags a {
+    text-decoration: none;
     color: var(--fg-secondary);
-    font-size: 0.9em;
+    transition: color 0.25s, background-color 0.25s;
+    border-radius: 4px;
+}
+
+.post-tags a:hover {
+    background-color: var(--accent-light);
+    color: var(--bg-main);
 }
 
 .post-tags li {
     display: inline;
-    padding-right: 0.5em;
+    padding: 0.25rem;
 }
 
 .tag-link {
