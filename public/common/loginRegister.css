@@ -61,6 +61,8 @@ input{
     color: var(--fg-main);
     font-weight: bold;
     cursor: pointer;
+
+    text-decoration: none;
 }
 #login-register:hover{
     background-color: var(--accent-dark);

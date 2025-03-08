@@ -24,17 +24,17 @@ const registerData = async (req,res) => {
         backgroundImg : 'https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg',
         profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
     }
-    await user.insertMany([data]);
 
     let pass1 = req.body.password1;
     let pass2 = req.body.password2;
+    
     // check if both passwords are same 
     if (pass1 != pass2) {
-        res.send("Mismatched passwords.");
+        res.redirect('/account/error');
     } else {
+        await user.insertMany([data]);
         res.redirect('/');
     }
-    
 }
 
 const loginData = async (req,res) => {
@@ -45,19 +45,27 @@ const loginData = async (req,res) => {
         if (check.password === req.body.password) {
             res.redirect('/');
         } else {
-            res.send("Incorrect password.");
+            res.redirect('/account/error');
         }
     } 
     // both username and password are incorrect
     catch {
-        res.send("Wrong details.");
+        res.redirect('/account/error');
     }
     
+}
+
+const renderErrorPage = async (req, res) => {
+    res.render('account_error',{
+        layout: 'account_error_layout',
+        title: 'Error Page'
+    });
 }
 
 module.exports = {
     renderLoginPage,
     renderRegisterPage,
     registerData,
-    loginData
+    loginData,
+    renderErrorPage
 }
