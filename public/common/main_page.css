@@ -99,6 +99,8 @@ body {
 }
 
 #create-post {
+    display: flex;
+    align-items: center;
     background-color: var(--accent-light);
     border-radius: 12px;
     color: var(--bg-main);
@@ -106,6 +108,7 @@ body {
     cursor: pointer;
     padding: 0 0.5rem;
     text-decoration: none;
+    transition: 0.25s background-color, 0.25s border;
 }
 
 #create-post:hover {

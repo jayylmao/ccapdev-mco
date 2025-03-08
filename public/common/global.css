@@ -44,7 +44,29 @@
 
     /* add the button-svg class to your buttons to invert for dark mode. */
     .button-svg {
-        filter: invert(80%);
+        filter: brightness(0) saturate(100%) invert(89%) sepia(2%) saturate(3631%) hue-rotate(207deg) brightness(110%) contrast(94%);
+    }
+
+    .inverted-button-svg {
+        filter: brightness(0) saturate(100%) invert(15%) sepia(3%) saturate(2631%) hue-rotate(238deg) brightness(91%) contrast(84%);
+    }
+
+    .active-button-svg {
+        filter: brightness(0) saturate(100%) invert(72%) sepia(11%) saturate(892%) hue-rotate(252deg) brightness(86%) contrast(82%);
+    }
+}
+
+@media screen and (prefers-color-scheme: light) {
+    .button-svg {
+        filter: brightness(0) saturate(100%) invert(24%) sepia(13%) saturate(91%) hue-rotate(314deg) brightness(95%) contrast(89%);
+    }
+
+    .inverted-button-svg {
+        filter: brightness(0) saturate(100%) invert(99%) sepia(44%) saturate(326%) hue-rotate(292deg) brightness(99%) contrast(95%);
+    }
+
+    .active-button-svg {
+        filter: brightness(0) saturate(100%) invert(46%) sepia(10%) saturate(1260%) hue-rotate(253deg) brightness(91%) contrast(94%);
     }
 }
 
@@ -53,7 +75,7 @@
 }
 
 body {
-    background-color: var(--bg-main);
+    background-color: var(--bg-secondary);
     color: var(--fg-main);
     font-family: var(--body-font);
     margin: 0;

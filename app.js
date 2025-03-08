@@ -8,6 +8,7 @@ const userRouter = require('./routers/user-router.js');
 const accountRouter = require('./routers/account-router.js');
 const indexRouter = require('./routers/index-router.js');
 const postRouter = require('./routers/post-router.js');
+const createPostRouter = require('./routers/create-post-router.js');
 const {formatDate, deleteIcon, truncate, stripTags, editPostIcon, editProfileIcon} = require('./helpers/helper.js');
 const server = express();
 
@@ -53,6 +54,7 @@ server.use('/user', userRouter);
 server.use('/account', accountRouter);
 server.use('/', indexRouter);
 server.use('/post', postRouter);
+server.use('/create-post', createPostRouter);
 
 // Start server when db connected
 const startServer = async() => {

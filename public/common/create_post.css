@@ -2,35 +2,42 @@
     justify-self: center;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-main);
 
-    width: 50vw;
+    width: 70vw;
+    height: calc(100vw - var(--nav-height));
     box-sizing: border-box;
     padding: 2em;
-    margin-top: 2em;
+    margin-top: var(--nav-height);
+    margin-left: var(--sidebar-width);
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
 }
 
-@media only screen and (max-width: 1279px) {
-    #main-content {
-        width: 100vw;
-        border: none;
-    }
+#create-post-header {
+    font-family: var(--header-font);
+    letter-spacing: -1px;
 }
 
-#back-button-container {
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 100px;
-    padding: 0.5em;
-    border: 1px solid var(--border-light);
+label {
+    color: var(--fg-secondary);
+}
+
+#back-button {
+    padding: 0.5rem;
     background-color: var(--bg-secondary);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 32px;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    transition: 0.25s background-color, 0.25s border;
 }
 
-#back-button-container:hover {
+#back-button:hover {
     border: 1px solid var(--border-dark);
     background-color: var(--bg-secondary-hover);
-    cursor: pointer;
+    width: 1.5rem;
 }
 
 .back-button {
@@ -56,22 +63,19 @@
     color: var(--fg-main);
     font-family: var(--body-font);
     border: 1px solid var(--border-light);
+    border-radius: 12px;
     display: flex;
     align-items: start;
+}
+
+#description-edit {
+    height: 5rem;
+    resize: vertical;
 }
 
 .edit-form-input:hover {
     background-color: var(--bg-secondary-hover);
     border: 1px solid var(--border-dark);
-}
-
-#title-edit {
-    border-radius: 100px;
-}
-
-#description-edit {
-    height: 20vh;
-    border-radius: 16px;
 }
 
 .edit-controls {
@@ -89,6 +93,8 @@
     background-color: var(--accent-dark);
     border: 1px solid var(--border-light);
     color: var(--bg-main);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
 }
 
 .submit-button:hover {
@@ -99,6 +105,8 @@
 .cancel-button {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-light);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
 }
 
 .cancel-button:hover {

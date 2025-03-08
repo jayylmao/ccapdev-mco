@@ -20,22 +20,18 @@
 #back-button {
     padding: 0.5rem;
     background-color: var(--bg-secondary);
-    width: fit-content;
-    aspect-ratio: 1;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 32px;
     cursor: pointer;
     border: 1px solid var(--border-light);
-    margin-bottom: 1em;
+    transition: 0.25s background-color, 0.25s border;
 }
 
 #back-button:hover {
     border: 1px solid var(--border-dark);
     background-color: var(--bg-secondary-hover);
-}
-
-#back-icon {
     width: 1.5rem;
-    height: 1.5rem;
 }
 
 #post-header {
