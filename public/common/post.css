@@ -8,7 +8,7 @@
 
 .post {
     min-height: fit-content;
-    padding: 1em 2em;
+    padding: 0.5rem 2rem;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -31,6 +31,10 @@
 .post-link {
     text-decoration: none;
     color: var(--fg-main);
+}
+
+.post-date {
+    color: var(--fg-secondary);
 }
 
 .post-info-controls {
@@ -96,8 +100,8 @@
 }
 
 .post-user-icon {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.5rem;
+    height: 1.5rem;
     margin-right: 0.5em;
     border: 1px solid var(--border-light);
     border-radius: 100px;

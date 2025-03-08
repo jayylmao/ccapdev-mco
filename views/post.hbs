@@ -11,7 +11,7 @@
             <a id="post-creator-link" href="/user/{{ postCreator }}">
                 <p id="post-creator">@{{ postCreator }}</p>
             </a>
-            <p id="post-date">{{ formatDate datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
+            <p id="post-date">{{ formatDate post.datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
 
             <h1 id="post-header">{{ post.title }}</h1>
 
@@ -19,14 +19,14 @@
             <p id="post-content">{{ post.content }}</p>
 
             <div class="post-controls-container">
-                <div class="post-votes">{{ post.votes }} votes</div>
-
+                <div class="post_votes">
+                    <p class="vote-counter">{{ post.votes }} votes</p>
+                </div>
                 <div class="post-controls">
-                    <div class="upvote-button">
+                    <div class="post-control-button upvote-button">
                         <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
                     </div>
-
-                    <div class="downvote-button">
+                    <div class="post-control-button downvote-button">
                         <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
                     </div>
                 </div>
