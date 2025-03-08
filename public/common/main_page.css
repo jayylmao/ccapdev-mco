@@ -32,10 +32,11 @@ body {
     border-radius: 0 0 12px 12px;
 }
 
-#sort {
+#post-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     padding: 0.5rem 0;
-    box-sizing: border-box;
-    align-self: flex-start;
 }
 
 #sort-button {
@@ -49,8 +50,7 @@ body {
     font-size: 0.75em;
 }
 
-#sort-button:hover,
-#sort:hover #sort-button {
+#sort-button:hover {
     border: 1px solid var(--border-dark);
     border-radius: 12px 12px 0px 0px;
 }
@@ -96,6 +96,20 @@ body {
 
 #sort-dropdown-menu .dropdown-option:last-child {
     border-radius: 0px 0px 12px 12px;
+}
+
+#create-post {
+    background-color: var(--accent-light);
+    border-radius: 12px;
+    color: var(--bg-main);
+    font-family: var(--header-font);
+    cursor: pointer;
+    padding: 0 0.5rem;
+    text-decoration: none;
+}
+
+#create-post:hover {
+    background-color: var(--accent-dark);
 }
 
 @media screen and (max-width: 1279px) {

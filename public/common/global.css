@@ -163,19 +163,3 @@ a {
 #nav-register-button:hover {
     background-color: var(--accent-light);
 }
-
-#create-post {
-    position: fixed;
-    background-color: var(--accent-light);
-    bottom: 0.5rem;
-    right: 0.5rem;
-    border-radius: 100px;
-    padding: 0 1rem;
-    color: var(--bg-main);
-    font-family: var(--header-font);
-    cursor: pointer;
-}
-
-#create-post:hover {
-    background-color: var(--accent-dark);
-}

@@ -1,10 +1,7 @@
 <div id="main-page">
     {{>sidebar}}
-    <div id="create-post">
-        <p>Create Post</p>
-    </div>
     <div id="main-content">
-        <div id="sort">
+        <div id="post-header">
             <div id="sort-button">
                 <img src="/svg/sort-from-bottom-to-top-svgrepo-com.svg" class="button-svg" id="sort-dropdown"></img>
                 <p>Sort</p>
@@ -21,6 +18,9 @@
                     <p>Recent</p>
                 </div>
             </div>
+            <a href="/create-post" id="create-post">
+                <p>Create Post</p>
+            </a>
         </div>
         {{#each posts}}
             <div class="post">
