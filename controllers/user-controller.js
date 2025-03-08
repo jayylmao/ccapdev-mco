@@ -14,7 +14,8 @@ const renderProfilePage = async (req, res) => {
             layout: 'user_profile_layout.hbs',
             user: user,
             posts: posts,
-            loggedUser: loggedUser
+            loggedUser: loggedUser,
+            page: 'profile_viewer'
         })
     } catch (error) {
         console.error(error);
@@ -27,7 +28,8 @@ const renderEditProfilePage = async (req, res) => {
 
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
-            user: user
+            user: user,
+            page: 'profile_editor'
         })
     } catch (error) {
         console.error(error);

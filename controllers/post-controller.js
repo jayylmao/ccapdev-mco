@@ -15,7 +15,8 @@ const renderPostViewerPage = async (req, res) => {
             pageTitle: 'rabble - ' + post.title,
             post: post,
             postCreator: user.username,
-            loggedUser: loggedUser
+            loggedUser: loggedUser,
+            page: 'post_viewer'
         });
     } catch (error) {
         console.error(error);
@@ -38,7 +39,8 @@ const renderPostEditorPage = async (req, res) => {
             postCreator: user.username,
             title: post.title,
             description: post.content,
-            loggedUser: loggedUser
+            loggedUser: loggedUser,
+            page: 'post_editor'
         });
     } catch (error) {
         console.error(error);
