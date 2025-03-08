@@ -2,6 +2,7 @@
 :root {
     --bg-main: #f7eeee;
     --bg-secondary: #efe6e6;
+    --bg-secondary-transparent:rgba(239, 230, 230, 0.8);
     --bg-secondary-hover: #f3e7e7;
     --bg-tertiary: #f5f5f5;
     --fg-main: #444242;
@@ -22,13 +23,14 @@
     --title-font-size: 1.5rem;
 
     --nav-height: 4rem;
-    --sidebar-width: 10vw;
+    --sidebar-width: 20vw;
 }
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --bg-main: #342f36;
         --bg-secondary: #403b45;
+        --bg-secondary-transparent: rgba(64, 59, 69, 0.8);
         --bg-secondary-hover: #635372;
         --bg-tertiary: #403744;
         --fg-main: #f3eef7;
@@ -184,4 +186,24 @@ a {
 
 #nav-register-button:hover {
     background-color: var(--accent-light);
+}
+
+@media screen and (max-width: 1279px) {
+    :root {
+        --sidebar-width: 8vw;
+    }
+
+    #global-nav {
+        padding: 0 0.5rem;
+    }
+
+    #nav-global-search {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --sidebar-width: 100vw;
+    }
 }

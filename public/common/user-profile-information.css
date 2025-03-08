@@ -109,9 +109,12 @@ body {
     border-radius: 0 0 12px 12px;
 }
 
-@media ((min-width: 400px) and (max-width: 950px)){
-    .user-information-section{
-        padding-left: 50px;
-        padding-right: 50px;
+@media screen and (max-width: 1279px) {
+    #profile-page-container {
+        margin-left: 0;
+    }
+
+    #profile-page {
+        width: 100vw;
     }
 }

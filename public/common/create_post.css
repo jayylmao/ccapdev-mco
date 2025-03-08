@@ -9,7 +9,6 @@
     box-sizing: border-box;
     padding: 2em;
     margin-top: var(--nav-height);
-    margin-left: var(--sidebar-width);
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
 }

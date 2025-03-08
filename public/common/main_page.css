@@ -20,7 +20,7 @@ body {
     margin-left: var(--sidebar-width);
     margin-top: var(--nav-height);
     margin-bottom: 1rem;
-    width: fit-content;
+    width: 70vw;
 }
 
 .post:nth-child(2) {
@@ -32,7 +32,7 @@ body {
     border-radius: 0 0 12px 12px;
 }
 
-#post-header {
+#post-page-controls {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -117,7 +117,23 @@ body {
 
 @media screen and (max-width: 1279px) {
     #main-content {
-        width: 92vw;
-        margin-left: 8vw;
+        width: calc(100vw - var(--sidebar-width));
+        margin-left: var(--sidebar-width);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #main-content {
+        width: 100vw;
+        margin-left: 0;
+        margin-bottom: calc(var(--nav-height) + 1rem);
+    }
+
+    #sort-button {
+        margin-left: 1rem;
+    }
+
+    #create-post {
+        margin-right: 1rem;
     }
 }

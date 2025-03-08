@@ -5,6 +5,7 @@
     height: calc(100vh - var(--nav-height) - 1rem);
     overflow-y: auto;
     font-family: var(--header-font);
+    width: var(--sidebar-width);
 }
 
 #sign-in {
@@ -72,7 +73,26 @@
         display: none;
     }
 
-    .sidebar-option, #sidebar hr {
+    .sidebar-option {
         margin-left: 0.5rem;
+    }
+
+    #sidebar hr {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        top: calc(100vh - var(--nav-height));
+        height: var(--nav-height);
+        width: 100vw;
+        background-color: var(--bg-secondary-transparent);
+        backdrop-filter: blur(16px);
+        z-index: 100;
+        border-top: 1px solid var(--border-light);
     }
 }
