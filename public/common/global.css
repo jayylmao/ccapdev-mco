@@ -82,6 +82,7 @@ body {
     font-family: var(--body-font);
     margin: 0;
     user-select: none;
+    transition: 0.25s color, 0.25s background-color, 0.25s border-color;
 }
 
 a {
