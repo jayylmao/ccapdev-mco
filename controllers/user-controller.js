@@ -25,10 +25,12 @@ const renderProfilePage = async (req, res) => {
 const renderEditProfilePage = async (req, res) => {
     try {
         const user = await User.findOne({username: req.params.username}).lean();
+        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
             user: user,
+            loggedUser: loggedUser,
             page: 'profile_editor'
         })
     } catch (error) {

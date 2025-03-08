@@ -1,33 +1,89 @@
-.overall-form-section {
+#main-content {
+    height: calc(100vh - var(--nav-height));
+    background-color: var(--bg-main);
+    align-items: flex-start;
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    box-sizing: border-box;
+    padding: 2rem;
+}
+
+#title {
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+#back-button {
+    padding: 0.5rem;
+    background-color: var(--bg-secondary);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 32px;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    transition: 0.25s background-color, 0.25s border;
+}
+
+#back-button:hover {
+    border: 1px solid var(--border-dark);
+    background-color: var(--bg-secondary-hover);
+    width: 1.5rem;
+}
+
+.edit-controls {
     display: flex;
-    background-color: white;
-    padding: 15px;
-    border-top: 2px solid rgba(0, 0, 0, 0.10);
+    justify-content: end;
+}
+
+.edit-controls * {
+    padding: 1em;
+    border-radius: 100px;
+    margin-left: 0.5em;
+}
+
+.submit-button {
+    background-color: var(--accent-dark);
+    border: 1px solid var(--border-light);
+    color: var(--bg-main);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-light);
+    border: 1px solid var(--border-dark);
+}
+
+.cancel-button {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+.cancel-button:hover {
+    background-color: var(--bg-secondary-hover);
+    border: 1px solid var(--border-dark);
 }
 
 .input-section {
     display: flex;
-    align-items: center; 
-    gap: 10px; 
-    padding: 10px; 
+    flex-direction: column;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
 }
 
 .input-section label {
-    font-weight: bold;
-    font-size: 16px; 
-    text-align: right; 
-    width: 120px; 
+    color: var(--fg-secondary);
 }
 
 .input-section input,
 .input-section textarea {
-    flex: 1; 
-    width: 200px; 
-    height: 30px;
-    font-size: 15px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+    padding: 0.5rem;
 }
 
 .input-section textarea {
@@ -37,12 +93,10 @@
 .btnSave-section{
     padding-top: 10px;
     height:41px;
-    background-color: #6d4666;
 }
 
 .btnSave{
     border: 3px solid #b49fcc;
-    background-color: white;
     border-radius: 10px;
     margin-left: 699px;
     font-weight: bold;
@@ -52,7 +106,6 @@
 
 .btnSave:hover{
     border: 3px solid white;
-    background-color: #b49fcc;
     border: 3px solid white;
     color: white;
     transition: all 0.15s;
