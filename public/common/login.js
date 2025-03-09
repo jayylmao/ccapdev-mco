@@ -17,10 +17,10 @@ function viewPassword() {
     
     if (x.type === "password") {
         x.type = "text";
-        document.getElementById("eye").src = "/svg/eye-open-icon.svg";
+        document.getElementById("eye").src = "/svg/eye-closed.svg";
     } else {
         x.type = "password";
-        document.getElementById("eye").src = "/svg/eye-closed-svgexport-1.svg";
+        document.getElementById("eye").src = "/svg/eye.svg";
     }
 
     return false;
