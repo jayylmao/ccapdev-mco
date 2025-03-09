@@ -5,21 +5,58 @@ body {
     background-color: var(--bg-secondary);
 }
 
-#profile-page-container{
+#post-list, #comment-list {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#comment-list {
+    display: none;
+}
+
+#profile-page-container {
     display: flex;
     justify-content: center;
     margin-left: var(--sidebar-width);
     margin-top: var(--nav-height);
 }
 
-#profile-page{
+#profile-page {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
     width: 70vw;
 }
 
-.background-image-section{
+#content-selection {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#content-selection button {
+    font-size: 1.5rem;
+    color: var(--fg-tertiary);
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+    background-color: transparent;
+    border: none;
+    transition: 0.25s color;
+}
+
+
+#content-selection button:hover {
+    color: var(--fg-secondary);
+    cursor: pointer;
+}
+
+#content-selection #posts-view-button {
+    color: var(--fg-main);
+}
+
+.background-image-section {
     display: flex;
     height: 30vh;
     background-size: cover;
@@ -27,7 +64,7 @@ body {
     border-radius: 12px;
 }
 
-.user-information-section{
+.user-information-section {
     display: flex;
     box-sizing: content-box;
     height: fit-content;
@@ -35,7 +72,7 @@ body {
     padding: 1rem;
 }
 
-.profile-picture{
+.profile-picture {
     margin-top: -5rem;
 
     width: 12rem;
@@ -48,7 +85,7 @@ body {
     z-index: 100;
 }
 
-.user-informations{
+.user-informations {
     width: 720px;
     min-width: 300px;
     height: 70px;
@@ -56,29 +93,29 @@ body {
     margin-top: 5px;
 }
 
-.username-section{
+.username-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.userFLnames{
+.userFLnames {
     color: var(--fg-main);
     font-weight: bold;
     font-size: 30px;
 }
 
-.username{
+.username {
     font-size: 13px;
     color: var(--fg-secondary);
 }
 
-.description{
+.description {
     margin-top: 0px;
     color: var(--fg-main);
 }
 
-.btnEdit{
+.btnEdit {
     border: 1px solid var(--border-light);
     background-color: var(--bg-secondary);
     color: var(--fg-main);
@@ -88,7 +125,7 @@ body {
     cursor: pointer;
 }
 
-.btnEdit:hover{
+.btnEdit:hover {
     background-color: var(--bg-secondary-hover);
     border: 1px solid var(--border-dark);
     transition: all 0.15s;
@@ -96,15 +133,6 @@ body {
 
 #main-content {
     margin-left: 0;
-}
-
-.post:first-child {
-    border-radius: 12px 12px 0 0;
-    border-top: 1px solid var(--border-light);
-}
-
-.post:last-child {
-    border-radius: 0 0 12px 12px;
 }
 
 @media screen and (max-width: 1279px) {

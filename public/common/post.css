@@ -22,6 +22,15 @@
     border-left: 1px solid var(--border-light);
 }
 
+.post:first-of-type {
+    border-radius: 12px 12px 0 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.post:last-of-type {
+    border-radius: 0 0 12px 12px;
+}
+
 @media only screen and (max-width: 1279px) {
     .main-content {
         width: calc(100vw - var(--sidebar-width));

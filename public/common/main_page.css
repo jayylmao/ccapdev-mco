@@ -23,15 +23,6 @@ body {
     width: 70vw;
 }
 
-.post:nth-child(2) {
-    border-radius: 12px 12px 0 0;
-    border-top: 1px solid var(--border-light);
-}
-
-.post:last-child {
-    border-radius: 0 0 12px 12px;
-}
-
 #post-page-controls {
     display: flex;
     width: 100%;

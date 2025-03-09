@@ -1,10 +1,16 @@
 <div class="comment">
-    <a id="comment-creator-link" href="/user/{{ this.commentCreator }}">
-        <p id="comment-creator">@{{ this.commentCreator }}</p>
+    <a class="comment-creator-link" href="/user/{{ this.commentCreator }}">
+        <p class="comment-creator">@{{ this.commentCreator }}</p>
     </a>
-    <p id="comment-date">{{ formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a' }}</p>
-    <p id="comment-content">{{ this.comment }}</p>
-    <div id="comment-controls">
-        <p id="comment-votes">{{ this.votes }} votes</p>
+    <p class="comment-date">{{ formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a' }}</p>
+    <p class="comment-content">{{ this.comment }}</p>
+    <div class="comment-controls">
+        <p class="comment-votes">{{ this.votes }} votes</p>
+        <div class="post-control-button upvote-button">
+            <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
+        </div>
+        <div class="post-control-button downvote-button">
+            <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
+        </div>
     </div>
 </div>
