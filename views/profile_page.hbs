@@ -21,7 +21,13 @@
                 <div class="post">
                     <div class="post-info-controls">
                         <hgroup class="post-info">
-                            <ul class="post-tags"></ul>
+                            <ul class="post-tags">
+                                {{#tags}}
+                                    <a href="/tag/{{this}}">
+                                        <li>#{{this}}</li>
+                                    </a>
+                                {{/tags}}
+                            </ul>
                             <div class="post-user-container">    
                                 {{{deleteIcon ../user ../loggedUser this._id}}}
                             </div>

@@ -9,7 +9,7 @@
     margin-top: var(--nav-height);
     height: calc(100vh - var(--nav-height));
 
-    padding: 2em;
+    padding: 2rem;
     box-sizing: border-box;
     border-left: 1px solid var(--border-light);
     border-right: 1px solid var(--border-light);
