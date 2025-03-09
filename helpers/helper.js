@@ -50,8 +50,8 @@ module.exports = {
         if(postUserId.equals(loggedUser._id)){
             return `
                 <a class="post-control-button edit-button" href="/post/edit/${postId}">
-                    <img class="post-icon edit-icon button-svg" src="/svg/pen-new-square-svgrepo-com.svg"></img>
-                    <p>edit</p>
+                    <img class="post-icon edit-icon button-svg" src="/svg/edit.svg"></img>
+                    <p>Edit</p>
                 </a>`
         }
     },

@@ -32,15 +32,14 @@ body {
     box-sizing: content-box;
     height: fit-content;
     justify-content: center;
-    padding: 1em;
-    border-bottom: 1px solid var(--border-light);
+    padding: 1rem;
 }
 
 .profile-picture{
-    margin-top: -5em;
+    margin-top: -5rem;
 
-    width: 12em;
-    height: 12em;
+    width: 12rem;
+    height: 12rem;
     object-fit: cover;
 
     border-radius: 100px;
@@ -81,17 +80,16 @@ body {
 
 .btnEdit{
     border: 1px solid var(--border-light);
-    background-color: var(--accent-dark);
-    color: var(--bg-main);
-    font-family: var(--body-font);
-    border-radius: 100px;
-    font-weight: bold;
-    padding: 1em;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
+    font-family: var(--header-font);
+    border-radius: 12px;
+    padding: 1rem;
     cursor: pointer;
 }
 
 .btnEdit:hover{
-    background-color: var(--accent-light);
+    background-color: var(--bg-secondary-hover);
     border: 1px solid var(--border-dark);
     transition: all 0.15s;
 }
