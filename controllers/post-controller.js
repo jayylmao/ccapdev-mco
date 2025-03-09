@@ -10,6 +10,11 @@ const renderPostViewerPage = async (req, res) => {
         let user = await User.findById(post.postCreator).lean();
         let comments = await Comment.find({parent: req.params.id}).lean();
 
+        for (let comment of comments) {
+            const user = await User.findById(comment.commentCreator).lean();
+            comment.commentCreator = user.username;
+        }
+
         res.render('post', {
             layout: 'post_viewer_layout',
             pageTitle: 'rabble - ' + post.title,

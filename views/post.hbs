@@ -38,6 +38,12 @@
                 <input type="text" id="comment-box" placeholder="say something about the post"></input>
                 <button id="comment-send">Send</button>
             </div>
+
+            <div class="comments-container">
+                {{#each comments}}
+                    {{>comment}}
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>

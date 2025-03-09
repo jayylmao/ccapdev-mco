@@ -1,0 +1,10 @@
+<div class="comment">
+    <a id="comment-creator-link" href="/user/{{ this.commentCreator }}">
+        <p id="comment-creator">@{{ this.commentCreator }}</p>
+    </a>
+    <p id="comment-date">{{ formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a' }}</p>
+    <p id="comment-content">{{ this.comment }}</p>
+    <div id="comment-controls">
+        <p id="comment-votes">{{ this.votes }} votes</p>
+    </div>
+</div>

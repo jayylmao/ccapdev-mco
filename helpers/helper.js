@@ -1,3 +1,4 @@
+const User = require('../models/user-model.js');
 const moment = require('moment');
 
 module.exports = {
