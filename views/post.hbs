@@ -34,10 +34,13 @@
         </div>
         <div id="comments-section">
             <h2 id="comments-header">Comments</h2>
-            <div id="comment-creator">
+            <form id="comment-creator">
                 <input type="text" id="comment-box" placeholder="say something about the post"></input>
-                <button id="comment-send">Send</button>
-            </div>
+                <button id="comment-send" type="submit">
+                    <img src="/svg/send.svg" id="comment-send-button" class="button-svg" />
+                    <p>Send</p>
+                </button>
+            </form>
 
             <div class="comments-container">
                 {{#each comments}}

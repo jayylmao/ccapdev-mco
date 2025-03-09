@@ -1,24 +1,18 @@
 .comment {
     margin: 0.5rem;
     padding: 0.5rem;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    background-color: var(--bg-secondary);
-}
-
-.comment p {
-    margin: 0.3rem 0;
-}
-
-.comment-creator-container {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
 }
 
-.comment-user {
+.comment * {
+    margin: 0;
+}
+
+.comment-creator {
     color: var(--fg-secondary);
-    font-weight: bold;
 }
 
 .comment-date {

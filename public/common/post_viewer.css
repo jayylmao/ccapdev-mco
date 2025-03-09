@@ -131,6 +131,7 @@
 
 #comment-creator {
     width: 100%;
+    display: flex;
 }
 
 #comments-header {
@@ -138,9 +139,9 @@
 }
 
 #comment-box {
-    padding: 1em;
-    width: 90%;
-    border-radius: 100px;
+    padding: 1rem;
+    flex-grow: 1;
+    border-radius: 12px 0 0 12px;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-dark);
     font-family: var(--body-font);
@@ -149,15 +150,25 @@
 }
 
 #comment-send {
-    padding: 1em;
-    border-radius: 100px;
-    background-color: var(--accent-dark);
-    color: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+    width: fit-content;
+    border-radius: 0 12px 12px 0;
+    background-color: var(--bg-secondary);
+    color: var(--fg-main);
     border: 1px solid var(--border-light);
     font-family: var(--body-font);
     cursor: pointer;
 }
 
 #comment-send:hover {
-    background-color: var(--accent-light);
+    background-color: var(--bg-secondary-hover);
+}
+
+#comment-send-button {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
 }
