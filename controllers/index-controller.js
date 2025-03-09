@@ -71,7 +71,7 @@ const renderLoggedOutPage = async (req, res) => {
             layout: 'index_layout',
             pageTitle: 'rabble',
             posts: posts,
-            loggedUser: null,
+            loggedUser: loggedUser,
             page: 'index'
         });
     } catch (error) {
