@@ -18,10 +18,12 @@
                     <p>Recent</p>
                 </div>
             </div>
-            <a href="/create-post" id="create-post">
-                <img src="/svg/plus.svg" class="inverted-button-svg" id="sort-dropdown"></img>
-                <p>Create post</p>
-            </a>
+            {{#unless (eq loggedUser null)}}
+                <a href="/create-post" id="create-post">
+                    <img src="/svg/plus.svg" class="inverted-button-svg" id="sort-dropdown"></img>
+                    <p>Create post</p>
+                </a>
+            {{/unless}}
         </div>
         {{#each posts}}
             {{>post}}

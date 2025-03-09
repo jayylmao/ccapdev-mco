@@ -161,6 +161,7 @@
     border: 1px solid var(--border-light);
     font-family: var(--body-font);
     cursor: pointer;
+    transition: 0.25s background-color, 0.25s border-color;
 }
 
 #comment-send:hover {

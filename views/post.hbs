@@ -34,13 +34,15 @@
         </div>
         <div id="comments-section">
             <h2 id="comments-header">Comments</h2>
-            <form id="comment-creator">
-                <input type="text" id="comment-box" placeholder="say something about the post"></input>
-                <button id="comment-send" type="submit">
-                    <img src="/svg/send.svg" id="comment-send-button" class="button-svg" />
-                    <p>Send</p>
-                </button>
-            </form>
+            {{#unless (eq loggedUser null)}}
+                <form id="comment-creator">
+                    <input type="text" id="comment-box" placeholder="say something about the post"></input>
+                    <button id="comment-send" type="submit">
+                        <img src="/svg/send.svg" id="comment-send-button" class="button-svg" />
+                        <p>Send</p>
+                    </button>
+                </form>
+            {{/unless}}
 
             <div class="comments-container">
                 {{#each comments}}

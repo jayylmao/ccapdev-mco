@@ -1,14 +1,28 @@
 <div id="sidebar">
-    {{#if (eq page "index")}}
-        <a id="home" class="sidebar-option active-sidebar-option" href="/">
-            <img src="/svg/home-filled.svg" class="active-button-svg"></img>
-            <p>Home</p>
-        </a>
+    {{#if (eq loggedUser null)}}
+        {{#if (eq page "index")}}
+            <a id="home" class="sidebar-option active-sidebar-option" href="/">
+                <img src="/svg/home-filled.svg" class="active-button-svg"></img>
+                <p>Home</p>
+            </a>
+        {{else}}
+            <a id="home" class="sidebar-option" href="/">
+                <img src="/svg/home.svg" class="button-svg"></img>
+                <p>Home</p>
+            </a>
+        {{/if}}
     {{else}}
-        <a id="home" class="sidebar-option" href="/">
-            <img src="/svg/home.svg" class="button-svg"></img>
-            <p>Home</p>
-        </a>
+        {{#if (eq page "index")}}
+            <a id="home" class="sidebar-option active-sidebar-option" href="/home">
+                <img src="/svg/home-filled.svg" class="active-button-svg"></img>
+                <p>Home</p>
+            </a>
+        {{else}}
+            <a id="home" class="sidebar-option" href="/home">
+                <img src="/svg/home.svg" class="button-svg"></img>
+                <p>Home</p>
+            </a>
+        {{/if}}
     {{/if}}
     {{#if (eq page "tags")}}
         <a id="tags" class="sidebar-option active-sidebar-option" href="/tags">
@@ -23,23 +37,35 @@
     {{/if}}
     <hr/>
 
-    <a id="account" class="sidebar-option" href="/user/{{loggedUser.username}}">
-        <img src="{{loggedUser.profileImg}}" class="account-image" />
-        <p>@{{loggedUser.username}}</p>
-    </a>
-    {{#if (eq page "profile_editor")}}
-        <a id="account" class="sidebar-option active-sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
-            <img src="/svg/edit-filled.svg" class="active-button-svg"></img>
-            <p>Edit profile</p>
+    {{#unless (eq loggedUser null)}}
+        <a id="account" class="sidebar-option" href="/user/{{loggedUser.username}}">
+            <img src="{{loggedUser.profileImg}}" class="account-image" />
+            <p>@{{loggedUser.username}}</p>
         </a>
+        {{#if (eq page "profile_editor")}}
+            <a id="account" class="sidebar-option active-sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
+                <img src="/svg/edit-filled.svg" class="active-button-svg"></img>
+                <p>Edit profile</p>
+            </a>
+        {{else}}
+            <a id="account" class="sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
+                <img src="/svg/edit.svg" class="button-svg"></img>
+                <p>Edit profile</p>
+            </a>
+        {{/if}}
+        <a id="account" class="sidebar-option" href="/">
+            <img src="/svg/log-out.svg" class="button-svg"></img>
+            <p>Log out</p>
+        </a>
+
     {{else}}
-        <a id="account" class="sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
-            <img src="/svg/edit.svg" class="button-svg"></img>
-            <p>Edit profile</p>
+        <a id="account" class="sidebar-option" href="/account/login">
+            <img src="/svg/log-in.svg" class="button-svg"></img>
+            <p>Log in</p>
         </a>
-    {{/if}}
-    <a id="account" class="sidebar-option" href="/account/login">
-        <img src="/svg/log-out.svg" class="button-svg"></img>
-        <p>Log out</p>
-    </a>
+        <a id="account" class="sidebar-option" href="/account/register">
+            <img src="/svg/user-plus.svg" class="button-svg"></img>
+            <p>Register</p>
+        </a>
+    {{/unless}}
 </div>

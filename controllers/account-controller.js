@@ -33,7 +33,7 @@ const registerData = async (req,res) => {
         res.redirect('/account/error');
     } else {
         await user.insertMany([data]);
-        res.redirect('/');
+        res.redirect('/home');
     }
 }
 
@@ -43,7 +43,7 @@ const loginData = async (req,res) => {
 
         // if password matches that of the user
         if (check.password === req.body.password) {
-            res.redirect('/');
+            res.redirect('/home');
         } else {
             res.redirect('/account/error');
         }

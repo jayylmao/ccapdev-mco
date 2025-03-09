@@ -21,7 +21,7 @@ const renderPostViewerPage = async (req, res) => {
             post: post,
             postCreator: user.username,
             comments: comments,
-            loggedUser: loggedUser,
+            loggedUser: null,
             page: 'post_viewer'
         });
     } catch (error) {
