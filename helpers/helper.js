@@ -37,7 +37,7 @@ module.exports = {
                         
                         <div>
                             <a href="/post/delete/${postId}">
-                                <button class="btnDel">Delete Post</button>
+                                <button class="btnDel">Delete</button>
                             </a>
                         </div>
                     </div>`
