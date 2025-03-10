@@ -88,10 +88,12 @@ label {
     padding: 1em;
     border-radius: 100px;
     margin-left: 0.5em;
+    cursor: pointer;
+    transition: 0.25s background-color, 0.25s border-color;
 }
 
 .submit-button {
-    background-color: var(--accent-dark);
+    background-color: var(--accent-light);
     border: 1px solid var(--border-light);
     color: var(--bg-main);
     font-family: var(--header-font);
@@ -99,7 +101,7 @@ label {
 }
 
 .submit-button:hover {
-    background-color: var(--accent-light);
+    background-color: var(--accent-dark);
     border: 1px solid var(--border-dark);
 }
 

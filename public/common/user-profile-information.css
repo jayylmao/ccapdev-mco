@@ -46,7 +46,6 @@ body {
     transition: 0.25s color;
 }
 
-
 #content-selection button:hover {
     color: var(--fg-secondary);
     cursor: pointer;
@@ -135,7 +134,7 @@ body {
     margin-left: 0;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 900px) {
     #profile-page-container {
         margin-left: 0;
     }
