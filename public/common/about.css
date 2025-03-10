@@ -33,13 +33,6 @@ body {
     letter-spacing: -1px;
 }
 
-.highlight {
-    background-color: var(--accent-light);
-    color: var(--bg-main);
-    padding: 0 0.5rem;
-    border-radius: 8px;
-}
-
 .hanging-indent {
     text-indent: -0.5in;
     padding: 0 0.5in;

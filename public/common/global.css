@@ -207,6 +207,14 @@ a {
     background-color: var(--accent-light);
 }
 
+.highlight {
+    background-color: var(--accent-light);
+    color: var(--bg-main);
+    padding: 0 0.5rem;
+    border-radius: 8px;
+    letter-spacing: -1px;
+}
+
 @media screen and (max-width: 1279px) {
     :root {
         --sidebar-width: 8vw;
