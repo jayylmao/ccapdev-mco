@@ -31,72 +31,58 @@ body {
 }
 
 #sort-button {
-    padding: 0.25em 1em;
     display: flex;
+    gap: 0.25rem;
+    padding: 1rem;
+    height: 2rem;
+    width: 8rem;
     align-items: center;
-    width: fit-content;
-    border-radius: 12px;
+    justify-content: center;
+    border-radius: 8px;
     border: 1px solid var(--border-light);
     background-color: var(--bg-main);
-    font-size: 0.75em;
+    transition: 0.15s background-color, 0.15s border-color;
+    cursor: pointer;
 }
 
 #sort-button:hover {
+    background-color: var(--bg-secondary-hover);
     border: 1px solid var(--border-dark);
-    border-radius: 12px 12px 0px 0px;
 }
 
-#sort-dropdown {
-    height: 1.5rem;
-    aspect-ratio: 1;
-    padding: 0 0.5rem;
+#sort-button p {
+    font-family: var(--header-font);
 }
 
 #sort-dropdown-menu {
-    display: none;
-    font-size: 0.75em;
-    background-color: var(--bg-secondary);
-    width: fit-content;
-    z-index: 1;
+    visibility: hidden;
+    width: 8rem;
+    background-color: var(--bg-main);
     position: absolute;
+    margin-top: -0.5rem;
+    box-sizing: border-box;
     border: 1px solid var(--border-dark);
-    border-top: 0;
-    border-radius: 0px 0px 12px 12px;
-}
-
-#sort-button:hover + #sort-dropdown-menu, #sort-dropdown-menu:hover {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#sort-dropdown-menu p:hover {
-    background-color: var(--bg-secondary-hover);
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    transition: 0.15s margin-top, 0.15s visibility, 0.15s opacity;
 }
 
 .dropdown-option {
-    padding: 0.5em 1em;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.dropdown-option:hover {
-    background-color: var(--bg-secondary-hover);
-}
-
-#sort-dropdown-menu .dropdown-option:last-child {
-    border-radius: 0px 0px 12px 12px;
+    gap: 0.25rem;
+    padding: 0 0.5rem;
+    font-size: 0.9rem;
 }
 
 #create-post {
     display: flex;
     align-items: center;
     background-color: var(--accent-light);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--bg-main);
     font-family: var(--header-font);
     cursor: pointer;
+    height: 2rem;
     padding: 0 0.5rem;
     text-decoration: none;
     transition: 0.15s background-color, 0.15s border;

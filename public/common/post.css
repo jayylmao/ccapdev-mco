@@ -59,7 +59,7 @@
 .post-tags a {
     text-decoration: none;
     color: var(--fg-secondary);
-    transition: color 0.25s, background-color 0.25s;
+    transition: color 0.15s, background-color 0.15s;
     border-radius: 4px;
 }
 
@@ -140,7 +140,7 @@
 .btnDel:hover {
     border: 1px solid var(--border-dark);
     background-color: var(--bg-secondary-hover);
-    transition: 0.25s background-color, 0.25s color;
+    transition: 0.15s background-color, 0.15s color;
 }
 
 .post-description {

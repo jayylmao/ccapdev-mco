@@ -43,7 +43,7 @@ body {
     letter-spacing: -1px;
     background-color: transparent;
     border: none;
-    transition: 0.25s color;
+    transition: 0.15s color;
 }
 
 #content-selection button:hover {

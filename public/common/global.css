@@ -4,7 +4,7 @@
     --bg-secondary: #efe6e6;
     --bg-secondary-transparent:#efe6e6cc;
     --bg-secondary-hover: #f3e7e7;
-    --bg-tertiary: #f5f5f5;
+    --bg-tertiary: #e4e4e4;
     --fg-main: #444242;
     --fg-secondary: #6f6677;
     --fg-tertiary: #736b7a;
@@ -12,7 +12,7 @@
     --border-light: #d4cbd8;
     --border-dark: #9e96a0;
     --accent-light: #b38bb1;
-    --accent-light-transparent: #b38bb1a1;
+    --accent-light-transparent: #91668ed2;
     --accent-dark: #5f364e;
     --upvote: #769dbf;
     --upvote-bg: #43739733;
@@ -122,7 +122,7 @@ a {
     background-color: var(--accent-light);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    transition: 0.25s background-color;
+    transition: 0.15s background-color;
 }
 
 #nav-global-search {

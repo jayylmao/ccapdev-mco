@@ -1,7 +1,10 @@
 #main-content {
-    margin-top: var(--nav-height);
     box-sizing: border-box;
-    padding: 0.5rem;
+    padding: 2rem;
+    background-color: var(--bg-main);
+    min-height: calc(100vh - var(--nav-height));
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
 }
 
 #tag-description {
@@ -11,8 +14,7 @@
     width: 100%;
 }
 
-#title {
-    font-size: 1.5rem;
+#tag-description h1 {
     font-family: var(--header-font);
     letter-spacing: -1px;
 }
@@ -50,6 +52,10 @@
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -1px;
+}
+
+.tag-count {
+    color: var(--bg-tertiary);
 }
 
 @media screen and (max-width: 900px) {

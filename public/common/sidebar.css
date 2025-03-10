@@ -27,7 +27,7 @@
     border-radius: 16px;
     text-decoration: none;
     color: var(--fg-main);
-    transition: 0.25s background-color;
+    transition: 0.15s background-color;
 }
 
 .sidebar-option p {

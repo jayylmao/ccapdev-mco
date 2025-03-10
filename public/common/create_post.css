@@ -32,7 +32,7 @@ label {
     border-radius: 32px;
     cursor: pointer;
     border: 1px solid var(--border-light);
-    transition: 0.25s background-color, 0.25s border;
+    transition: 0.15s background-color, 0.15s border;
 }
 
 #back-button:hover {
@@ -89,7 +89,7 @@ label {
     border-radius: 100px;
     margin-left: 0.5em;
     cursor: pointer;
-    transition: 0.25s background-color, 0.25s border-color;
+    transition: 0.15s background-color, 0.15s border-color;
 }
 
 .submit-button {
