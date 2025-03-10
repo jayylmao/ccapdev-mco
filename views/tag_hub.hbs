@@ -4,17 +4,17 @@
         <div id="tag-description">
             <h1 id="title">Explore tags</h1>
         </div>
-        {{#each tags}}
-            <div class="tag-container">
-                <a href="/tag/{{this._id}}">
+        <div id="tag-list">
+            {{#each tags}}
+                <a href="/tag/{{this._id}}" class="tag-container">
                     <p class="tag-name">#{{this._id}}</p>
                     {{#if (eq this.count 1)}}
-                        <p class="tag-count">{{this.count}} post</p>
+                        <p class="tag-count">{{this.count}} post </p>
                     {{else}}
                         <p class="tag-count">{{this.count}} posts</p>
                     {{/if}}
                 </a>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
 </div>

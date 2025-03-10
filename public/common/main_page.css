@@ -99,7 +99,7 @@ body {
     cursor: pointer;
     padding: 0 0.5rem;
     text-decoration: none;
-    transition: 0.25s background-color, 0.25s border;
+    transition: 0.15s background-color, 0.15s border;
 }
 
 #create-post:hover {
