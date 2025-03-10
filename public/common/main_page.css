@@ -52,6 +52,7 @@ body {
 
 #sort-button p {
     font-family: var(--header-font);
+    color: var(--fg-main);
 }
 
 #sort-dropdown-menu {
