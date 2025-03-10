@@ -1,0 +1,47 @@
+body {
+    background-color: var(--bg-main);
+}
+
+#main-page {
+    display: flex;
+    flex-direction: column;
+}
+
+#global-nav {
+    background-color: var(--bg-secondary);
+    border-bottom: none;
+    position: static;
+}
+
+#nav-global-search {
+    display: none;
+}
+
+.about-content {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 3rem;
+}
+
+#about-rabble {
+    background-color: var(--bg-secondary);
+}
+
+.about-header {
+    font-size: 3rem;
+    font-family: var(--header-font);
+    letter-spacing: -1px;
+}
+
+.highlight {
+    background-color: var(--accent-light);
+    color: var(--bg-main);
+    padding: 0 0.5rem;
+    border-radius: 8px;
+}
+
+.hanging-indent {
+    text-indent: -0.5in;
+    padding: 0 0.5in;
+    white-space: pre;
+}

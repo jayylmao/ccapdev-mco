@@ -106,6 +106,20 @@ body {
     background-color: var(--accent-dark);
 }
 
+#copyright-section {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100vw;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+#copyright-section a {
+    color: var(--fg-tertiary);
+    text-decoration: none;
+}
+
 @media screen and (max-width: 1279px) {
     #main-content {
         width: calc(100vw - var(--sidebar-width));
