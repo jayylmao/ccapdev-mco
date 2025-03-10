@@ -1,5 +1,4 @@
 #main-content {
-    height: calc(100vh - var(--nav-height));
     background-color: var(--bg-main);
     align-items: flex-start;
     border-left: 1px solid var(--border-light);
