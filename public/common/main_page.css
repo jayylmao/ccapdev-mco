@@ -4,6 +4,7 @@
 /* main part of site */
 body {
     background-color: var(--bg-secondary);
+    overflow-x: hidden;
 }
 
 #main-page {
