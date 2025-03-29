@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { renderMainPage } = require('../controllers/index-controller.js');
+const { renderMainPage, renderLoggedOutPage } = require('../controllers/index-controller.js');
 
-router.route('/').get(renderMainPage);
+router.route('/home').get(renderMainPage);
+router.route('/').get(renderLoggedOutPage);
 
 module.exports = router;

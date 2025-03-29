@@ -1,0 +1,32 @@
+<div id="main-page">
+    <div id="about-rabble" class="about-content">
+        <h1 class="about-header"><span class="highlight">rabble*</span> on about your favorite topics.</h1>
+        <p>
+            rabble* is your place to talk about whatever topics you want.
+            Explore content easily through tags and connect with other people,
+            anywhere, anytime.
+        </p>
+    </div>
+    <div class="about-content">
+        <p>
+            This website was a project submitted in partial fulfillment of 
+            our web application development course for our Computer Science degree
+            at De La Salle University.
+        </p>
+        <h2>Made with <span class="highlight"><3</span> by:</h2>
+        <ul>
+            <li>Jay Michael Carlos</li>
+            <li>Mark Celemen</li>
+            <li>Naysa Quitain</li>
+            <li>Nicole Shi</li>
+        </ul>
+    </div>
+    <div class="about-content">
+        <h2>References</h2>
+        {{#each references}}
+            <p class="hanging-indent">{{ this.author }}. ({{ this.year }}). {{ this.title }}.
+<a href="{{ this.link }}">{{ this.link }}</a>
+            </p>
+        {{/each}}
+    </div>
+</div>

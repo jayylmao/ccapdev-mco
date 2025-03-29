@@ -1,10 +1,10 @@
-<div id="hidden-modal" class="modal">
-    <div class="modal-container">
-        <div class="btnClose-section">
-            <a href="/user/{{user.username}}">
-                <button class="btnClose">&#10005;</button>
-            </a>
+<div id="main-page">
+    {{>sidebar}}
+    <div id="main-content">
+        <div id="back-button" onclick="history.back()">
+            <img class="button-svg" id="back-icon" src="/svg/arrow-left.svg">
         </div>
+        <h1 id="title">Edit your profile</h1>
 
         <!-- process the methodOverride before the multer (or else method=post not put), use a query parameter for _method -->
         <form action="/user/edit-profile/{{user.username}}?_method=PUT" method="post" enctype="multipart/form-data">
@@ -13,13 +13,13 @@
 
             <div class="overall-image-section">
                 <div class="image-section">
-                    <label for="profileImage">Choose your profile image:</label>
+                    <label for="profileImage">Profile image</label>
                     <input class="chosenProfileFile" type="file" name="profileImg">
                     <img class="chosenProfileImage" src="{{user.profileImg}}">
                 </div>
 
-                <div class="image-section">    
-                    <label for="backgroundImage">Choose your background image:</label>
+                <div class="image-section">
+                    <label for="backgroundImage">Banner image</label>
                     <input class="chosenBackgroundFile" type="file" name="backgroundImg">
                     <img class="chosenBackgroundImage" src="{{user.backgroundImg}}">
                 </div>
@@ -29,35 +29,34 @@
             <div class="overall-form-section">
                 <div>
                     <div class="input-section">
-                        <label>Username:</label>
+                        <label>Username</label>
                         <input class="username" type="text" name="username" value="{{user.username}}">
                     </div>
 
                     <div class="input-section">
-                        <label>First Name:</label>
+                        <label>First Name</label>
                         <input class="fName" type="text" name="fName" value="{{user.fName}}">
                     </div>
                 </div>
 
                 <div>
                     <div class="input-section">
-                        <label>Last Name:</label>
+                        <label>Last Name</label>
                         <input class="lName" type="text" name="lName" value="{{user.lName}}">
                     </div>
 
                     <div class="input-section input-textarea">
-                        <label>Description:</label>
+                        <label>Description</label>
                         <textarea class="description" name="description">{{user.description}}</textarea>
                     </div>
                 </div>
             </div>
 
 
-            <div class="btnSave-section">
-                <button type="submit" class="btnSave">Save</button>
+            <div class="edit-controls">
+                <button type="submit" class="submit-button">Submit</button>
+                <div class="cancel-button" onclick="history.back()">Cancel</div>
             </div>
-
         </form>
-
     </div>
 </div>

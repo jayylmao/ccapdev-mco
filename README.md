@@ -1,4 +1,4 @@
-# ccapdev-mco
+# rabble*
 Our major course output for our web application development course.
 
 ## Dependencies
@@ -20,3 +20,5 @@ Our major course output for our web application development course.
 4. Initialize the project with `npm init`. Use all default settings.
 5. Install the needed modules with `npm i`.
 6. Run the app with `npm start`.
+
+## Demo video link

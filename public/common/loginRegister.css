@@ -7,20 +7,17 @@
     text-decoration: none;
     font-size: var(--title-font-size);
 }
-#logo-color{
-    background-color: var(--accent-light);
-    color: var(--bg-main);
-    padding: 0 0.1em;
-}
 #account-container{
     justify-content: center;
     text-align: center;
     align-content: center;
     margin: auto;
-    width: 50vw;
+    width: 70vw;
     height: 100vh;
-    padding: 25px;
     border-radius: 8px;
+    box-sizing: border-box;
+    padding: 3rem;
+    background-color: var(--bg-main);
 }
 #remember-container{
     padding: 10px 0px;
@@ -54,16 +51,14 @@ input{
     margin:15px 5px 15px -75px;
 }
 #login-register{
-    border: 2px none;
-    border-radius: 7px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
     width: 100%;
-    padding: 15px 20px;
     margin: 8px 3px;
+    padding: 1rem;
     box-sizing: border-box;
-    font-size: 15px;
     background-color: var(--accent-light);
-    color: var(--fg-main);
-    font-weight: bold;
+    color: var(--bg-main);
     cursor: pointer;
 
     text-decoration: none;

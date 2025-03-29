@@ -17,42 +17,90 @@
         </div>
 
         <div id="main-content">
-            {{#each posts}}
-                <div class="post">
-                    <div class="post-info-controls">
-                        <hgroup class="post-info">
-                            <ul class="post-tags"></ul>
-                            <div class="post-user-container">    
-                                {{{deleteIcon ../user ../loggedUser this._id}}}
-                            </div>
-                            <p class="post-user">{{formatDate this.datePosted 'MMMM Do YYYY, h:mm:ss a'}}</p>
-                            <a class="post-link" href="/post/{{this._id}}">
-                                <h3 class="post-title">{{this.title}}</h3>
-                            </a>
-                            <p class="description">{{truncate (stripTags this.content) 450}}</p>
-                        </hgroup>
+            <div id="content-selection">
+                <button id="posts-view-button">Posts</button>
+                <button id="comments-view-button">Comments</button>
+            </div>
+            <div id="post-list">
+                {{#each posts}}
+                    <div class="post">
+                        <div class="post-info-controls">
+                            <hgroup class="post-info">
+                                <ul class="post-tags">
+                                    {{#tags}}
+                                        <a href="/tag/{{this}}">
+                                            <li>#{{this}}</li>
+                                        </a>
+                                    {{/tags}}
+                                </ul>
+                                <div class="post-user-container">    
+                                    {{{deleteIcon ../user ../loggedUser this._id 'post'}}}
+                                </div>
+                                <p class="post-user">{{formatDate this.datePosted 'MMMM Do YYYY, h:mm:ss a'}}</p>
+                                <a class="post-link" href="/post/{{this._id}}">
+                                    <h3 class="post-title">{{this.title}}</h3>
+                                </a>
+                                <p class="description">{{truncate (stripTags this.content) 450}}</p>
+                            </hgroup>
 
-                        <div class="post-controls-container">
-                            <div class="post-votes">
-                                <p class="vote-counter">{{this.votes}} votes</p>
-                            </div>
-
-                            <div class="post-controls">
-                                <div class="post-control-button upvote-button">
-                                    <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg"></img>
+                            <div class="post-controls-container">
+                                <div class="post-votes">
+                                    <p class="vote-counter">{{this.votes}} votes</p>
                                 </div>
 
-                                <div class="post-control-button downvote-button">
-                                    <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg"></img>
+                                <div class="post-controls">
+                                    <div class="post-control-button upvote-button">
+                                        <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg"></img>
+                                    </div>
+
+                                    <div class="post-control-button downvote-button">
+                                        <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg"></img>
+                                    </div>
+                                    
+                                    {{{editIcon this.postCreator ../loggedUser this._id 'post'}}}
                                 </div>
-                                
-                                {{{editPostIcon this.postCreator ../loggedUser this._id}}}
                             </div>
                         </div>
-
                     </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            </div>
+            <div id="comment-list">
+                {{#each comments}}
+                    <div class="post">
+                        <div class="post-info-controls">
+                            <hgroup class="post-info">
+                                <div class="post-user-container">
+                                    {{{deleteIcon ../user ../loggedUser this._id 'comment'}}}
+                                </div>
+                                <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
+                                <p class="description">
+                                    <a href="/post/{{this.parent}}">
+                                        {{this.comment}}
+                                    </a>
+                                </p>
+                            </hgroup>
+
+                            <div class="post-controls-container">
+                                <div class="post-votes">
+                                    <p class="vote-counter">{{this.votes}} votes</p>
+                                </div>
+
+                                <div class="post-controls">
+                                    <div class="post-control-button upvote-button">
+                                        <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg"></img>
+                                    </div>
+
+                                    <div class="post-control-button downvote-button">
+                                        <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg"></img>
+                                    </div>
+                                    
+                                    {{{editIcon this.commentCreator ../loggedUser this._id 'comment'}}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>

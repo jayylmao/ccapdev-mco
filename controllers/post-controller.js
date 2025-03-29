@@ -1,5 +1,6 @@
 const User = require('../models/user-model.js');
 const Post = require('../models/post-model.js');
+const Comment = require('../models/comment-model.js');
 
 const renderPostViewerPage = async (req, res) => {
     try {
@@ -7,12 +8,19 @@ const renderPostViewerPage = async (req, res) => {
         // find post with id specified in url.
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
+        let comments = await Comment.find({parent: req.params.id}).lean();
+
+        for (let comment of comments) {
+            const user = await User.findById(comment.commentCreator).lean();
+            comment.commentCreator = user.username;
+        }
 
         res.render('post', {
             layout: 'post_viewer_layout',
             pageTitle: 'rabble - ' + post.title,
             post: post,
             postCreator: user.username,
+            comments: comments,
             loggedUser: loggedUser,
             page: 'post_viewer'
         });

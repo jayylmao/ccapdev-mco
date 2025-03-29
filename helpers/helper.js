@@ -1,3 +1,4 @@
+const User = require('../models/user-model.js');
 const moment = require('moment');
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
             .replace(/&nbsp;/g, ' ')        
             .trim();                        
     },
-    deleteIcon: (postUser, loggedUser, postId) => {
+    deleteIcon: (postUser, loggedUser, postId, type) => {
         const postUserProfile = postUser.profileImg;
         const postUsername = postUser.username;
 
@@ -35,8 +36,8 @@ module.exports = {
                         </div>
                         
                         <div>
-                            <a href="/post/delete/${postId}">
-                                <button class="btnDel">Delete Post</button>
+                            <a href="/${type}/delete/${postId}">
+                                <button class="btnDel">Delete</button>
                             </a>
                         </div>
                     </div>`
@@ -46,12 +47,12 @@ module.exports = {
                 <p>@${postUsername}</p>`
 
     },
-    editPostIcon: (postUserId, loggedUser, postId) => {
+    editIcon: (postUserId, loggedUser, postId, type) => {
         if(postUserId.equals(loggedUser._id)){
             return `
-                <a class="post-control-button edit-button" href="/post/edit/${postId}">
-                    <img class="post-icon edit-icon button-svg" src="/svg/pen-new-square-svgrepo-com.svg"></img>
-                    <p>edit</p>
+                <a class="post-control-button edit-button" href="/${type}/edit/${postId}">
+                    <img class="post-icon edit-icon button-svg" src="/svg/edit.svg"></img>
+                    <p>Edit</p>
                 </a>`
         }
     },

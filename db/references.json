@@ -1,0 +1,134 @@
+[
+    {
+        "author": "Andreas Köberle on StackOverflow",
+        "year": 2013,
+        "title": "javascript - Insert html in a handlebar template without escaping - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/20280601/insert-html-in-a-handlebar-template-without-escaping"
+    },
+    {
+        "author": "Heng, C",
+        "year": 2019,
+        "title": "How to Create Hanging Indents in HTML and CSS",
+        "link": "https://www.thesitewizard.com/css/hanging-indents.shtml"
+    },
+    {
+        "author": "Iconoir",
+        "year": 2025,
+        "title": "Iconoir | Free Icons",
+        "link": "https://iconoir.com"
+    },
+    {
+        "author": "Katserbot on StackOverflow",
+        "year": 2016,
+        "title": "Connecting Node.JS to HTML Form - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/38734629/connecting-node-js-to-html-form"
+    },
+    {
+        "author": "Matthjis van Hest on StackOverflow",
+        "year": 2016,
+        "title": "javascript - JS read json file and use as an object - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/34789321/js-read-json-file-and-use-as-an-object"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "Connection Strings - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/reference/connection-string/?utm_source=compass&utm_medium=product"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "db.collection.find() - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/reference/method/db.collection.find/"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "db.collection.aggregate() - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/reference/command/aggregate/"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "$dateToString (aggregation) - MongoDB Manual - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/upcoming/reference/operator/aggregation/dateToString/#std-label-format-specifiers"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "Views - MongoDB Manual - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/core/views/"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "$lookup (aggregation) - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "Aggregation Pipeline - MongoDB Manual v8.0 - Mongo",
+        "link": "https://www.mongodb.com/docs/manual/core/aggregation-pipeline/"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "Aggregation Operations - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/aggregation/#std-label-aggregation-pipeline-intro"
+    },
+    {
+        "author": "MongoDB, Inc.",
+        "year": 2025,
+        "title": "Databases and Collections in MongoDB - MongoDB Manual v8.0 - MongoDB Docs",
+        "link": "https://www.mongodb.com/docs/manual/core/databases-and-collections/"
+    },
+    {
+        "author": "Niyaz on StackOverflow",
+        "year": 2008,
+        "title": "javascript - How do I submit a form when the return key is pressed? - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/29943/how-do-i-submit-a-form-when-the-return-key-is-pressed"
+    },
+    {
+        "author": "Penny Liu on StackOverflow",
+        "year": 2011,
+        "title": "How to line-break from css, without using <br />?",
+        "link": "https://stackoverflow.com/questions/2703601/how-to-line-break-from-css-without-using-br"
+    },
+    {
+        "author": "W3Schools",
+        "year": 2025,
+        "title": "JavaScript DOM CSS - W3Schools",
+        "link": "https://www.w3schools.com/js/js_htmldom_css.asp"
+    },
+    {
+        "author": "W3Schools",
+        "year": 2025,
+        "title": "HTML Symbols - W3Schools",
+        "link": "https://www.w3schools.com/html/html_symbols.asp"
+    },
+    {
+        "author": "W3Schools",
+        "year": 2025,
+        "title": "Node.js File System Module",
+        "link": "https://www.w3schools.com/nodejs/nodejs_filesystem.asp"
+    },
+    {
+        "author": "colmulhall on StackOverflow",
+        "year": 2015,
+        "title": "handlebars.js - Handlebarsjs check if a string is equal to a value - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/34252817/handlebarsjs-check-if-a-string-is-equal-to-a-value"
+    },
+    {
+        "author": "eml002 on StackOverflow",
+        "year": 2015,
+        "title": "MongoDB Aggregation - match if value in array - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/30537317/mongodb-aggregation-match-if-value-in-array"
+    },
+    {
+        "author": "vitaly-t on StackOverflow",
+        "year": 2020,
+        "title": "Top-level await doesn't work in the latest Node.js - Stack Overflow",
+        "link": "https://stackoverflow.com/questions/59585793/top-level-await-doesnt-work-in-the-latest-node-js"
+    }
+]

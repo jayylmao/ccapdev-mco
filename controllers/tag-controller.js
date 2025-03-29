@@ -32,7 +32,7 @@ const renderTagPage = async (req, res) => {
             }}
         ]).exec();
 
-        res.render('tags', {
+        res.render('tag', {
             layout: 'tag_layout',
             loggedUser: loggedUser,
             tag: req.params.tag,
