@@ -82,12 +82,14 @@ label {
 .edit-controls {
     display: flex;
     justify-content: end;
+    padding-top: 1em;
 }
 
-.edit-controls div {
-    padding: 1em;
-    border-radius: 100px;
+.edit-controls * {
+    padding: 0.5em 1.5em;
+    border-radius: 12px;
     margin-left: 0.5em;
+    font-size: 1em;
     cursor: pointer;
     transition: 0.15s background-color, 0.15s border-color;
 }

@@ -73,6 +73,8 @@ server.use('/about', aboutRouter);
 const startServer = async() => {
     try {
         await connectDB(process.env.MONGO_URI);
+        server.use(express.urlencoded({ extended: true }))
+        server.use(express.json());
         server.listen(PORT, () => {
             console.log(`server running on port ${PORT}`);
         })

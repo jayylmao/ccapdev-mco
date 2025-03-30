@@ -58,7 +58,7 @@ const renderLoggedOutPage = async (req, res) => {
                 "_id": 1,
                 "tags": 1,
                 "postCreator": 1,
-                "datePosted": 1,
+                "createdAt": 1,
                 "title": 1,
                 "content": 1,
                 "votes": 1,
@@ -66,6 +66,8 @@ const renderLoggedOutPage = async (req, res) => {
                 "postCreatorObj.profileImg": 1
             }}
         ]).exec();
+
+        console.log(posts);
 
         res.render('main', {
             layout: 'index_layout',

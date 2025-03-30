@@ -5,6 +5,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    password: {
+        type: String,
+        required: true
+    },
     fName: {
         type: String,
         required: true
@@ -29,6 +33,16 @@ const userSchema = new mongoose.Schema({
     profileImg: {
         type: String,
         default: 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
+    },
+    upvoted: {
+        type: [mongoose.Schema.Types.ObjectID],
+        ref: 'Post',
+        default: []
+    },
+    downvoted: {
+        type: [mongoose.Schema.Types.ObjectID],
+        ref: 'Post',
+        default: []
     }
 });
 

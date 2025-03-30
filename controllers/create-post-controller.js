@@ -14,4 +14,22 @@ const renderPostCreatorPage = async (req, res) => {
     }
 };
 
-module.exports = { renderPostCreatorPage };
+const createPost = async (req, res) => {
+    try {
+        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
+        let newPost = Post({
+            postCreator: loggedUser,
+            tags: req.body.tags,
+            title: req.body.title,
+            content: req.body.description
+        });
+
+        let savedPost = await newPost.save();
+        res.redirect(`/post/${savedPost._id}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Could not create post.");
+    }
+}
+
+module.exports = { renderPostCreatorPage, createPost };
