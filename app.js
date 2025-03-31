@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const handlebars = require('express-handlebars');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -19,6 +18,7 @@ const aboutRouter = require('./routers/about-router.js');
 
 const {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
 const {eq} = require('./helpers/get_page.js');
+const { sessionMiddleware } = require('./middlewares/session.js');
 const server = express();
 
 // Set dotenv
@@ -45,6 +45,9 @@ server.use(methodOverride((req, res) => {
       return method; 
     }
 }));
+
+// Use sessions.
+server.use(sessionMiddleware);
 
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
