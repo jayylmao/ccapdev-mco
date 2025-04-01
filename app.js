@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 
 const userRouter = require('./routers/user-router.js');
+const editProfileRouter = require('./routers/edit-profile-router.js');
 const accountRouter = require('./routers/account-router.js');
 const indexRouter = require('./routers/index-router.js');
 const postRouter = require('./routers/post-router.js');
@@ -65,6 +66,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 
 // Routers
 server.use('/user', userRouter);
+server.use('/edit-profile', editProfileRouter);
 server.use('/account', accountRouter);
 server.use('/', indexRouter);
 server.use('/post', postRouter);

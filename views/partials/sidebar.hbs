@@ -43,12 +43,12 @@
             <p>@{{loggedUser.username}}</p>
         </a>
         {{#if (eq page "profile_editor")}}
-            <a id="account" class="sidebar-option active-sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
+            <a id="account" class="sidebar-option active-sidebar-option" href="/edit-profile">
                 <img src="/svg/edit-filled.svg" class="active-button-svg"></img>
                 <p>Edit profile</p>
             </a>
         {{else}}
-            <a id="account" class="sidebar-option" href="/user/edit-profile/{{loggedUser.username}}">
+            <a id="account" class="sidebar-option" href="/edit-profile">
                 <img src="/svg/edit.svg" class="button-svg"></img>
                 <p>Edit profile</p>
             </a>
