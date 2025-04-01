@@ -9,10 +9,6 @@ const renderTagHubPage = async (req, res) => {
             { $sort: { count: -1 }}
         ]).exec();
 
-        console.log(tags);
-
-        console.log('max: ' + tags[0].count);
-
         res.render('tag_hub', {
             layout: 'tag_hub_layout',
             loggedUser: res.locals.user,

@@ -7,7 +7,6 @@ const renderProfilePage = async (req, res) => {
         const user = await User.findOne({username: req.params.username}).lean();
         const posts = await Post.find({postCreator: user._id}).lean();
         const comments = await Comment.find({commentCreator: user._id}).lean();
-        console.log(comments);
 
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',

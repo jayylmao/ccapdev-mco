@@ -28,7 +28,7 @@ module.exports = {
         const postUserProfile = postUser.profileImg;
         const postUsername = postUser.username;
 
-        if(postUser._id.equals(loggedUser._id)){
+        if(loggedUser != null && postUser._id.equals(loggedUser._id)){
             return `<div class="flex-section">
                         <div class="user-info">
                             <div class="post-user-icon" style='background-image: url("${postUserProfile}")'></div>
@@ -47,9 +47,9 @@ module.exports = {
                 <p>@${postUsername}</p>`
 
     },
-    editIcon: (postUserId, loggedUser, postId, type) => {
-        if(postUserId.equals(loggedUser._id)){
-            return `
+    editIcon: (postUser, loggedUser, postId, type) => {
+        if(loggedUser != null && postUser._id.equals(loggedUser._id)){
+        return `
                 <a class="post-control-button edit-button" href="/${type}/edit/${postId}">
                     <img class="post-icon edit-icon button-svg" src="/svg/edit.svg"></img>
                     <p>Edit</p>
@@ -57,7 +57,7 @@ module.exports = {
         }
     },
     editProfileIcon: (profileUser, loggedUser) => {
-        if(profileUser._id.equals(loggedUser._id)){
+        if(loggedUser != null && profileUser._id.equals(loggedUser._id)){
             return `
                 <a href="/user/edit-profile/${loggedUser.username}">
                     <button class="btnEdit">Edit Profile</button>
