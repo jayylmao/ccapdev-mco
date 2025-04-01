@@ -49,7 +49,23 @@ const loginData = async (req,res) => {
 
         // if password matches that of the user
         if (isMatch) {
-            res.redirect('/home');
+            req.session.user = {
+                _id: check._id,
+                username: check.username,
+                profileImg: check.profileImg
+            };
+
+            res.locals.user = req.session.user
+
+            req.session.save(error => {
+                if (error) {
+                    console.error('Could not save session', error);
+                    return res.redirect('/account/error');
+                }
+
+                console.log('user on login view: ', res.locals.user);
+                res.redirect('/');
+            });
         } else {
             res.redirect('/account/error');
         }
@@ -58,7 +74,6 @@ const loginData = async (req,res) => {
     catch {
         res.redirect('/account/error');
     }
-    
 }
 
 const renderErrorPage = async (req, res) => {

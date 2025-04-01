@@ -19,6 +19,7 @@ const aboutRouter = require('./routers/about-router.js');
 const {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
 const {eq} = require('./helpers/get_page.js');
 const { sessionMiddleware } = require('./middlewares/session.js');
+const { loggedUser } = require('./middlewares/loggedUser.js');
 const server = express();
 
 // Set dotenv
@@ -48,6 +49,7 @@ server.use(methodOverride((req, res) => {
 
 // Use sessions.
 server.use(sessionMiddleware);
+server.use(loggedUser);
 
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
