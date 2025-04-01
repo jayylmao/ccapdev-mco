@@ -15,7 +15,7 @@ const renderRegisterPage = async (req, res) => {
     });
 }
 
-const registerData = async (req,res) => {
+const registerData = async (req, res) => {
     let pass1 = req.body.password1;
     let pass2 = req.body.password2;
 
@@ -41,8 +41,8 @@ const registerData = async (req,res) => {
     }
 }
 
-const loginData = async (req,res) => {
-    try{
+const loginData = async (req, res) => {
+    try {
         const check = await user.findOne({username:req.body.username});
         let inputPass = req.body.password;
         const isMatch = await bcrypt.compare(inputPass, check.password);
@@ -76,6 +76,18 @@ const loginData = async (req,res) => {
     }
 }
 
+const logoutData = async (req, res) => {
+    try {
+        req.session.destroy(() => {
+            res.redirect('/');
+        });
+    } catch (error) {
+        console.error('could not log out: ', error);
+        res.redirect('/');
+
+    }
+}
+
 const renderErrorPage = async (req, res) => {
     res.render('account_error',{
         layout: 'account_error_layout',
@@ -88,5 +100,6 @@ module.exports = {
     renderRegisterPage,
     registerData,
     loginData,
+    logoutData,
     renderErrorPage
 }

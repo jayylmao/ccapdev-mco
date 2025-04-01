@@ -31,7 +31,7 @@ const renderMainPage = async (req, res) => {
             layout: 'index_layout',
             pageTitle: 'rabble',
             posts: posts,
-            loggedUser: req.session.user,
+            loggedUser: res.locals.user,
             page: 'index'
         });
     } catch (error) {
