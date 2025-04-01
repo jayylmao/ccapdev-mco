@@ -1,5 +1,4 @@
 const Post = require('../models/post-model.js');
-const User = require('../models/user-model.js');
 
 const renderMainPage = async (req, res) => {
     try {

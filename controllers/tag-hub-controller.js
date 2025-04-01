@@ -3,7 +3,6 @@ const Post = require('../models/post-model.js');
 
 const renderTagHubPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         let tags = await Post.aggregate([
             { $unwind: "$tags"},
             { $group: { _id: "$tags", count: { $sum: 1 }}}, // get unique tags and count them.
@@ -16,7 +15,7 @@ const renderTagHubPage = async (req, res) => {
 
         res.render('tag_hub', {
             layout: 'tag_hub_layout',
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             tags: tags,
             page: 'tags'
         });

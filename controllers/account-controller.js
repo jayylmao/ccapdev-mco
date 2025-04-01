@@ -36,8 +36,16 @@ const registerData = async (req, res) => {
     if (pass1 != pass2) {
         res.redirect('/account/error');
     } else {
-        await user.insertMany([data]);
-        res.redirect('/home');
+        const userObject = await user.insertOne(data);
+
+        req.session.user = {
+            _id: userObject.insertedId,
+            username: data.username,
+            profileImg: data.profileImg
+        };
+
+        res.locals.user = req.session.user
+        res.redirect('/');
     }
 }
 

@@ -3,10 +3,9 @@ const Post = require('../models/post-model.js');
 
 const renderPostCreatorPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         res.render('create_post', {
             layout: 'create_post_layout',
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'create_post'
         });
     } catch (error) {
@@ -16,9 +15,8 @@ const renderPostCreatorPage = async (req, res) => {
 
 const createPost = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         let newPost = Post({
-            postCreator: loggedUser,
+            postCreator: res.locals.user,
             tags: req.body.tags,
             title: req.body.title,
             content: req.body.description

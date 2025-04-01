@@ -9,15 +9,12 @@ const renderProfilePage = async (req, res) => {
         const comments = await Comment.find({commentCreator: user._id}).lean();
         console.log(comments);
 
-        // todo: change to req.user
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
-
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',
             user: user,
             posts: posts,
             comments: comments,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'profile_viewer'
         })
     } catch (error) {
@@ -28,12 +25,11 @@ const renderProfilePage = async (req, res) => {
 const renderEditProfilePage = async (req, res) => {
     try {
         const user = await User.findOne({username: req.params.username}).lean();
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
             user: user,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'profile_editor'
         })
     } catch (error) {

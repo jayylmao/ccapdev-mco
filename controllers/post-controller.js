@@ -4,7 +4,6 @@ const Comment = require('../models/comment-model.js');
 
 const renderPostViewerPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         // find post with id specified in url.
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
@@ -21,7 +20,7 @@ const renderPostViewerPage = async (req, res) => {
             post: post,
             postCreator: user.username,
             comments: comments,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'post_viewer'
         });
     } catch (error) {
@@ -31,7 +30,6 @@ const renderPostViewerPage = async (req, res) => {
 
 const renderPostEditorPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         // find post with id specified in url.
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
@@ -43,7 +41,7 @@ const renderPostEditorPage = async (req, res) => {
             postCreator: user.username,
             title: post.title,
             description: post.content,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'post_editor'
         });
     } catch (error) {

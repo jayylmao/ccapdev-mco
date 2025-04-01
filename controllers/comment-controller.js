@@ -4,7 +4,6 @@ const Comment = require('../models/comment-model.js');
 
 const renderCommentEditorPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         // find post with id specified in url.
         let comment = await Comment.findById(req.params.id).lean();
 
@@ -12,7 +11,7 @@ const renderCommentEditorPage = async (req, res) => {
             layout: 'edit_comment_layout',
             pageTitle: 'rabble - ' + comment.comment,
             comment: comment,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'post_editor'
         });
     } catch (error) {
