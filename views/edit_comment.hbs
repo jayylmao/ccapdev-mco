@@ -6,7 +6,7 @@
     <form id="edit-comment-form" action="/comment/edit/{{comment._id}}" method="POST">
         <div class="edit-form">
             <h1 id="create-post-header">Edit comment</h1>
-            <textarea name="comment" id="description-edit" class="edit-form-input">{{comment.comment}}</textarea>
+            <textarea required="true" name="comment" id="description-edit" class="edit-form-input">{{comment.comment}}</textarea>
         </div>
         <div class="edit-controls">
             <button type="submit" class="submit-button">Edit</button>

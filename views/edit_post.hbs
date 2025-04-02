@@ -6,12 +6,12 @@
     <form class="edit-form" action="/post/edit/{{post._id}}" method="POST">
         <h1 id="create-post-header">Edit post</h1>
         <label for="tags-edit">Tag</label>
-        <input type="text" name="tags" id="tags-edit" class="edit-form-input" value="{{post.tags}}"> </input>
+        <input required="true" type="text" name="tags" id="tags-edit" class="edit-form-input" value="{{post.tags}}"> </input>
 
         <label for="title-edit">Title</label>
-        <input type="text" name="title" id="title-edit" class="edit-form-input" value="{{post.title}}"> </input>
+        <input required="true" type="text" name="title" id="title-edit" class="edit-form-input" value="{{post.title}}"> </input>
         <label for="title-edit">Description</label>
-        <textarea name="content" id="description-edit" class="edit-form-input">{{post.content}}</textarea>
+        <textarea required="true" name="content" id="description-edit" class="edit-form-input">{{post.content}}</textarea>
         <div class="edit-controls">
             <button type="submit" class="submit-button">Edit</button>
             <div class="cancel-button" onclick="history.back()">Cancel</div>
