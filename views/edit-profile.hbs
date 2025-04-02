@@ -1,6 +1,9 @@
 <div id="main-page">
     {{>sidebar}}
     <div id="main-content">
+        {{#if error}}
+            <div class="error-message">{{error}}</div>
+        {{/if}}
         <div id="back-button" onclick="history.back()">
             <img class="button-svg" id="back-icon" src="/svg/arrow-left.svg">
         </div>
@@ -30,24 +33,24 @@
                 <div>
                     <div class="input-section">
                         <label>Username</label>
-                        <input class="username" type="text" name="username" value="{{loggedUser.username}}">
+                        <input required="true" class="username" type="text" name="username" value="{{loggedUser.username}}">
                     </div>
 
                     <div class="input-section">
                         <label>First Name</label>
-                        <input class="fName" type="text" name="fName" value="{{loggedUser.fName}}">
+                        <input required="true" class="fName" type="text" name="fName" value="{{loggedUser.fName}}">
                     </div>
                 </div>
 
                 <div>
                     <div class="input-section">
                         <label>Last Name</label>
-                        <input class="lName" type="text" name="lName" value="{{loggedUser.lName}}">
+                        <input required="true" class="lName" type="text" name="lName" value="{{loggedUser.lName}}">
                     </div>
 
                     <div class="input-section input-textarea">
                         <label>Description</label>
-                        <textarea class="description" name="description">{{loggedUser.description}}</textarea>
+                        <textarea required="true" class="description" name="description">{{loggedUser.description}}</textarea>
                     </div>
                 </div>
             </div>

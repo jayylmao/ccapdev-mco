@@ -24,11 +24,11 @@ const renderProfilePage = async (req, res) => {
 const renderEditProfilePage = async (req, res) => {
     try {
         const user = await User.findById(res.locals.user._id).lean();
-        console.log(user);
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
             loggedUser: user,
-            page: 'profile_editor'
+            page: 'profile_editor',
+            error: null
         })
     } catch (error) {
         console.error(error);
@@ -49,15 +49,25 @@ const editProfileInformation = async (req, res) => {
             }
         }
 
-        const user = await User.findOneAndUpdate({_id: res.locals.user._id }, updateData, {
-                new: true,
-                runValidators: true
-            }
-        );
+        const existingUsername = await User.findOne({username: req.body.username});
 
-        // redirect to profile pages
-        res.redirect(`/user/${user.username}`);
-
+        if (existingUsername !== null) {
+            const user = await User.findById(res.locals.user._id).lean();
+            res.render('edit-profile.hbs', {
+                layout: 'edit-profile-layout.hbs',
+                loggedUser: user,
+                page: 'profile_editor',
+                error: 'Username has been taken. Please choose another one.'
+            });
+        } else {
+            const user = await User.findOneAndUpdate({_id: res.locals.user._id }, updateData, {
+                    new: true,
+                    runValidators: true
+                }
+            );
+            // redirect to profile page.
+            res.redirect(`/user/${user.username}`);
+        }
     } catch (error) {
         console.error(error);
         res.status(500).send('Server Error');

@@ -1,4 +1,5 @@
 const Post = require('../models/post-model.js');
+const User = require('../models/user-model.js');
 
 const renderMainPage = async (req, res) => {
     try {
@@ -13,6 +14,7 @@ const renderMainPage = async (req, res) => {
             .sort({ votes: -1 })
             .skip((page - 1) * limit)
             .limit(limit)
+            .populate('postCreator', 'username profileImg')
             .lean();
 
         res.render('main', {

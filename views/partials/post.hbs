@@ -9,8 +9,8 @@
                 {{/tags}}
             </ul>
             <div class="post-user-container">
-                <div class="post-user-icon" style="background-image: url('{{ postCreatorObj.profileImg }}');"></div>
-                <a class="post-user" href="/user/{{ postCreatorObj.username }}">@{{ postCreatorObj.username }}</a>
+                <div class="post-user-icon" style="background-image: url('{{ postCreator.profileImg }}');"></div>
+                <a class="post-user" href="/user/{{ postCreator.username }}">@{{ postCreator.username }}</a>
             </div>
             <p class="post-date">{{ formatDate createdAt 'MMMM Do YYYY, h:mm a' }}</p>
             <a class="post-link" href="/post/{{ _id }}">

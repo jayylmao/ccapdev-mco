@@ -32,13 +32,25 @@
         {{/each}}        
         <div class="pagination">
             {{#if hasPrevPage}}
-                <a href="/?page={{prevPage}}" class="page-btn">Previous</a>
+                <a href="/?page={{prevPage}}" class="pagination-button">
+                    Previous
+                </a>
+            {{else}}
+                <p class="pagination-button disabled-button">
+                    Previous
+                </p>
             {{/if}}
 
             <span>Page {{currentPage}} of {{totalPages}}</span>
 
             {{#if hasNextPage}}
-                <a href="/?page={{nextPage}}" class="page-btn">Next</a>
+                <a href="/?page={{nextPage}}" class="pagination-button">
+                    Next
+                </a>
+            {{else}}
+                <p class="pagination-button disabled-button">
+                    Next
+                </p>
             {{/if}}
         </div>
     </div>
