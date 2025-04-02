@@ -26,6 +26,10 @@ const postSchema = new mongoose.Schema({
     tags: {
         type: [String],     // Array of strings 
         default: []         // Default to an empty array
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 

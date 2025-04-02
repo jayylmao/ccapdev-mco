@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
         type: [mongoose.Schema.Types.ObjectID],
         ref: 'Post',
         default: []
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 

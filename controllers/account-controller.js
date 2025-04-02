@@ -32,10 +32,8 @@ const registerData = async (req, res) => {
         profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
     }
 
-    const check = await user.findOne({username:req.body.username});
-
-    // check if both passwords are same & username not taken
-    if ((pass1 != pass2)||(check != null)) {
+    // check if both passwords are same 
+    if (pass1 != pass2) {
         res.redirect('/account/error');
     } else {
         const userObject = await user.insertOne(data);
