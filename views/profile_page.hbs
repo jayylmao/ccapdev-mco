@@ -66,11 +66,14 @@
             </div>
             <div id="comment-list">
                 {{#each comments}}
+                    {{#unless this.isDeleted}}
                     <div class="post">
                         <div class="post-info-controls">
                             <hgroup class="post-info">
                                 <div class="post-user-container">
-                                    {{{deleteIcon ../user ../loggedUser this._id 'comment'}}}
+                                    <form action="/comment/flag/{{this._id}}" method="POST" style="display:inline;">
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
                                 </div>
                                 <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
                                 <p class="description">
@@ -99,6 +102,7 @@
                             </div>
                         </div>
                     </div>
+                {{/unless}}
                 {{/each}}
             </div>
         </div>
