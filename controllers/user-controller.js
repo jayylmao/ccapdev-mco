@@ -51,7 +51,7 @@ const editProfileInformation = async (req, res) => {
 
         const existingUsername = await User.findOne({username: req.body.username});
 
-        if (existingUsername !== null && existingUsername !== req.body.username) {
+        if (existingUsername !== null && existingUsername.username !== req.body.username) {
             const user = await User.findById(res.locals.user._id).lean();
             res.render('edit-profile.hbs', {
                 layout: 'edit-profile-layout.hbs',
