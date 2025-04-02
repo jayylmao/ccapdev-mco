@@ -108,3 +108,19 @@
     color: white;
     transition: all 0.15s;
 }
+
+#delete {
+    background: var(--downvote);
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    font: var(--body-font);
+    font-size: 15px;
+    border: none;
+}
+#delete:hover {
+    background: #6c2b2b;
+    transition: all 0.15s;
+    color: white;
+}

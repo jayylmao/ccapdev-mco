@@ -26,16 +26,23 @@ const registerData = async (req, res) => {
         username : req.body.username,
         fName : req.body.firstname,
         lName : req.body.lastname,
-        password : hash,
-        description : 'No description yet',
-        backgroundImg : 'https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg',
-        profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
+        password : hash
     }
 
-    // check if both passwords are same 
-    if (pass1 != pass2) {
+    const check1 = await user.findOne({username:req.body.username});
+    if(check1 != null){ // if username is taken
+        if(check1.isDeleted === true){ // if account is actually deleted
+            var check2 = true; // we can still take the username
+        } else {
+            check2 = false; // if not, need a new username
+        }
+    }
+
+    // check if both passwords are same & username not taken
+    if ((pass1 != pass2)||!check2) {
         res.redirect('/account/error');
     } else {
+
         const userObject = await user.insertOne(data);
 
         req.session.user = {
@@ -60,12 +67,18 @@ const loginData = async (req, res) => {
             await check.save();
         }
 
+        // password checking
         let inputPass = req.body.password;
         const isMatch = await bcrypt.compare(inputPass, check.password);
         console.log(isMatch);
 
         // if password matches that of the user
         if (isMatch) {
+            // check if account still exists (not deleted)
+            if(check.isDeleted == true) {
+                return res.redirect('/account/error')
+            }
+
             req.session.user = {
                 _id: check._id,
                 username: check.username,
@@ -105,6 +118,19 @@ const logoutData = async (req, res) => {
     }
 }
 
+const deleteUser = async(req,res)=>{
+    let account = res.locals.user;
+    account.isDeleted = true;
+    
+    const User = await user.findOneAndUpdate({username: account.username}, account, {
+                    new: true,
+                    runValidators: true
+                }
+    );
+    res.redirect('/account/logout');
+    console.log('account deleted successfully:', account.username);
+}
+
 const renderErrorPage = async (req, res) => {
     res.render('account_error',{
         layout: 'account_error_layout',
@@ -118,5 +144,6 @@ module.exports = {
     registerData,
     loginData,
     logoutData,
+    deleteUser,
     renderErrorPage
 }
