@@ -55,59 +55,42 @@ const registerData = async (req, res) => {
 
 const loginData = async (req, res) => {
     try {
-        console.log(req.session);
-        const check = await user.findOne({username:req.body.username});
+        const check = await user.findOne({ username: req.body.username });
 
-        // password checking
+        // Check if user exists
+        if (!check) {
+            return res.redirect('/account/error');
+        }
+
+        // Check if user is deleted
+        if (check.isDeleted) {
+            return res.redirect('/account/error');
+        }
+
+        // Verify password
         let inputPass = req.body.password;
         const isMatch = await bcrypt.compare(inputPass, check.password);
-        console.log(isMatch);
 
-        // if password matches that of the user
-        if (isMatch) {
-            // check if account still exists (not deleted)
-            if(check.isDeleted == true) {
-                return res.redirect('/account/error')
-            }
-
-            req.session.user = {
-                _id: check._id,
-                username: check.username,
-                profileImg: check.profileImg
-            };
-
-            res.locals.user = req.session.user
-
-            req.session.save(error => {
-                if (error) {
-                    console.error('Could not save session', error);
-                    return res.redirect('/account/error');
-                }
-
-                console.log('user on login view: ', res.locals.user);
-                res.redirect('/');
-            });
-        } else {
-            res.redirect('/account/error');
+        if (!isMatch) {
+            return res.redirect('/account/error');
         }
-    } 
-    // both username and password are incorrect
-    catch {
+
+        // Save user session
+        req.session.user = {
+            _id: check._id,
+            username: check.username,
+            profileImg: check.profileImg
+        };
+
+        res.locals.user = req.session.user;
+        console.log('User logged in:', res.locals.user);
+
+        res.redirect('/');
+    } catch (error) {
+        console.error('Login error:', error);
         res.redirect('/account/error');
     }
-}
-
-const logoutData = async (req, res) => {
-    try {
-        req.session.destroy(() => {
-            res.redirect('/');
-        });
-    } catch (error) {
-        console.error('could not log out: ', error);
-        res.redirect('/');
-
-    }
-}
+};
 
 const deleteUser = async(req,res)=>{
     let account = res.locals.user;
