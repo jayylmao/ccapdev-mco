@@ -12,7 +12,9 @@ const sessionMiddleware = session({
     store: MongoStore.create({
         mongoUrl: process.env.MONGO_URI,
         collectionName: 'sessions',
-        ttl: 1000 * 60 * 60 * 24 * 30, // 30 days expiration.
+        ttl: 60 * 60 * 24 * 30, // 30 days
+        autoRemove: 'interval',
+        autoRemoveInterval: 10, // Cleanup every 10 minutes
     }),
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -21,7 +23,7 @@ const sessionMiddleware = session({
         ssecure: false,  // Change this if using HTTP
         httpOnly: true,
         sameSite: 'lax',
-        maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days expiration.
+        maxAge: 60 * 60 * 24 * 30, // 30 days expiration.
     }
 });
 
