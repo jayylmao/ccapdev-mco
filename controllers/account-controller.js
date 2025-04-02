@@ -30,20 +30,17 @@ const registerData = async (req, res) => {
     }
 
     const check1 = await user.findOne({username:req.body.username});
-    if(check1 != null){ // if username is taken
-        if(check1.isDeleted === true){ // if account is actually deleted
-            var check2 = true; // we can still take the username
-        } else {
-            check2 = false; // if not, need a new username
-        }
+    let check2 = true;
+    if (check1) { 
+        check2 = check1.isDeleted === true;
     }
 
     // check if both passwords are same & username not taken
-    if ((pass1 != pass2)||!check2) {
-        res.redirect('/account/error');
+    if (pass1 !== pass2 || !check2) {
+        return res.redirect('/account/error');
     } else {
 
-        const userObject = await user.insertOne(data);
+        const userObject = await user.create(data);
 
         req.session.user = {
             _id: userObject.insertedId,
