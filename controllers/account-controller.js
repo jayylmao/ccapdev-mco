@@ -49,7 +49,15 @@ const registerData = async (req, res) => {
         };
 
         res.locals.user = req.session.user
-        res.redirect('/');
+
+        req.session.save((err) => {
+            if (err) {
+                console.error('Session save error:', err);
+                return res.redirect('/account/error');
+            }
+
+            res.redirect('/');
+        });
     }
 }
 
