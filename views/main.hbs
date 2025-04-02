@@ -29,7 +29,18 @@
         </div>
         {{#each posts}}
             {{>post}}
-        {{/each}}
+        {{/each}}        
+        <div class="pagination">
+            {{#if hasPrevPage}}
+                <a href="/?page={{prevPage}}" class="page-btn">Previous</a>
+            {{/if}}
+
+            <span>Page {{currentPage}} of {{totalPages}}</span>
+
+            {{#if hasNextPage}}
+                <a href="/?page={{nextPage}}" class="page-btn">Next</a>
+            {{/if}}
+        </div>
     </div>
 </div>
 <div id="copyright-section">
