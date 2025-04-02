@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { renderCommentEditorPage } = require('../controllers/comment-controller.js');
+const { renderCommentEditorPage, updateComment } = require('../controllers/comment-controller.js');
 
-router.route('/edit/:id').get(renderCommentEditorPage);
+router.get('/edit/:id', renderCommentEditorPage);
+router.post('/edit/:id', updateComment);
 
 module.exports = router;

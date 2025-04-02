@@ -42,8 +42,11 @@
                         <p>Send</p>
                     </button>
                 </form>
+            {{else}}
+            <div id="login">
+                <p>Please <a href="/account/login">log in</a> to leave a comment</p>
+            </div>
             {{/unless}}
-
             <div class="comments-container">
                 {{#each comments}}
                     {{>comment}}
