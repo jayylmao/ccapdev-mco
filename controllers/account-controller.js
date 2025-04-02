@@ -92,6 +92,18 @@ const loginData = async (req, res) => {
     }
 };
 
+const logoutData = async (req, res) => {
+    try {
+        req.session.destroy(() => {
+            res.redirect('/');
+        });
+    } catch (error) {
+        console.error('could not log out: ', error);
+        res.redirect('/');
+
+    }
+}
+
 const deleteUser = async(req,res)=>{
     let account = res.locals.user;
     account.isDeleted = true;
