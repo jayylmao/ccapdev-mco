@@ -55,14 +55,8 @@ const registerData = async (req, res) => {
 
 const loginData = async (req, res) => {
     try {
+        console.log(req.session);
         const check = await user.findOne({username:req.body.username});
-
-        // migrate plaintext passwords to encrypted versions.
-        if (!check.password.startsWith('$2b$')) {
-            check.password = await bcrypt.hash(check.password, 10);
-            console.log(check.password);
-            await check.save();
-        }
 
         // password checking
         let inputPass = req.body.password;
