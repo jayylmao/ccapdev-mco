@@ -7,7 +7,7 @@
         <h1 id="title">Edit your profile</h1>
 
         <!-- process the methodOverride before the multer (or else method=post not put), use a query parameter for _method -->
-        <form action="/user/edit-profile/?_method=PUT" method="post" enctype="multipart/form-data">
+        <form action="/edit-profile/?_method=PUT" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="_method" value="PUT"> <!-- hidden -->
 
@@ -15,13 +15,13 @@
                 <div class="image-section">
                     <label for="profileImage">Profile image</label>
                     <input class="chosenProfileFile" type="file" name="profileImg">
-                    <img class="chosenProfileImage" src="{{user.profileImg}}">
+                    <img class="chosenProfileImage" src="{{loggedUser.profileImg}}">
                 </div>
 
                 <div class="image-section">
                     <label for="backgroundImage">Banner image</label>
                     <input class="chosenBackgroundFile" type="file" name="backgroundImg">
-                    <img class="chosenBackgroundImage" src="{{user.backgroundImg}}">
+                    <img class="chosenBackgroundImage" src="{{loggedUser.backgroundImg}}">
                 </div>
             </div>
 
@@ -30,24 +30,24 @@
                 <div>
                     <div class="input-section">
                         <label>Username</label>
-                        <input class="username" type="text" name="username" value="{{user.username}}">
+                        <input class="username" type="text" name="username" value="{{loggedUser.username}}">
                     </div>
 
                     <div class="input-section">
                         <label>First Name</label>
-                        <input class="fName" type="text" name="fName" value="{{user.fName}}">
+                        <input class="fName" type="text" name="fName" value="{{loggedUser.fName}}">
                     </div>
                 </div>
 
                 <div>
                     <div class="input-section">
                         <label>Last Name</label>
-                        <input class="lName" type="text" name="lName" value="{{user.lName}}">
+                        <input class="lName" type="text" name="lName" value="{{loggedUser.lName}}">
                     </div>
 
                     <div class="input-section input-textarea">
                         <label>Description</label>
-                        <textarea class="description" name="description">{{user.description}}</textarea>
+                        <textarea class="description" name="description">{{loggedUser.description}}</textarea>
                     </div>
                 </div>
             </div>

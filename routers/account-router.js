@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const {renderLoginPage, renderRegisterPage, registerData, loginData, logoutData, renderErrorPage} = require('../controllers/account-controller.js');
+const {ensureAuth, ensureGuest} = require('../middlewares/auth.js');
 
-router.route('/login').get(renderLoginPage);
-router.route('/login').post(loginData);
+router.route('/login').get(ensureGuest, renderLoginPage).post(loginData);
 
-router.route('/logout').get(logoutData);
+router.route('/logout').get(ensureAuth, logoutData);
 
-router.route('/register').get(renderRegisterPage);
-router.route('/register').post(registerData);
+router.route('/register').get(ensureGuest, renderRegisterPage).post(registerData);
 
 router.route('/error').get(renderErrorPage);
 

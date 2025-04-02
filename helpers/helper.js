@@ -59,7 +59,7 @@ module.exports = {
     editProfileIcon: (profileUser, loggedUser) => {
         if(loggedUser != null && profileUser._id.equals(loggedUser._id)){
             return `
-                <a href="/user/edit-profile/${loggedUser.username}">
+                <a href="/edit-profile">
                     <button class="btnEdit">Edit Profile</button>
                 </a>
             `

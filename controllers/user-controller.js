@@ -27,7 +27,7 @@ const renderEditProfilePage = async (req, res) => {
         console.log(user);
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
-            user: user,
+            loggedUser: user,
             page: 'profile_editor'
         })
     } catch (error) {
@@ -49,13 +49,13 @@ const editProfileInformation = async (req, res) => {
             }
         }
 
-        const user = await User.findOneAndUpdate({username: req.params.username }, updateData, {
+        const user = await User.findOneAndUpdate({_id: res.locals.user._id }, updateData, {
                 new: true,
                 runValidators: true
             }
         );
 
-        // todo: change to req.user
+        // redirect to profile pages
         res.redirect(`/user/${user.username}`);
 
     } catch (error) {
