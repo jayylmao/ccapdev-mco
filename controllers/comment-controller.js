@@ -19,6 +19,20 @@ const renderCommentEditorPage = async (req, res) => {
     }
 };
 
+const updateComment = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { comment } = req.body;
+
+        const updatedComment = await Comment.findByIdAndUpdate(id, { comment }, { new: true });
+
+        res.redirect(`/post/${updatedComment.parent}`);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 module.exports = {
-    renderCommentEditorPage
+    renderCommentEditorPage,
+    updateComment
 };
