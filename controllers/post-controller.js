@@ -4,10 +4,9 @@ const Comment = require('../models/comment-model.js');
 
 const renderPostViewerPage = async (req, res) => {
     try {
-        // find post with id specified in url.
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
-        let comments = await Comment.find({parent: req.params.id}).lean();
+        let comments = await Comment.find({ parent: req.params.id, isDeleted: false }).lean();
 
         for (let comment of comments) {
             const user = await User.findById(comment.commentCreator).lean();
@@ -30,7 +29,6 @@ const renderPostViewerPage = async (req, res) => {
 
 const renderPostEditorPage = async (req, res) => {
     try {
-        // find post with id specified in url.
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
 

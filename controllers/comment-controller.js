@@ -4,7 +4,6 @@ const Comment = require('../models/comment-model.js');
 
 const renderCommentEditorPage = async (req, res) => {
     try {
-        // find post with id specified in url.
         let comment = await Comment.findById(req.params.id).lean();
 
         res.render('edit_comment', {
@@ -19,7 +18,7 @@ const renderCommentEditorPage = async (req, res) => {
     }
 };
 
-const updateComment = async (req, res) => {
+const editComment = async (req, res) => {
     try {
         const { id } = req.params;
         const { comment } = req.body;
@@ -32,7 +31,19 @@ const updateComment = async (req, res) => {
     }
 };
 
+const flagComment = async (req, res) => {
+    try {
+        const commentId = req.params.id
+        await Comment.findByIdAndUpdate(commentId, { isDeleted: true });
+
+        res.redirect('back'); 
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 module.exports = {
     renderCommentEditorPage,
-    updateComment
+    editComment,
+    flagComment
 };
