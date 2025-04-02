@@ -11,7 +11,9 @@
             {{/unless}}
         </div>
         {{#each posts}}
-            {{>post}}
+            {{#unless this.isDeleted}}
+                {{>post}}
+            {{/unless}}
         {{/each}}        
         <div class="pagination">
             {{#if hasPrevPage}}
