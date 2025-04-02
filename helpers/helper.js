@@ -1,4 +1,3 @@
-const User = require('../models/user-model.js');
 const moment = require('moment');
 
 module.exports = {
@@ -24,7 +23,7 @@ module.exports = {
             .replace(/&nbsp;/g, ' ')        
             .trim();                        
     },
-    deleteIcon: (postUser, loggedUser, postId, type) => {
+    deleteIcon: (postUser, loggedUser, postId) => {
         const postUserProfile = postUser.profileImg;
         const postUsername = postUser.username;
 
@@ -35,11 +34,9 @@ module.exports = {
                             <p>@${postUsername}</p>
                         </div>
                         
-                        <div>
-                            <a href="/${type}/delete/${postId}">
-                                <button class="btnDel">Delete</button>
-                            </a>
-                        </div>
+                        <form action="/post/flag/${postId}" method="POST">
+                            <button type="submit" class="btnDel">Delete</button>
+                        </form>
                     </div>`
         }
 

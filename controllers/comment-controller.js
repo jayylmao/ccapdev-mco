@@ -1,5 +1,4 @@
 const User = require('../models/user-model.js');
-const Post = require('../models/post-model.js');
 const Comment = require('../models/comment-model.js');
 
 const renderCommentEditorPage = async (req, res) => {

@@ -47,7 +47,76 @@ const renderPostEditorPage = async (req, res) => {
     }
 };
 
+const upvotePost = async (req, res) => {
+    console.log("Upvoting post with ID:", req.params.id);
+    try {
+        const postId = req.params.id;
+        const post = await Post.findById(postId);
+        const loggedUser = await User.findById(res.locals.user._id);
+        const postIdStr = postId.toString();
+        const upvoteIndex = loggedUser.upvoted.findIndex(post => post.toString() === postIdStr);
+
+        // retract upvote if clicked when already upvoted.
+        if (loggedUser.upvoted.includes(postId)) {
+            loggedUser.upvoted.splice(upvoteIndex, 1);
+            post.votes -= 1;
+        } else {
+            loggedUser.upvoted.push(postId);
+            post.votes += 1;
+        }
+
+        await loggedUser.save();
+        await post.save();
+
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+const downvotePost = async (req, res) => {
+    console.log("Downvoting post with ID:", req.params.id);
+    try {
+        const postId = req.params.id;
+        const post = await Post.findById(postId);
+        const loggedUser = await User.findById(res.locals.user._id);
+        const postIdStr = postId.toString();
+        const downvoteIndex = loggedUser.downvoted.findIndex(post => post.toString() === postIdStr);
+
+        // retract downvote if clicked when already upvoted.
+        if (loggedUser.upvoted.includes(postId)) {
+            loggedUser.downvoted.splice(downvoteIndex, 1);
+            post.votes += 1;
+        } else {
+            loggedUser.downvoted.push(postId);
+            post.votes -= 1;
+        }
+
+        await loggedUser.save();
+        await post.save();
+
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+const flagPost = async (req, res) => {
+    console.log("flagging post with id: ", req.params.id);
+    try {
+        const postId = req.params.id
+        await Post.findByIdAndUpdate(postId, { isDeleted: true });
+
+        res.redirect('back'); 
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 module.exports = {
     renderPostViewerPage,
-    renderPostEditorPage
+    renderPostEditorPage,
+    upvotePost,
+    downvotePost,
+    flagPost
 };
