@@ -48,18 +48,17 @@
                                     <div class="post-votes">
                                         <p class="vote-counter">{{this.votes}} votes</p>
                                     </div>
-
-                                    <div class="post-controls">
-                                        <div class="post-control-button upvote-button">
+                                    <form action="/comment/{{ this._id }}/downvote" method="POST" class="post-controls">
+                                        <button class="post-control-button upvote-button">
                                             <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg"></img>
-                                        </div>
+                                        </button>
 
-                                        <div class="post-control-button downvote-button">
+                                        <button class="post-control-button downvote-button">
                                             <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg"></img>
-                                        </div>
+                                        </button>
                                         
                                         {{{editIcon this.postCreator ../loggedUser this._id 'post'}}}
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -32,6 +32,7 @@ const renderPostEditorPage = async (req, res) => {
         let post = await Post.findById(req.params.id).lean();
         let user = await User.findById(post.postCreator).lean();
 
+        console.log(post);
         res.render('edit_post', {
             layout: 'edit_post_layout',
             pageTitle: 'rabble - ' + post.title,
@@ -113,10 +114,28 @@ const flagPost = async (req, res) => {
     }
 };
 
+const editPost = async (req, res) => {
+    try { 
+        const { id } = req.params;
+        const { title, content } = req.body;
+
+        const updatedPost = await Post.findByIdAndUpdate(
+            id, 
+            { $set: { title, content } }, 
+            { new: true, runValidators: true }
+        );
+
+        res.redirect(`/post/${updatedPost._id}`);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 module.exports = {
     renderPostViewerPage,
     renderPostEditorPage,
     upvotePost,
     downvotePost,
-    flagPost
+    flagPost,
+    editPost
 };
