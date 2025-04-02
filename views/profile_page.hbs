@@ -71,9 +71,7 @@
                         <div class="post-info-controls">
                             <hgroup class="post-info">
                                 <div class="post-user-container">
-                                    <form action="/comment/flag/{{this._id}}" method="POST" style="display:inline;">
-                                        <button type="submit" class="delete-button">Delete</button>
-                                    </form>
+                                    {{{deleteCommentIcon ../user ../loggedUser this._id}}}
                                 </div>
                                 <p class="post-user">{{formatDate this.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
                                 <p class="description">

@@ -17,7 +17,7 @@ const tagHubRouter = require('./routers/tag-hub-router.js');
 const searchRouter = require('./routers/search-router.js');
 const aboutRouter = require('./routers/about-router.js');
 
-const {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
+const {formatDate, deleteIcon, deleteCommentIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
 const {eq} = require('./helpers/get_page.js');
 const { sessionMiddleware } = require('./middlewares/session.js');
 const { loggedUser } = require('./middlewares/loggedUser.js');
@@ -55,7 +55,7 @@ server.use(loggedUser);
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
 server.engine('hbs', handlebars.engine({
-    helpers: {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon, eq},
+    helpers: {formatDate, deleteIcon, deleteCommentIcon, truncate, stripTags, editIcon, editProfileIcon, eq},
 	extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));

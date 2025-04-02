@@ -47,6 +47,14 @@ module.exports = {
                 <p>@${postUsername}</p>`
 
     },
+    deleteCommentIcon: (commentUser, loggedUser, commentId) => {
+        if(loggedUser != null && commentUser._id.equals(loggedUser._id)){
+            return `
+                    <form action="/comment/flag/${commentId}" method="POST">
+                        <button type="submit" class="btnDel">Delete</button>
+                    </form>`
+        }
+    },
     editIcon: (postUser, loggedUser, postId, type) => {
         if(loggedUser != null && postUser._id.equals(loggedUser._id)){
         return `
