@@ -42,8 +42,40 @@ const flagComment = async (req, res) => {
     }
 };
 
+const upvoteComment = async (req, res) => {
+    console.log("Upvoting comment with ID:", req.params.id);
+    try {
+        const commentId = req.params.id;
+        const comment = await Comment.findById(commentId);
+
+        comment.votes += 1;
+        await comment.save();
+
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+const downvoteComment = async (req, res) => {
+    console.log("Upvoting comment with ID:", req.params.id);
+    try {
+        const commentId = req.params.id;
+        const comment = await Comment.findById(commentId);
+
+        comment.votes -= 1;
+        await comment.save();
+
+        res.redirect('back');
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 module.exports = {
     renderCommentEditorPage,
     editComment,
-    flagComment
+    flagComment,
+    upvoteComment,
+    downvoteComment
 };
