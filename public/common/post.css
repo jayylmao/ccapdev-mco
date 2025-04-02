@@ -171,6 +171,8 @@
     align-items: center;
     text-decoration: none;
     color: var(--fg-tertiary);
+    background: none;
+    border: none;
     border-radius: 12px;
     aspect-ratio: 1;
     padding: 0.5rem;

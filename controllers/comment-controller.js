@@ -47,8 +47,20 @@ const upvoteComment = async (req, res) => {
     try {
         const commentId = req.params.id;
         const comment = await Comment.findById(commentId);
+        const loggedUser = await User.findById(res.locals.user._id);
+        const commentIdStr = commentId.toString();
+        const upvoteIndex = loggedUser.upvoted.findIndex(comment => comment.toString() === commentIdStr);
 
-        comment.votes += 1;
+        // retract upvote if clicked when already upvoted.
+        if (loggedUser.upvoted.includes(commentId)) {
+            loggedUser.upvoted.splice(upvoteIndex, 1);
+            comment.votes -= 1;
+        } else {
+            loggedUser.upvoted.push(commentId);
+            comment.votes += 1;
+        }
+
+        await loggedUser.save();
         await comment.save();
 
         res.redirect('back');
@@ -62,8 +74,20 @@ const downvoteComment = async (req, res) => {
     try {
         const commentId = req.params.id;
         const comment = await Comment.findById(commentId);
+        const loggedUser = await User.findById(res.locals.user._id);
+        const commentIdStr = commentId.toString();
+        const downvoteIndex = loggedUser.downvoted.findIndex(comment => comment.toString() === commentIdStr);
 
-        comment.votes -= 1;
+        // retract upvote if clicked when already upvoted.
+        if (loggedUser.upvoted.includes(commentId)) {
+            loggedUser.downvoted.splice(downvoteIndex, 1);
+            comment.votes += 1;
+        } else {
+            loggedUser.downvoted.push(commentId);
+            comment.votes -= 1;
+        }
+
+        await loggedUser.save();
         await comment.save();
 
         res.redirect('back');
