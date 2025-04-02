@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now()
+        default: () => Date.now()
     },
     title: {
         type: String,
@@ -26,6 +26,10 @@ const postSchema = new mongoose.Schema({
     tags: {
         type: [String],     // Array of strings 
         default: []         // Default to an empty array
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 

@@ -6,11 +6,15 @@
     <p class="comment-content">{{ this.comment }}</p>
     <div class="comment-controls">
         <p class="comment-votes">{{ this.votes }} votes</p>
-        <div class="post-control-button upvote-button">
-            <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
-        </div>
-        <div class="post-control-button downvote-button">
-            <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
-        </div>
+        <form action="/comment/{{ this._id }}/upvote" method="POST" class="post-control-form">
+            <button type="submit" class="post-control-button upvote-button">
+                <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg" alt="Upvote">
+            </button>
+        </form>
+        <form action="/comment/{{ this._id }}/downvote" method="POST" class="post-control-form">
+            <button type="submit" class="post-control-button downvote-button">
+                <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg" alt="Downvote">
+            </button>
+        </form>
     </div>
 </div>

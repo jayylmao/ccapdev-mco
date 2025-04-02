@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const connectDB = require('./db/connect.js');
 
 const userRouter = require('./routers/user-router.js');
+const editProfileRouter = require('./routers/edit-profile-router.js');
 const accountRouter = require('./routers/account-router.js');
 const indexRouter = require('./routers/index-router.js');
 const postRouter = require('./routers/post-router.js');
@@ -16,8 +17,10 @@ const tagHubRouter = require('./routers/tag-hub-router.js');
 const searchRouter = require('./routers/search-router.js');
 const aboutRouter = require('./routers/about-router.js');
 
-const {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
+const {formatDate, deleteIcon, deleteCommentIcon, truncate, stripTags, editIcon, editProfileIcon} = require('./helpers/helper.js');
 const {eq} = require('./helpers/get_page.js');
+const { sessionMiddleware } = require('./middlewares/session.js');
+const { loggedUser } = require('./middlewares/loggedUser.js');
 const server = express();
 
 // Set dotenv
@@ -45,10 +48,14 @@ server.use(methodOverride((req, res) => {
     }
 }));
 
+// Use sessions.
+server.use(sessionMiddleware);
+server.use(loggedUser);
+
 // Set handlebars
 server.set('views', path.join(__dirname, 'views'))
 server.engine('hbs', handlebars.engine({
-    helpers: {formatDate, deleteIcon, truncate, stripTags, editIcon, editProfileIcon, eq},
+    helpers: {formatDate, deleteIcon, deleteCommentIcon, truncate, stripTags, editIcon, editProfileIcon, eq},
 	extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));
@@ -59,6 +66,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 
 // Routers
 server.use('/user', userRouter);
+server.use('/edit-profile', editProfileRouter);
 server.use('/account', accountRouter);
 server.use('/', indexRouter);
 server.use('/post', postRouter);
@@ -73,6 +81,8 @@ server.use('/about', aboutRouter);
 const startServer = async() => {
     try {
         await connectDB(process.env.MONGO_URI);
+        server.use(express.urlencoded({ extended: true }))
+        server.use(express.json());
         server.listen(PORT, () => {
             console.log(`server running on port ${PORT}`);
         })

@@ -2,18 +2,21 @@
     <div id="back-button" onclick="history.back()">
         <img src="/svg/arrow-left.svg" class="back-button button-svg" />
     </div>
-    <div class="edit-form">
+    <form class="edit-form" action="/create-post/resp" method="POST">
         <h1 id="create-post-header">Create post</h1>
+        
         <label for="tags-edit">Tag</label>
-        <input type="text" name="tags-edit" id="tags-edit" class="edit-form-input"> </input>
+        <input type="text" name="tags" id="tags-edit" class="edit-form-input" required>
 
         <label for="title-edit">Title</label>
-        <input type="text" name="title-edit" id="title-edit" class="edit-form-input"> </input>
-        <label for="title-edit">Description</label>
-        <textarea name="description-edit" id="description-edit" class="edit-form-input"> </textarea>
-    </div>
-    <div class="edit-controls">
-        <div class="submit-button">Submit</div>
-        <div class="cancel-button" onclick="history.back()">Cancel</div>
-    </div>
+        <input type="text" name="title" id="title-edit" class="edit-form-input" required>
+
+        <label for="description-edit">Description</label>
+        <textarea name="description" id="description-edit" class="edit-form-input" required></textarea>
+        
+        <div class="edit-controls">
+            <button class="submit-button" type="submit">Submit</button>
+            <div class="cancel-button" onclick="history.back()">Cancel</div>
+        </div>
+    </form>
 </div>

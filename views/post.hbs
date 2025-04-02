@@ -11,7 +11,7 @@
             <a id="post-creator-link" href="/user/{{ postCreator }}">
                 <p id="post-creator">@{{ postCreator }}</p>
             </a>
-            <p id="post-date">{{ formatDate post.datePosted 'MMMM Do YYYY, h:mm:ss a' }}</p>
+            <p id="post-date">{{ formatDate post.createdAt 'MMMM Do YYYY, h:mm:ss a' }}</p>
 
             <h1 id="post-header">{{ post.title }}</h1>
 
@@ -23,12 +23,16 @@
                     <p class="vote-counter">{{ post.votes }} votes</p>
                 </div>
                 <div class="post-controls">
-                    <div class="post-control-button upvote-button">
-                        <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
-                    </div>
-                    <div class="post-control-button downvote-button">
-                        <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
-                    </div>
+                    <form action="/post/{{ post._id }}/upvote" method="POST" class="post-control-form">
+                        <button class="post-control-button upvote-button">
+                            <img class="post-icon upvote-icon button-svg" src="/svg/arrow-up.svg">
+                        </button>
+                    </form>
+                    <form action="/post/{{ post._id }}/downvote" method="POST" class="post-control-form">
+                        <button class="post-control-button downvote-button">
+                            <img class="post-icon downvote-icon button-svg" src="/svg/arrow-down.svg">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,8 +46,11 @@
                         <p>Send</p>
                     </button>
                 </form>
+            {{else}}
+            <div id="login">
+                <p>Please <a href="/account/login">log in</a> to leave a comment</p>
+            </div>
             {{/unless}}
-
             <div class="comments-container">
                 {{#each comments}}
                     {{>comment}}

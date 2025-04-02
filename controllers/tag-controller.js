@@ -3,7 +3,6 @@ const Post = require('../models/post-model.js');
 
 const renderTagPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
         let posts = await Post.aggregate([
             { $match: {
                 $expr: {
@@ -34,7 +33,7 @@ const renderTagPage = async (req, res) => {
 
         res.render('tag', {
             layout: 'tag_layout',
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             tag: req.params.tag,
             posts: posts,
             postCount: posts.length,

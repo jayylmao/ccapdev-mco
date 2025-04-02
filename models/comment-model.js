@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const commentSchema = new mongoose.Schema({
     commentCreator: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'     // User model
+        ref: 'User'
     },
     parent: {
         type: mongoose.Schema.Types.ObjectId,
@@ -21,6 +21,10 @@ const commentSchema = new mongoose.Schema({
     votes: {
         type: Number,
         default: 0
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 

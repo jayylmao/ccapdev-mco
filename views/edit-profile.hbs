@@ -1,13 +1,16 @@
 <div id="main-page">
     {{>sidebar}}
     <div id="main-content">
+        {{#if error}}
+            <div class="error-message">{{error}}</div>
+        {{/if}}
         <div id="back-button" onclick="history.back()">
             <img class="button-svg" id="back-icon" src="/svg/arrow-left.svg">
         </div>
         <h1 id="title">Edit your profile</h1>
 
         <!-- process the methodOverride before the multer (or else method=post not put), use a query parameter for _method -->
-        <form action="/user/edit-profile/{{user.username}}?_method=PUT" method="post" enctype="multipart/form-data">
+        <form action="/edit-profile/?_method=PUT" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="_method" value="PUT"> <!-- hidden -->
 
@@ -15,13 +18,13 @@
                 <div class="image-section">
                     <label for="profileImage">Profile image</label>
                     <input class="chosenProfileFile" type="file" name="profileImg">
-                    <img class="chosenProfileImage" src="{{user.profileImg}}">
+                    <img class="chosenProfileImage" src="{{loggedUser.profileImg}}">
                 </div>
 
                 <div class="image-section">
                     <label for="backgroundImage">Banner image</label>
                     <input class="chosenBackgroundFile" type="file" name="backgroundImg">
-                    <img class="chosenBackgroundImage" src="{{user.backgroundImg}}">
+                    <img class="chosenBackgroundImage" src="{{loggedUser.backgroundImg}}">
                 </div>
             </div>
 
@@ -30,24 +33,24 @@
                 <div>
                     <div class="input-section">
                         <label>Username</label>
-                        <input class="username" type="text" name="username" value="{{user.username}}">
+                        <input required="true" class="username" type="text" name="username" value="{{loggedUser.username}}">
                     </div>
 
                     <div class="input-section">
                         <label>First Name</label>
-                        <input class="fName" type="text" name="fName" value="{{user.fName}}">
+                        <input required="true" class="fName" type="text" name="fName" value="{{loggedUser.fName}}">
                     </div>
                 </div>
 
                 <div>
                     <div class="input-section">
                         <label>Last Name</label>
-                        <input class="lName" type="text" name="lName" value="{{user.lName}}">
+                        <input required="true" class="lName" type="text" name="lName" value="{{loggedUser.lName}}">
                     </div>
 
                     <div class="input-section input-textarea">
                         <label>Description</label>
-                        <textarea class="description" name="description">{{user.description}}</textarea>
+                        <textarea required="true" class="description" name="description">{{loggedUser.description}}</textarea>
                     </div>
                 </div>
             </div>
@@ -57,6 +60,10 @@
                 <button type="submit" class="submit-button">Submit</button>
                 <div class="cancel-button" onclick="history.back()">Cancel</div>
             </div>
+            
         </form>
+
+        <a href="/account/deleteUser" ><button id="delete">Delete Account</button></a>
+        
     </div>
 </div>

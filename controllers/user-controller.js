@@ -7,17 +7,13 @@ const renderProfilePage = async (req, res) => {
         const user = await User.findOne({username: req.params.username}).lean();
         const posts = await Post.find({postCreator: user._id}).lean();
         const comments = await Comment.find({commentCreator: user._id}).lean();
-        console.log(comments);
-
-        // todo: change to req.user
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
 
         res.render('profile_page.hbs', {
             layout: 'user_profile_layout.hbs',
             user: user,
             posts: posts,
             comments: comments,
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             page: 'profile_viewer'
         })
     } catch (error) {
@@ -27,14 +23,12 @@ const renderProfilePage = async (req, res) => {
 
 const renderEditProfilePage = async (req, res) => {
     try {
-        const user = await User.findOne({username: req.params.username}).lean();
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
-
+        const user = await User.findById(res.locals.user._id).lean();
         res.render('edit-profile.hbs', {
             layout: 'edit-profile-layout.hbs',
-            user: user,
-            loggedUser: loggedUser,
-            page: 'profile_editor'
+            loggedUser: user,
+            page: 'profile_editor',
+            error: null
         })
     } catch (error) {
         console.error(error);
@@ -55,15 +49,25 @@ const editProfileInformation = async (req, res) => {
             }
         }
 
-        const user = await User.findOneAndUpdate({username: req.params.username }, updateData, {
-                new: true,
-                runValidators: true
-            }
-        );
+        const existingUsername = await User.findOne({username: req.body.username});
 
-        // todo: change to req.user
-        res.redirect(`/user/${user.username}`);
-
+        if (existingUsername !== null) {
+            const user = await User.findById(res.locals.user._id).lean();
+            res.render('edit-profile.hbs', {
+                layout: 'edit-profile-layout.hbs',
+                loggedUser: user,
+                page: 'profile_editor',
+                error: 'Username has been taken. Please choose another one.'
+            });
+        } else {
+            const user = await User.findOneAndUpdate({_id: res.locals.user._id }, updateData, {
+                    new: true,
+                    runValidators: true
+                }
+            );
+            // redirect to profile page.
+            res.redirect(`/user/${user.username}`);
+        }
     } catch (error) {
         console.error(error);
         res.status(500).send('Server Error');

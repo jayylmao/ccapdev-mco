@@ -94,6 +94,42 @@ body {
     background-color: var(--accent-dark);
 }
 
+.pagination {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination * {
+    padding: 0 1rem;
+    text-decoration: none;
+}
+
+.pagination-button {
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    color: var(--fg-main);
+    background-color: var(--bg-secondary);
+    padding: 0.5rem;
+    transition: 0.25s backgroundColor;
+}
+
+.pagination-button:hover {
+    background-color: var(--bg-secondary-hover);
+}
+
+.disabled-button {
+    background-color: transparent;
+    color: var(--fg-tertiary);
+}
+
+.disabled-button:hover {
+    background-color: transparent;
+    color: var(--fg-tertiary);
+}
+
 #copyright-section {
     display: flex;
     justify-content: center;

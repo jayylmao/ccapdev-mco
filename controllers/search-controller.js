@@ -3,8 +3,6 @@ const Post = require('../models/post-model.js');
 
 const renderSearchPage = async (req, res) => {
     try {
-        const loggedUser = await User.findOne({username: 'dwarma'}).lean();
-
         let posts = await Post.aggregate([
             { $match: {
                 "title": req.query.q
@@ -33,7 +31,7 @@ const renderSearchPage = async (req, res) => {
 
         res.render('search', {
             layout: 'search_layout',
-            loggedUser: loggedUser,
+            loggedUser: res.locals.user,
             query: req.query.q,
             posts: posts,
             postCount: posts.length,

@@ -12,6 +12,7 @@ Our major course output for our web application development course.
 - multer
 - nodemon
 - node.js
+- bcrypt
 
 ## Building the app
 1. Ensure `node` and `npm` are installed.

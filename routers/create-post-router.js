@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { renderPostCreatorPage } = require('../controllers/create-post-controller.js');
+const { renderPostCreatorPage, createPost } = require('../controllers/create-post-controller.js');
+const {ensureAuth} = require('../middlewares/auth.js');
 
-router.route('/').get(renderPostCreatorPage);
+router.route('/').get(ensureAuth, renderPostCreatorPage);
+router.route('/resp').post(ensureAuth, createPost);
 
 module.exports = router;

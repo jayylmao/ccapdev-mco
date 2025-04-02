@@ -1,4 +1,5 @@
 const user = require('../models/user-model.js');
+const bcrypt = require('bcrypt');
 
 const renderLoginPage = async (req, res) => {
     res.render('login',{
@@ -14,36 +15,87 @@ const renderRegisterPage = async (req, res) => {
     });
 }
 
-const registerData = async (req,res) => {
+const registerData = async (req, res) => {
+    let pass1 = req.body.password1;
+    let pass2 = req.body.password2;
+
+    // encrypt the first pass
+    let hash = await bcrypt.hash(pass1, 10)
+
     const data = {
         username : req.body.username,
         fName : req.body.firstname,
         lName : req.body.lastname,
-        password : req.body.password1,
-        description : 'No description yet',
-        backgroundImg : 'https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg',
-        profileImg : 'https://i.pinimg.com/1200x/98/1d/6b/981d6b2e0ccb5e968a0618c8d47671da.jpg'
+        password : hash
     }
 
-    let pass1 = req.body.password1;
-    let pass2 = req.body.password2;
-    
-    // check if both passwords are same 
-    if (pass1 != pass2) {
+    const check1 = await user.findOne({username:req.body.username});
+    if(check1 != null){ // if username is taken
+        if(check1.isDeleted === true){ // if account is actually deleted
+            var check2 = true; // we can still take the username
+        } else {
+            check2 = false; // if not, need a new username
+        }
+    }
+
+    // check if both passwords are same & username not taken
+    if ((pass1 != pass2)||!check2) {
         res.redirect('/account/error');
     } else {
-        await user.insertMany([data]);
-        res.redirect('/home');
+
+        const userObject = await user.insertOne(data);
+
+        req.session.user = {
+            _id: userObject.insertedId,
+            username: data.username,
+            profileImg: data.profileImg
+        };
+
+        res.locals.user = req.session.user
+        res.redirect('/');
     }
 }
 
-const loginData = async (req,res) => {
-    try{
+const loginData = async (req, res) => {
+    try {
         const check = await user.findOne({username:req.body.username});
 
+        // migrate plaintext passwords to encrypted versions.
+        if (!check.password.startsWith('$2b$')) {
+            check.password = await bcrypt.hash(check.password, 10);
+            console.log(check.password);
+            await check.save();
+        }
+
+        // password checking
+        let inputPass = req.body.password;
+        const isMatch = await bcrypt.compare(inputPass, check.password);
+        console.log(isMatch);
+
         // if password matches that of the user
-        if (check.password === req.body.password) {
-            res.redirect('/home');
+        if (isMatch) {
+            // check if account still exists (not deleted)
+            if(check.isDeleted == true) {
+                return res.redirect('/account/error')
+            }
+
+            req.session.user = {
+                _id: check._id,
+                username: check.username,
+                profileImg: check.profileImg
+            };
+
+            res.locals.user = req.session.user
+
+            req.session.save(error => {
+                if (error) {
+                    console.error('Could not save session', error);
+                    return res.redirect('/account/error');
+                }
+
+                console.log('user on login view: ', res.locals.user);
+                res.redirect('/');
+            });
         } else {
             res.redirect('/account/error');
         }
@@ -52,7 +104,31 @@ const loginData = async (req,res) => {
     catch {
         res.redirect('/account/error');
     }
+}
+
+const logoutData = async (req, res) => {
+    try {
+        req.session.destroy(() => {
+            res.redirect('/');
+        });
+    } catch (error) {
+        console.error('could not log out: ', error);
+        res.redirect('/');
+
+    }
+}
+
+const deleteUser = async(req,res)=>{
+    let account = res.locals.user;
+    account.isDeleted = true;
     
+    const User = await user.findOneAndUpdate({username: account.username}, account, {
+                    new: true,
+                    runValidators: true
+                }
+    );
+    res.redirect('/account/logout');
+    console.log('account deleted successfully:', account.username);
 }
 
 const renderErrorPage = async (req, res) => {
@@ -67,5 +143,7 @@ module.exports = {
     renderRegisterPage,
     registerData,
     loginData,
+    logoutData,
+    deleteUser,
     renderErrorPage
 }

@@ -1,4 +1,3 @@
-const User = require('../models/user-model.js');
 const moment = require('moment');
 
 module.exports = {
@@ -24,22 +23,20 @@ module.exports = {
             .replace(/&nbsp;/g, ' ')        
             .trim();                        
     },
-    deleteIcon: (postUser, loggedUser, postId, type) => {
+    deleteIcon: (postUser, loggedUser, postId) => {
         const postUserProfile = postUser.profileImg;
         const postUsername = postUser.username;
 
-        if(postUser._id.equals(loggedUser._id)){
+        if(loggedUser != null && postUser._id.equals(loggedUser._id)){
             return `<div class="flex-section">
                         <div class="user-info">
                             <div class="post-user-icon" style='background-image: url("${postUserProfile}")'></div>
                             <p>@${postUsername}</p>
                         </div>
                         
-                        <div>
-                            <a href="/${type}/delete/${postId}">
-                                <button class="btnDel">Delete</button>
-                            </a>
-                        </div>
+                        <form action="/post/flag/${postId}" method="POST">
+                            <button type="submit" class="btnDel">Delete</button>
+                        </form>
                     </div>`
         }
 
@@ -47,9 +44,17 @@ module.exports = {
                 <p>@${postUsername}</p>`
 
     },
-    editIcon: (postUserId, loggedUser, postId, type) => {
-        if(postUserId.equals(loggedUser._id)){
+    deleteCommentIcon: (commentUser, loggedUser, commentId) => {
+        if(loggedUser != null && commentUser._id.equals(loggedUser._id)){
             return `
+                    <form action="/comment/flag/${commentId}" method="POST">
+                        <button type="submit" class="btnDel">Delete</button>
+                    </form>`
+        }
+    },
+    editIcon: (postUser, loggedUser, postId, type) => {
+        if(loggedUser != null && postUser._id.equals(loggedUser._id)){
+        return `
                 <a class="post-control-button edit-button" href="/${type}/edit/${postId}">
                     <img class="post-icon edit-icon button-svg" src="/svg/edit.svg"></img>
                     <p>Edit</p>
@@ -57,9 +62,9 @@ module.exports = {
         }
     },
     editProfileIcon: (profileUser, loggedUser) => {
-        if(profileUser._id.equals(loggedUser._id)){
+        if(loggedUser != null && profileUser._id.equals(loggedUser._id)){
             return `
-                <a href="/user/edit-profile/${loggedUser.username}">
+                <a href="/edit-profile">
                     <button class="btnEdit">Edit Profile</button>
                 </a>
             `
