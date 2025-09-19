@@ -1,7 +1,7 @@
 # rabble*
 Our major course output for our web application development course. rabble* enables communities to connect, share, and engage through posts, comments, and discussions — all within a clean and intuitive interface. Designed with scalability, user experience, and collaboration in mind
 
-# Features
+## Features
 **User Accounts** – Register, log in/out, and manage personal profiles with picture & bio.
 **Posts & Communities** – Create, edit, delete posts organized by tags/communities.
 **Comments & Replies** – Nested discussions with edit/delete support.
@@ -9,7 +9,7 @@ Our major course output for our web application development course. rabble* enab
 **Search & Discovery** – Find posts by keyword, tag, or community; view trending & recent posts.
 **Profiles & Activity** – Public user pages with recent posts and comments
 
-# Tech Stack
+## Tech Stack
 **Frontend**: React, Figma (for design prototypes)
 **Backend**: Node.js, Express
 **Database**: MongoDB (with Mongoose ORM)
