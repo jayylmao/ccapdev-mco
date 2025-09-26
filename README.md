@@ -12,7 +12,7 @@ Our major course output for our web application development course. rabble* enab
 
 ## Tech Stack
 
-**Frontend**: React, Figma (for design prototypes)  
+**Frontend**: Figma (for design prototypes)  
 **Backend**: Node.js, Express  
 **Database**: MongoDB (with Mongoose ORM)  
 **API**: RESTful API endpoints for modularity and scalability  
